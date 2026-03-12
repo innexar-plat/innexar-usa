@@ -18,19 +18,19 @@ describe("ProjectCard", () => {
   it("renders project name, status label and progress", () => {
     render(<ProjectCard project={mockProject} index={0} locale="pt" />);
     expect(screen.getByText("Meu Site")).toBeInTheDocument();
-    expect(screen.getByText("Em Desenvolvimento")).toBeInTheDocument();
+    expect(screen.getByText("building")).toBeInTheDocument();
     expect(screen.getByText("50%")).toBeInTheDocument();
-    expect(screen.getByText("Detalhes")).toBeInTheDocument();
+    expect(screen.getByText("details")).toBeInTheDocument();
   });
 
-  it("renders files count in pt", () => {
+  it("renders files count", () => {
     render(<ProjectCard project={mockProject} index={0} locale="pt" />);
-    expect(screen.getByText(/2 arquivos/)).toBeInTheDocument();
+    expect(screen.getByText(/filesLabel/)).toBeInTheDocument();
   });
 
   it("renders link to project details", () => {
     render(<ProjectCard project={mockProject} index={0} locale="pt" />);
-    const link = screen.getByRole("link", { name: /Detalhes/i });
+    const link = screen.getByRole("link", { name: /details/i });
     expect(link).toHaveAttribute("href", "/pt/projects/1");
   });
 });

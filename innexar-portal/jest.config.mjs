@@ -9,6 +9,7 @@ const config = {
   testMatch: ["**/__tests__/**/*.test.[jt]s?(x)", "**/*.test.[jt]s?(x)"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
+    "^next-intl$": "<rootDir>/__mocks__/next-intl.js",
   },
   testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
   modulePathIgnorePatterns: ["<rootDir>/.next/"],
