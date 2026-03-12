@@ -29,7 +29,7 @@ export default function PortalLayout({
   const { navItems, unreadCount, handleLogout, isActive, t } = usePortalNav();
 
   useEffect(() => {
-    setMobileMenuOpen(false);
+    queueMicrotask(() => setMobileMenuOpen(false));
   }, [pathname]);
 
   return (

@@ -28,7 +28,8 @@ export function BillingStats({
   locale: localeProp,
 }: BillingStatsProps) {
   const t = useTranslations("billingPage");
-  const locale = localeProp ?? useLocale();
+  const localeFromHook = useLocale();
+  const locale = localeProp ?? localeFromHook;
   const intlLocale = getIntlLocale(locale);
   const stats: StatItem[] = [
     {

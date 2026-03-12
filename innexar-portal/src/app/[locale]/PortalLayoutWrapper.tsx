@@ -30,26 +30,26 @@ export default function PortalLayoutWrapper({ children }: { children: React.Reac
   const isPublic = isPublicPath(pathname ?? null, locale);
 
   useEffect(() => {
-    if (isPublic) {
+    const run = () => {
+      if (isPublic) {
+        setLoading(false);
+        return;
+      }
+      const token = localStorage.getItem("customer_token");
+      if (!token) {
+        router.push(`/${locale}/login`);
+        return;
+      }
+      const storedEmail = localStorage.getItem("customer_email");
+      if (storedEmail) {
+        setCustomerData({
+          name: storedEmail.split("@")[0],
+          email: storedEmail,
+        });
+      }
       setLoading(false);
-      return;
-    }
-
-    const token = localStorage.getItem("customer_token");
-
-    if (!token) {
-      router.push(`/${locale}/login`);
-      return;
-    }
-
-    const storedEmail = localStorage.getItem("customer_email");
-    if (storedEmail) {
-      setCustomerData({
-        name: storedEmail.split("@")[0],
-        email: storedEmail,
-      });
-    }
-    setLoading(false);
+    };
+    queueMicrotask(run);
   }, [router, locale, isPublic]);
 
   if (loading) {
