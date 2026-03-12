@@ -1,0 +1,137 @@
+# CI — monorepo innexar-usa
+# Runs on every push and PR to main/develop for all apps.
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  portal:
+    name: innexar-portal
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: innexar-portal
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: innexar-portal/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Format check
+        run: npm run format:check
+
+      - name: Typecheck
+        run: npm run typecheck
+        continue-on-error: true
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_USE_WORKSPACE_API: "true"
+          NEXT_PUBLIC_WORKSPACE_API_URL: "https://api.example.com"
+          NEXT_PUBLIC_SITE_URL: "https://example.com"
+
+  website:
+    name: innexar-website
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: innexar-website
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: innexar-website/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run check-types
+        continue-on-error: true
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+
+  workspace-app:
+    name: innexar-workspace-app
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: innexar-workspace-app
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: innexar-workspace-app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+  backend:
+    name: innexar-workspace (backend)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: innexar-workspace/backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-asyncio aiosqlite ruff black
+
+      - name: Lint (ruff)
+        run: ruff check app tests
+
+      - name: Format check (black)
+        run: black --check app tests
+
+      - name: Test
+        run: PYTHONPATH=. pytest tests/ -v --tb=short
