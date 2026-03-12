@@ -39,15 +39,15 @@ async def get_dashboard_summary(
 async def get_dashboard_revenue(
     _: Annotated[User, Depends(RequirePermission("dashboard:read"))],
     service: Annotated[DashboardWorkspaceService, Depends(get_dashboard_service)],
-    period_type: PeriodType = Query(
+    period_type: PeriodType = Query(  # noqa: B008
         "month", description="day, week, or month"
-    ),  # noqa: B008
-    start_date: datetime | None = Query(
+    ),
+    start_date: datetime | None = Query(  # noqa: B008
         None, description="Start of range (UTC)"
-    ),  # noqa: B008
-    end_date: datetime | None = Query(
+    ),
+    end_date: datetime | None = Query(  # noqa: B008
         None, description="End of range (UTC)"
-    ),  # noqa: B008
+    ),
 ) -> DashboardRevenueResponse:
     """Get revenue time series (paid invoices) for charts."""
     return await service.get_revenue(
