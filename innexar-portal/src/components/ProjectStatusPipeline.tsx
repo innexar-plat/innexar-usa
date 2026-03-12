@@ -85,9 +85,7 @@ export default function ProjectStatusPipeline({
                     <CheckCircle2 className="w-5 h-5 text-white" />
                   ) : (
                     <Icon
-                      className={`w-5 h-5 ${
-                        isCurrent ? "text-theme-primary" : "text-theme-muted"
-                      }`}
+                      className={`w-5 h-5 ${isCurrent ? "text-theme-primary" : "text-theme-muted"}`}
                     />
                   )}
                 </motion.div>

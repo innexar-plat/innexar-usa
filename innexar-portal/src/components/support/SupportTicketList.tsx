@@ -66,8 +66,8 @@ export function SupportTicketList({ tickets, locale }: SupportTicketListProps) {
                     <div>
                       <h3 className="text-theme-primary font-medium">{ticket.subject}</h3>
                       <p className="text-theme-secondary text-sm">
-                        {t("messageCount", { count: ticket.message_count })} •{" "}
-                        {t("updated")} {new Date(ticket.updated_at).toLocaleDateString(intlLocale)}
+                        {t("messageCount", { count: ticket.message_count })} • {t("updated")}{" "}
+                        {new Date(ticket.updated_at).toLocaleDateString(intlLocale)}
                       </p>
                     </div>
                   </div>

@@ -21,12 +21,8 @@ export function ProjectsEmptyState({ locale: localeProp }: ProjectsEmptyStatePro
       <div className="w-20 h-20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
         <FolderOpen className="w-10 h-10 text-blue-500" />
       </div>
-      <h2 className="text-2xl font-bold text-theme-primary mb-2">
-        {t("title")}
-      </h2>
-      <p className="text-theme-secondary mb-6">
-        {t("subtitle")}
-      </p>
+      <h2 className="text-2xl font-bold text-theme-primary mb-2">{t("title")}</h2>
+      <p className="text-theme-secondary mb-6">{t("subtitle")}</p>
       <Link
         href={`/${locale}/new-project`}
         className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl text-white font-medium"

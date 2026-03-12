@@ -34,13 +34,21 @@ export function BillingStats({
   const stats: StatItem[] = [
     {
       label: t("statTotalPaid"),
-      value: totalPaid.toLocaleString(intlLocale, { minimumFractionDigits: 2, style: "currency", currency: "BRL" }),
+      value: totalPaid.toLocaleString(intlLocale, {
+        minimumFractionDigits: 2,
+        style: "currency",
+        currency: "BRL",
+      }),
       icon: "CheckCircle2",
       color: "green",
     },
     {
       label: t("statPending"),
-      value: totalPending.toLocaleString(intlLocale, { minimumFractionDigits: 2, style: "currency", currency: "BRL" }),
+      value: totalPending.toLocaleString(intlLocale, {
+        minimumFractionDigits: 2,
+        style: "currency",
+        currency: "BRL",
+      }),
       icon: "Clock",
       color: "yellow",
     },

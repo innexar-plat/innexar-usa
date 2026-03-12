@@ -121,7 +121,8 @@ export default function SiteBriefingPage() {
       t={(key, values) =>
         values !== undefined
           ? t(key as Parameters<typeof t>[0], values)
-          : t(key as Parameters<typeof t>[0])}
+          : t(key as Parameters<typeof t>[0])
+      }
       submitLabel={t("submit")}
       backLabel={t("wizard.back")}
       nextLabel={t("wizard.next")}

@@ -49,6 +49,7 @@ class MercadoPagoProvider:
         customer_name: str | None = None,
         customer_phone: str | None = None,
         description: str | None = None,
+        coupon_code: str | None = None,
     ) -> PaymentLinkResult:
         # #region agent log
         debug_log(

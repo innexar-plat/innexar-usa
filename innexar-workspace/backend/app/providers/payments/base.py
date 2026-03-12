@@ -37,6 +37,7 @@ class PaymentProviderProtocol(Protocol):
         customer_name: str | None = None,
         customer_phone: str | None = None,
         description: str | None = None,
+        coupon_code: str | None = None,
     ) -> PaymentLinkResult:
         """Create checkout/link and return URL + external id."""
         ...

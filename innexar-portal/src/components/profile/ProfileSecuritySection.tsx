@@ -82,7 +82,9 @@ export function ProfileSecuritySection() {
             </div>
           )}
           <div>
-            <label className="block text-sm font-medium text-theme-secondary mb-1">{t("currentPassword")}</label>
+            <label className="block text-sm font-medium text-theme-secondary mb-1">
+              {t("currentPassword")}
+            </label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-theme-muted" />
               <input
@@ -103,7 +105,9 @@ export function ProfileSecuritySection() {
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-theme-secondary mb-1">{t("newPassword")}</label>
+            <label className="block text-sm font-medium text-theme-secondary mb-1">
+              {t("newPassword")}
+            </label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-theme-muted" />
               <input

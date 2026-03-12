@@ -85,9 +85,7 @@ export function BillingInvoiceTable({
       className="bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl overflow-hidden shadow-md transition-all duration-200"
     >
       <div className="p-6 border-b border-[var(--border)] flex flex-wrap items-center justify-between gap-4">
-        <h2 className="text-xl font-bold text-theme-primary">
-          {t("invoiceHistory")}
-        </h2>
+        <h2 className="text-xl font-bold text-theme-primary">{t("invoiceHistory")}</h2>
         <div className="flex rounded-xl bg-[var(--card-bg)] border border-[var(--border)] p-1">
           {filterOptions.map(({ value, label }) => (
             <button
@@ -117,7 +115,9 @@ export function BillingInvoiceTable({
               <th className="text-left px-6 py-4 text-theme-secondary font-medium text-sm">
                 {t("amount")}
               </th>
-              <th className="text-left px-6 py-4 text-theme-secondary font-medium text-sm">{t("status")}</th>
+              <th className="text-left px-6 py-4 text-theme-secondary font-medium text-sm">
+                {t("status")}
+              </th>
               <th className="text-right px-6 py-4 text-theme-secondary font-medium text-sm">
                 {t("actions")}
               </th>

@@ -87,11 +87,7 @@ export function ProjectFilesTab({
             <input type="file" className="hidden" onChange={onFileUpload} disabled={uploading} />
           </label>
         </div>
-        {!uploading && (
-          <p className="text-theme-muted text-sm mt-2">
-            {t("dragHint")}
-          </p>
-        )}
+        {!uploading && <p className="text-theme-muted text-sm mt-2">{t("dragHint")}</p>}
       </div>
       {fileError && (
         <p className="text-red-400 text-sm mb-3">
@@ -106,9 +102,7 @@ export function ProjectFilesTab({
         <div className="text-center py-8">
           <Upload className="w-12 h-12 text-theme-muted mx-auto mb-3" />
           <p className="text-theme-muted text-sm">{t("noFilesYet")}</p>
-          <p className="text-theme-muted text-xs mt-1">
-            {t("noFilesHint")}
-          </p>
+          <p className="text-theme-muted text-xs mt-1">{t("noFilesHint")}</p>
         </div>
       ) : (
         <div className="space-y-2">
@@ -122,7 +116,8 @@ export function ProjectFilesTab({
                 <div className="min-w-0">
                   <p className="text-sm text-theme-primary truncate">{f.filename}</p>
                   <p className="text-xs text-theme-muted">
-                    {formatFileSize(f.size)} • {new Date(f.created_at).toLocaleDateString(intlLocale)}
+                    {formatFileSize(f.size)} •{" "}
+                    {new Date(f.created_at).toLocaleDateString(intlLocale)}
                   </p>
                 </div>
               </div>

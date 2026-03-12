@@ -6,7 +6,13 @@ import {
   fetchProjectMessages as apiFetchMessages,
   fetchModRequestsData as apiFetchModData,
 } from "@/lib/project-details-api";
-import type { ProjectDetails, ProjectFileItem, MessageItem, ModRequestItem, ModQuota } from "@/types/project";
+import type {
+  ProjectDetails,
+  ProjectFileItem,
+  MessageItem,
+  ModRequestItem,
+  ModQuota,
+} from "@/types/project";
 
 export type ProjectDetailFetchersSetters = {
   setProject: (v: ProjectDetails | null) => void;

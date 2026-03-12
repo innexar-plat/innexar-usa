@@ -61,12 +61,8 @@ export default function BillingPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-theme-primary mb-2">
-          {t("pageTitle")}
-        </h1>
-        <p className="text-theme-secondary">
-          {t("pageSubtitle")}
-        </p>
+        <h1 className="text-3xl font-bold text-theme-primary mb-2">{t("pageTitle")}</h1>
+        <p className="text-theme-secondary">{t("pageSubtitle")}</p>
       </div>
       <BillingStats
         totalPaid={totalPaid}

@@ -16,12 +16,8 @@ export function BillingEmptyState() {
       <div className="w-20 h-20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
         <Receipt className="w-10 h-10 text-blue-400" />
       </div>
-      <h2 className="text-2xl font-bold text-theme-primary mb-2">
-        {t("emptyTitle")}
-      </h2>
-      <p className="text-theme-secondary">
-        {t("emptySubtitle")}
-      </p>
+      <h2 className="text-2xl font-bold text-theme-primary mb-2">{t("emptyTitle")}</h2>
+      <p className="text-theme-secondary">{t("emptySubtitle")}</p>
     </motion.div>
   );
 }

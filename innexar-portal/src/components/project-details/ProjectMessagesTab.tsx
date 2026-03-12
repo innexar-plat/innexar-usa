@@ -46,9 +46,7 @@ export function ProjectMessagesTab({
           <MessageSquare className="w-5 h-5 text-blue-500" />
           {t("title")}
         </h2>
-        <p className="text-theme-secondary text-sm mt-1">
-          {t("subtitle")}
-        </p>
+        <p className="text-theme-secondary text-sm mt-1">{t("subtitle")}</p>
       </div>
       <div className="h-96 overflow-y-auto p-4 space-y-3">
         {loading ? (

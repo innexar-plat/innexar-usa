@@ -28,7 +28,9 @@ export function NewProjectStep3({
     <form onSubmit={onSubmit} className="space-y-6">
       <h2 className="text-xl font-bold text-theme-primary">{t("title")}</h2>
       <div>
-        <label className="block text-sm font-medium text-theme-secondary mb-2">{t("budgetLabel")}</label>
+        <label className="block text-sm font-medium text-theme-secondary mb-2">
+          {t("budgetLabel")}
+        </label>
         <select
           value={budget}
           onChange={(e) => setBudget(e.target.value)}
@@ -37,14 +39,24 @@ export function NewProjectStep3({
           <option value="" className="bg-[var(--card-bg)]">
             {t("budgetPlaceholder")}
           </option>
-          <option value="small" className="bg-[var(--card-bg)]">{t("budgetSmall")}</option>
-          <option value="medium" className="bg-[var(--card-bg)]">{t("budgetMedium")}</option>
-          <option value="large" className="bg-[var(--card-bg)]">{t("budgetLarge")}</option>
-          <option value="enterprise" className="bg-[var(--card-bg)]">{t("budgetEnterprise")}</option>
+          <option value="small" className="bg-[var(--card-bg)]">
+            {t("budgetSmall")}
+          </option>
+          <option value="medium" className="bg-[var(--card-bg)]">
+            {t("budgetMedium")}
+          </option>
+          <option value="large" className="bg-[var(--card-bg)]">
+            {t("budgetLarge")}
+          </option>
+          <option value="enterprise" className="bg-[var(--card-bg)]">
+            {t("budgetEnterprise")}
+          </option>
         </select>
       </div>
       <div>
-        <label className="block text-sm font-medium text-theme-secondary mb-2">{t("timelineLabel")}</label>
+        <label className="block text-sm font-medium text-theme-secondary mb-2">
+          {t("timelineLabel")}
+        </label>
         <select
           value={timeline}
           onChange={(e) => setTimeline(e.target.value)}
@@ -53,10 +65,18 @@ export function NewProjectStep3({
           <option value="" className="bg-[var(--card-bg)]">
             {t("timelinePlaceholder")}
           </option>
-          <option value="asap" className="bg-[var(--card-bg)]">{t("timelineAsap")}</option>
-          <option value="2weeks" className="bg-[var(--card-bg)]">{t("timeline2weeks")}</option>
-          <option value="1month" className="bg-[var(--card-bg)]">{t("timeline1month")}</option>
-          <option value="flexible" className="bg-[var(--card-bg)]">{t("timelineFlexible")}</option>
+          <option value="asap" className="bg-[var(--card-bg)]">
+            {t("timelineAsap")}
+          </option>
+          <option value="2weeks" className="bg-[var(--card-bg)]">
+            {t("timeline2weeks")}
+          </option>
+          <option value="1month" className="bg-[var(--card-bg)]">
+            {t("timeline1month")}
+          </option>
+          <option value="flexible" className="bg-[var(--card-bg)]">
+            {t("timelineFlexible")}
+          </option>
         </select>
       </div>
       <div className="flex gap-3">

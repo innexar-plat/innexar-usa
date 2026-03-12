@@ -26,7 +26,9 @@ export function NewProjectStep2({
     <div className="space-y-6">
       <h2 className="text-xl font-bold text-theme-primary">{t("title")}</h2>
       <div>
-        <label className="block text-sm font-medium text-theme-secondary mb-2">{t("projectName")}</label>
+        <label className="block text-sm font-medium text-theme-secondary mb-2">
+          {t("projectName")}
+        </label>
         <input
           type="text"
           value={projectName}
@@ -36,7 +38,9 @@ export function NewProjectStep2({
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-theme-secondary mb-2">{t("description")}</label>
+        <label className="block text-sm font-medium text-theme-secondary mb-2">
+          {t("description")}
+        </label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}

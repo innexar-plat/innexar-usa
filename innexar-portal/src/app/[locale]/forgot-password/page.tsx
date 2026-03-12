@@ -134,7 +134,10 @@ export default function PortalForgotPasswordPage() {
 
           {!sent && (
             <p className="text-center mt-6">
-              <Link href={`/${locale}/login`} className="text-sm text-theme-secondary hover:text-theme-primary">
+              <Link
+                href={`/${locale}/login`}
+                className="text-sm text-theme-secondary hover:text-theme-primary"
+              >
                 {t("backToLogin")}
               </Link>
             </p>

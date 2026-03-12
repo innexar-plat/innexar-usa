@@ -62,13 +62,15 @@ export async function fetchModRequestsData(
       ? data.used_this_month
       : Number(data.used_this_month) || 0;
   const remaining =
-    typeof data.remaining === "number" ? data.remaining : Number(data.remaining) ?? 0;
+    typeof data.remaining === "number" ? data.remaining : (Number(data.remaining) ?? 0);
   const quota: ModQuota | null =
     data.monthly_limit != null
       ? {
           monthly_limit: monthlyLimit,
           used_this_month: usedThisMonth,
-          remaining: Number.isFinite(remaining) ? remaining : Math.max(0, monthlyLimit - usedThisMonth),
+          remaining: Number.isFinite(remaining)
+            ? remaining
+            : Math.max(0, monthlyLimit - usedThisMonth),
         }
       : null;
   const items = Array.isArray(data.items) ? (data.items as ModRequestItem[]) : [];

@@ -132,7 +132,9 @@ export default function NotificationsPage() {
                 <div className="min-w-0 flex-1">
                   <h3 className="text-theme-primary font-medium">{n.title}</h3>
                   {n.body && (
-                    <p className="text-theme-secondary text-sm mt-1 whitespace-pre-wrap">{n.body}</p>
+                    <p className="text-theme-secondary text-sm mt-1 whitespace-pre-wrap">
+                      {n.body}
+                    </p>
                   )}
                   <p className="text-theme-muted text-xs mt-2">
                     {new Date(n.created_at).toLocaleString(locale)}

@@ -57,7 +57,9 @@ export function ProjectModificationsTab({
             <p className="text-sm font-medium text-theme-secondary">{t("requestsThisMonth")}</p>
             <p className="text-2xl font-bold text-theme-primary">
               {modQuota.used_this_month}{" "}
-              <span className="text-theme-muted text-sm font-normal">/ {modQuota.monthly_limit}</span>
+              <span className="text-theme-muted text-sm font-normal">
+                / {modQuota.monthly_limit}
+              </span>
             </p>
           </div>
           <div
@@ -85,7 +87,9 @@ export function ProjectModificationsTab({
           )}
           <form onSubmit={onSubmitMod} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-theme-primary mb-1">{t("title")}</label>
+              <label className="block text-sm font-medium text-theme-primary mb-1">
+                {t("title")}
+              </label>
               <input
                 type="text"
                 value={modTitle}
@@ -96,7 +100,9 @@ export function ProjectModificationsTab({
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-theme-primary mb-1">{t("description")}</label>
+              <label className="block text-sm font-medium text-theme-primary mb-1">
+                {t("description")}
+              </label>
               <textarea
                 value={modDesc}
                 onChange={(e) => onModDescChange(e.target.value)}
@@ -107,7 +113,9 @@ export function ProjectModificationsTab({
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-theme-primary mb-1">{t("attachment")}</label>
+              <label className="block text-sm font-medium text-theme-primary mb-1">
+                {t("attachment")}
+              </label>
               <div className="flex flex-wrap items-center gap-2">
                 <label className="flex items-center gap-2 px-4 py-2 bg-[var(--card-bg)] border border-[var(--border)] rounded-xl text-theme-secondary hover:text-theme-primary cursor-pointer text-sm">
                   <Paperclip className="w-4 h-4" />

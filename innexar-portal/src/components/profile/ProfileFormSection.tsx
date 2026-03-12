@@ -62,7 +62,9 @@ export function ProfileFormSection({
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-theme-secondary mb-2">{t("name")}</label>
+            <label className="block text-sm font-medium text-theme-secondary mb-2">
+              {t("name")}
+            </label>
             <div className="relative">
               <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-theme-muted" />
               <input
@@ -75,7 +77,9 @@ export function ProfileFormSection({
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-theme-secondary mb-2">{t("email")}</label>
+            <label className="block text-sm font-medium text-theme-secondary mb-2">
+              {t("email")}
+            </label>
             <div className="relative">
               <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-theme-muted" />
               <input
@@ -89,7 +93,9 @@ export function ProfileFormSection({
             <p className="text-xs text-theme-muted mt-1">{t("emailCannotChange")}</p>
           </div>
           <div>
-            <label className="block text-sm font-medium text-theme-secondary mb-2">{t("phone")}</label>
+            <label className="block text-sm font-medium text-theme-secondary mb-2">
+              {t("phone")}
+            </label>
             <div className="relative">
               <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-theme-muted" />
               <input
@@ -103,7 +109,9 @@ export function ProfileFormSection({
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-theme-secondary mb-2">{t("address")}</label>
+          <label className="block text-sm font-medium text-theme-secondary mb-2">
+            {t("address")}
+          </label>
           <div className="grid gap-2">
             <div className="relative">
               <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-theme-muted" />

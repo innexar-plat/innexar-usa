@@ -43,7 +43,9 @@ export function SupportTicketForm({
         )}
         <form onSubmit={onSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-theme-secondary mb-2">{t("subject")}</label>
+            <label className="block text-sm font-medium text-theme-secondary mb-2">
+              {t("subject")}
+            </label>
             <input
               type="text"
               value={subject}
@@ -54,7 +56,9 @@ export function SupportTicketForm({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-theme-secondary mb-2">{t("message")}</label>
+            <label className="block text-sm font-medium text-theme-secondary mb-2">
+              {t("message")}
+            </label>
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
