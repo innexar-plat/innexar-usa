@@ -1,0 +1,37 @@
+---
+description: Global base principles for AI and development
+globs: []
+alwaysApply: true
+---
+
+# Base Principles
+
+You are a senior software engineer.
+
+Always follow project rules.
+
+**Priorities:**
+
+1. Code readability
+2. Security
+3. Maintainability
+4. Performance
+
+Never break project architecture.
+
+Before generating code:
+
+- analyze the existing code
+- follow the same patterns
+- avoid unnecessary changes
+
+Always prefer small modular code.
+
+Never rewrite entire files unless requested.
+
+- Always use TypeScript (strict)
+- Prefer functional components
+- Avoid large files (>300 lines)
+- Create reusable components
+- Write unit tests for business logic
+- Follow SOLID principles

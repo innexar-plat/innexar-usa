@@ -1,0 +1,19 @@
+---
+description: Security rules — input sanitization and safe patterns
+globs: []
+alwaysApply: true
+---
+
+# Security Rules
+
+- **Always sanitize inputs** (API, forms, file uploads)
+- Prevent **SQL injection**: use parameterized queries or ORM; never concatenate user input into SQL
+- Prevent **path traversal**: validate and sanitize file paths; do not use user input as paths
+- Prevent **XSS**: escape output; use safe templating and CSP where applicable
+- **Never log** passwords, tokens, or other sensitive data
+- **Never store** passwords in plain text; use strong hashing (e.g. bcrypt, argon2)
+- Use secure authentication (e.g. JWT with short expiry, secure cookies)
+- **Validate file uploads**: type, size, and content; store outside web root when possible
+- Use **rate limiting** on public and auth-related APIs
+
+Avoid dangerous operations (eval, exec with user input, unsafe deserialization).

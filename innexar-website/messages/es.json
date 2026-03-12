@@ -1,0 +1,760 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "success": "Éxito",
+    "back": "Volver",
+    "next": "Siguiente",
+    "submit": "Enviar",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "seo": {
+    "default": {
+      "title": "Innexar | Sitio Web Orlando, Tampa, Miami, Jacksonville — Florida",
+      "description": "Sitios web profesionales y baratos en Florida. Orlando, Tampa, Miami, Jacksonville. Diseño de páginas desde $129/mes — hosting incluido. SEO local.",
+      "keywords": "sitio web Orlando, sitio barato Orlando Tampa Miami, website Jacksonville Florida, creación de sitios Florida, sitio profesional Orlando, SEO local Florida, web design Miami Tampa"
+    },
+    "home": {
+      "title": "Innexar | Sitio Barato Orlando, Tampa, Miami, Jacksonville FL",
+      "description": "Sitio web profesional para tu negocio en Florida. Orlando, Tampa, Miami, Jacksonville. Sitios económicos desde $129/mes — hosting y SEO incluidos.",
+      "keywords": "sitio barato Orlando, sitio web Tampa Miami Jacksonville, sitio profesional Florida, creación de sitio Orlando, website Florida barato, SEO local Orlando Tampa Miami"
+    },
+    "about": {
+      "title": "Nuestra Historia | Innexar - Excelencia en Ingeniería de Software",
+      "description": "Conozca a Innexar, una empresa especializada en soluciones tecnológicas innovadoras. Nuestra misión es transformar ideas en realidad digital.",
+      "keywords": "sobre Innexar, empresa de tecnología, misión, valores, historia"
+    },
+    "services": {
+      "title": "Servicios Premium | Desarrollo a Medida, Nube e IA",
+      "description": "Soluciones tecnológicas completas para empresas visionarias. Desde el desarrollo de apps hasta la integración de IA de vanguardia.",
+      "keywords": "desarrollo personalizado, arquitectura en la nube, IA, machine learning, outsourcing de software"
+    },
+    "portfolio": {
+      "title": "Casos de Éxito | Explore Nuestras Soluciones Digitales Premium",
+      "description": "Conozca nuestros proyectos y soluciones desarrollados para clientes de diversos sectores. Casos de éxito en desarrollo de software.",
+      "keywords": "portafolio, proyectos, casos de éxito, desarrollo de software, soluciones tecnológicas"
+    },
+    "contact": {
+      "title": "Contáctenos | Inicie su Proyecto Premium con Innexar",
+      "description": "Listo para transformar su negocio? Nuestro equipo está a su disposición para crear su próxima solución digital de éxito.",
+      "keywords": "contacto tecnología, orçamento software, suporte innexar"
+    },
+    "saas": {
+      "title": "SaaS - Plataformas de Software como Servicio",
+      "description": "Conozca nuestras plataformas SaaS: Innexar ERP y StructurOne. Soluciones empresariales completas y escalables.",
+      "keywords": "SaaS, software como servicio, ERP, gestión empresarial, plataformas SaaS"
+    },
+    "blockchain": {
+      "title": "Blockchain - Soluciones Descentralizadas y Smart Contracts",
+      "description": "Soluciones avanzadas de blockchain, contratos inteligentes personalizados y arquitecturas descentralizadas para su negocio.",
+      "keywords": "blockchain, smart contracts, web3, dapps, soluciones descentralizadas"
+    },
+    "checklist": {
+      "title": "Checklist de Sitio Web - Planifique su Proyecto Digital",
+      "description": "Utilice nuestra checklist para planificar su próximo sitio web o producto digital. Una guía completa para comenzar su proyecto con Innexar.",
+      "keywords": "checklist sitio web, planificación de proyecto, guía de desarrollo web, producto digital"
+    },
+    "launch": {
+      "title": "Sitio Barato Orlando, Tampa, Miami, Jacksonville FL — Desde $129/mes",
+      "description": "Sitio web profesional para tu negocio en Florida. Orlando, Tampa, Miami, Jacksonville. Desde $129/mes — hosting, SEO y mantenimiento incluidos.",
+      "keywords": "sitio barato Orlando, sitio web Tampa Miami Jacksonville, sitio profesional Florida, website Orlando barato, WaaS Florida, sitio mensual 129"
+    },
+    "privacy-policy": {
+      "title": "Política de Privacidade - Innexar",
+      "description": "Lea nuestra política de privacidad para entender cómo recopilamos, usamos y protegemos sus datos personales.",
+      "keywords": "política de privacidad, protección de datos, GDPR, privacidad"
+    },
+    "terms-of-service": {
+      "title": "Términos de Servicio - Innexar",
+      "description": "Lea nuestros términos de servicio para entender las reglas y regulaciones para el uso de los servicios de Innexar.",
+      "keywords": "términos de servicio, legal, acuerdo"
+    }
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "contact": "Contacto",
+    "startProject": "Iniciar Proyecto",
+    "termsOfService": "Términos de Servicio",
+    "privacyPolicy": "Política de Privacidad"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Sobre",
+    "portfolio": "Portafolio",
+    "blockchain": "Blockchain",
+    "contact": "Contacto",
+    "getStarted": "Comenzar",
+    "launch": "Sitios $399",
+    "newWebsiteSystem": "Sitio desde $129/mes",
+    "termsOfService": "Términos de Servicio",
+    "privacyPolicy": "Política de Privacidad",
+    "portal": "Portal del Cliente"
+  },
+  "home": {
+    "newSystem": {
+      "badge": "Nuevo",
+      "title": "Tu sitio para el negocio. Hecho, hospedado y administrado.",
+      "subtitle": "En línea en días. Sin costo inicial. Desde $129/mes.",
+      "bullet1": "En línea en días",
+      "bullet2": "Sin costo inicial",
+      "bullet3": "Hosting incluido",
+      "bullet4": "Mantenimiento continuo",
+      "cta": "Quiero mi sitio",
+      "ctaSecondary": "Ver planes"
+    }
+  },
+  "hero": {
+    "badge": "Agencia de Desarrollo Web Premium",
+    "title": "Transformamos su Visión en una",
+    "titleAccent": "Realidad Digital de Alto Impacto",
+    "subtitle": "Creamos sitios web y sistemas personalizados que impulsan el crecimiento de su negocio con diseño sofisticado y tecnología de punta.",
+    "ctaPrimary": "Comenzar ahora",
+    "ctaSecondary": "Ver Portafolio",
+    "stats": {
+      "projects": "Proyectos",
+      "clients": "Clientes",
+      "experience": "Años"
+    }
+  },
+  "about": {
+    "title": "Sobre Innexar",
+    "subtitle": "Excelencia en Tecnología y Diseño",
+    "description": "Somos una boutique de tecnología enfocada en entregar soluciones digitales que no solo funcionan, sino que impresionan. Nuestro compromiso es con la calidad técnica y el retorno de inversión de nuestros clientes.",
+    "features": {
+      "custom": "Desarrollo a Medida",
+      "design": "Diseño UX/UI Premium",
+      "support": "Soporte Continuo",
+      "speed": "Alta Performance"
+    }
+  },
+  "process": {
+    "title": "Nuestro Proceso",
+    "subtitle": "Cómo Transformamos su Idea en Producto",
+    "steps": {
+      "discovery": "Descubrimiento",
+      "discoveryDesc": "Entendemos sus necesidades y definimos la estrategia ideal.",
+      "design": "Diseño Estratégico",
+      "designDesc": "Creamos prototipos visuales enfocados en la experiencia del usuario.",
+      "development": "Desarrollo Ágil",
+      "developmentDesc": "Codificamos su solución con las mejores prácticas y tecnologías.",
+      "launch": "Lanzamiento y Mejora",
+      "launchDesc": "Entregamos su proyecto y acompañamos su evolución."
+    }
+  },
+  "successStories": {
+    "title": "Historias de Éxito",
+    "subtitle": "Resultados Reales para Nuestros Clientes"
+  },
+  "testimonials": {
+    "title": "Lo que Dicen Nuestros Clientes",
+    "subtitle": "Confianza Construida con Calidad"
+  },
+  "engagement": {
+    "title": "¿Listo para el Siguiente Nivel?",
+    "subtitle": "Hablemos sobre su proyecto y cómo podemos ayudarlo a crecer.",
+    "cta": "Solicitar Consultoría Gratuita"
+  },
+  "leadMagnet": {
+    "title": "Estrategias Digitales que Funcionan",
+    "subtitle": "Descarga nuestra guía exclusiva para optimizar tu presencia online.",
+    "cta": "Descargar Guía"
+  },
+  "checklist": {
+    "title": "Checklist de Lanzamiento",
+    "subtitle": "Todo lo que necesitas para un sitio web exitoso"
+  },
+  "blockchain": {
+    "title": "Soluciones Web3",
+    "subtitle": "Innovación con Tecnología Blockchain"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Estamos aquí para ayudar",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "message": "Mensaje",
+      "send": "Enviar Mensaje"
+    }
+  },
+  "email": {
+    "title": "Reciba Nuestras Novedades",
+    "placeholder": "Su mejor correo electrónico",
+    "button": "Suscribirse"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "legal": "Legal",
+    "termsOfService": "Términos de Servicio",
+    "privacyPolicy": "Política de Privacidad"
+  },
+  "launch": {
+    "hero": {
+      "badge": "Website as a Service",
+      "title": "Sitio Web Profesional para Tu Negocio",
+      "titleHighlight": "Sin Pagar Miles por Adelantado",
+      "subtitle": "Desde $129/mes. Hosting y mantenimiento incluidos. En línea en días, no semanas.",
+      "fromPrice": "Desde $129/mes",
+      "cta": "Comenzar Mi Sitio",
+      "ctaSecondary": "Ver Ejemplos",
+      "guarantee": "Garantía de Satisfacción de 30 Días"
+    },
+    "benefits": {
+      "title": "Por qué WaaS",
+      "noUpfront": "Sin gran costo inicial",
+      "noUpfrontDesc": "Paga mensualmente. Sin tarifa única.",
+      "hostingIncluded": "Hosting y mantenimiento incluidos",
+      "hostingIncludedDesc": "Mantenemos tu sitio rápido y seguro.",
+      "mobileOptimized": "Optimizado para móvil",
+      "mobileOptimizedDesc": "Se ve bien en cualquier dispositivo.",
+      "builtForLeads": "Hecho para generar leads",
+      "builtForLeadsDesc": "Diseñado para convertir visitantes en clientes."
+    },
+    "plans": {
+      "title": "Elige Tu Plan",
+      "perMonth": "/mes",
+      "starter": "Starter",
+      "business": "Business",
+      "pro": "Pro",
+      "selectPlan": "Comenzar Mi Sitio",
+      "mostPopular": "Más Popular",
+      "contractTerm": "Mínimo 12 meses • Facturado mensualmente",
+      "featurePages": "Hasta 5 páginas",
+      "featureRevisions": "Revisiones mensuales",
+      "featureSupport": "Soporte por email",
+      "featureAdvanced": "SEO avanzado",
+      "featurePriority": "Soporte prioritario",
+      "featureExtra": "Páginas extra y más"
+    },
+    "included": {
+      "title": "Todo incluido en tu plan",
+      "subtitle": "Sin costes ocultos. Todos los planes incluyen:",
+      "hosting": "Hosting incluido",
+      "ssl": "Certificado SSL gratuito (HTTPS)",
+      "seo": "Optimización SEO",
+      "maintenance": "Mantenimiento y actualizaciones",
+      "support": "Soporte por email",
+      "mobile": "Diseño responsive (móvil)",
+      "security": "Actualizaciones de seguridad",
+      "backups": "Copias de seguridad regulares",
+      "speed": "Carga rápida y CDN",
+      "content": "Actualizaciones de contenido incluidas"
+    },
+    "checkoutPage": {
+      "title": "Completa tus datos",
+      "yourPlan": "Tu plan",
+      "planBenefits": "Beneficios del plan",
+      "continueToPayment": "Continuar al pago",
+      "backToPlans": "Volver a los planes",
+      "stepInfo": "Tu Información",
+      "stepPayment": "Pago",
+      "companyName": "Nombre de la empresa (opcional)",
+      "companyPlaceholder": "Nombre de tu negocio",
+      "contractAgreement": "Acepto el acuerdo de servicio mínimo de 12 meses y los",
+      "termsLink": "Términos de Servicio",
+      "contractRequired": "Debes aceptar el acuerdo de servicio para continuar.",
+      "securitySSL": "SSL Protegido",
+      "securityStripe": "Pagos vía Stripe",
+      "contractTerms": "Compromiso mínimo de 12 meses. Facturación mensual. Penalización por cancelación anticipada: 50% de los meses restantes. Garantía de 30 días.",
+      "couponCode": "Código de cupón (opcional)",
+      "couponPlaceholder": "ej. DESCONTO10"
+    },
+    "checkout": {
+      "title": "Completa tus datos",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "name": "Nombre (opcional)",
+      "namePlaceholder": "Tu nombre",
+      "phone": "Teléfono (opcional)",
+      "phonePlaceholder": "+34 612 345 678",
+      "couponCode": "Código de cupón (opcional)",
+      "couponPlaceholder": "ej. DESCONTO10",
+      "submit": "Ir a pagar",
+      "loading": "Redirigiendo al pago...",
+      "error": "Algo salió mal. Inténtalo de nuevo."
+    },
+    "guaranteeSection": {
+      "title": "Garantía de Satisfacción de 30 Días",
+      "description": "Prueba sin riesgo. ¿No te gustó? Cancela en 30 días y te devolvemos tu dinero."
+    },
+    "ctaFinal": {
+      "title": "Obtén Tu Sitio Web Profesional Hoy",
+      "subtitle": "Desde $129/mes",
+      "cta": "Comenzar Mi Sitio"
+    },
+    "explanation": {
+      "title": "Por qué tu negocio necesita un sitio profesional",
+      "subtitle": "La primera impresión ocurre en línea",
+      "problemLabel": "El problema",
+      "solutionLabel": "Nuestra solución",
+      "problem": "Muchos pequeños negocios pierden clientes por no tener un sitio profesional. Cuando buscan en Google, eligen negocios que inspiran confianza. Sin un sitio moderno, pierdes oportunidades.",
+      "solution": "Lo hacemos simple: en lugar de pagar miles por adelantado, tienes todo en una suscripción mensual. Nosotros diseñamos, hospedamos y mantenemos tu sitio para que te enfoques en tu negocio."
+    },
+    "trustSeal": {
+      "title": "Seguro y confiable",
+      "ssl": "Conexión SSL — tus datos protegidos",
+      "securePayment": "Pago seguro vía Stripe"
+    },
+    "testimonials": {
+      "title": "Lo que dicen nuestros clientes",
+      "subtitle": "Lo que empresarios como tú dicen sobre nuestro trabajo.",
+      "review1": "La mejor inversión para mi negocio. ¡Tripliqué las llamadas!",
+      "review1Author": "Mike Johnson",
+      "review1Business": "Johnson Plumbing",
+      "review2": "Profesional, rápido y asequible. ¡Lo recomiendo!",
+      "review2Author": "Sarah Martinez",
+      "review2Business": "Clean & Shine Services",
+      "review3": "Mi restaurante se ve increíble en línea. Cada centavo valió la pena.",
+      "review3Author": "Carlos Rivera",
+      "review3Business": "Rivera's Kitchen"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "q1": "¿Qué incluye el plan base?",
+      "a1": "Sitio responsive de 5 páginas, optimización móvil, formularios de contacto, SEO básico y soporte post-lanzamiento.",
+      "q2": "¿Cuánto tarda la entrega?",
+      "a2": "La mayoría de los sitios se entregan en 5 días hábiles después de completar el briefing.",
+      "q3": "¿Qué pasa con mi dominio?",
+      "a3": "Tú compras y posees tu dominio. Te ayudamos a conectarlo a tu nuevo sitio sin costo adicional.",
+      "q4": "¿Hay soporte continuo?",
+      "a4": "Incluimos soporte por email. Los planes superiores incluyen soporte prioritario.",
+      "q5": "¿Cómo funciona el proceso?",
+      "a5": "Eliges tu plan, completas un briefing simple. Nuestro equipo crea tu sitio, lo revisas y lo publicamos."
+    },
+    "onboarding": {
+      "steps": {
+        "step1": "Información del Negocio",
+        "step1Desc": "Lo básico para comenzar",
+        "step2": "Localización y Nicho",
+        "step2Desc": "Dónde y para quién trabajas",
+        "step3": "Servicios Ofrecidos",
+        "step3Desc": "Lo que haces mejor",
+        "step4": "Objetivos y Páginas",
+        "step4Desc": "Estructura de tu nuevo sitio",
+        "step5": "Diseño e Identidad",
+        "step5Desc": "Colores y estilo visual",
+        "step6": "Horarios y Social",
+        "step6Desc": "Cómo encontrarte",
+        "step7": "Contenido Extra",
+        "step7Desc": "Testimonios e historia",
+        "step8": "Contrato",
+        "step8Desc": "Firma del contrato de servicio"
+      },
+      "form": {
+        "businessName": "Nombre de la Empresa",
+        "businessNamePlaceholder": "Ej: Mi Negocio Increíble",
+        "email": "Correo Electrónico del Negocio",
+        "emailPlaceholder": "empresa@ejemplo.com",
+        "phone": "Teléfono de Contacto",
+        "phonePlaceholder": "(000) 000-0000",
+        "hasWhatsApp": "Este número tiene WhatsApp",
+        "address": "Dirección Comercial (Opcional)",
+        "addressPlaceholder": "Calle, Ciudad, Estado",
+        "desiredDomain": "Dominio deseado (opcional)",
+        "desiredDomainHelp": "ej: misitio.com — Te guiaremos para apuntarlo después.",
+        "domainQuestion": "¿Ya tienes un dominio?",
+        "hasDomain": "Sí, ya tengo uno",
+        "noDomain": "No, quiero comprar uno",
+        "existingDomain": "Dominio existente",
+        "existingDomainPlaceholder": "misitio.com",
+        "existingDomainHelp": "Enviaremos instrucciones por correo electrónico para apuntar tu dominio a nuestro servidor cuando el sitio esté listo.",
+        "domainToPurchase": "Dominio para comprar",
+        "domainToPurchasePlaceholder": "misitio.com",
+        "checkDomain": "Verificar",
+        "checkingDomain": "Verificando...",
+        "purchaseDomain": "Comprar Dominio",
+        "purchasingDomain": "Comprando...",
+        "domainAvailable": "Dominio disponible",
+        "domainAvailableFree": "¡Dominio disponible y GRATIS!",
+        "domainAvailablePrice": "Dominio disponible por {price}/año",
+        "domainNotAvailable": "Dominio no disponible. Prueba con otro nombre.",
+        "domainPurchased": "¡Dominio {domain} comprado con éxito!",
+        "domainCheckError": "Error al verificar dominio",
+        "domainPurchaseError": "Error al comprar dominio",
+        "password": "Crea tu contraseña",
+        "passwordHelp": "Define una contraseña para acceder a tu panel de cliente y seguir el desarrollo.",
+        "passwordPlaceholder": "Mínimo 8 caracteres",
+        "confirmPassword": "Confirma tu contraseña",
+        "niche": "Industria / Nicho",
+        "customNiche": "¿Cuál es tu industria?",
+        "primaryCity": "Ciudad Principal",
+        "state": "Estado",
+        "serviceAreas": "Áreas de Servicio Adicionales",
+        "services": "Tus Servicios",
+        "primaryService": "Servicio Principal",
+        "siteObjective": "Objetivo del Sitio",
+        "siteDescription": "Cuéntanos sobre tu negocio",
+        "selectedPages": "Páginas del Sitio",
+        "tone": "Tono de Voz",
+        "primaryCta": "Llamada a la Acción (CTA)",
+        "ctaText": "Texto del Botón (Opcional)",
+        "colorPalette": "Paleta de Colores",
+        "primaryColor": "Color Primario",
+        "secondaryColor": "Color Secundario",
+        "accentColor": "Color de Acento",
+        "referenceSites": "Sitios de Referencia",
+        "designNotes": "Notas sobre el Diseño",
+        "businessHours": "Horario de Atención",
+        "socialFacebook": "Facebook URL",
+        "socialInstagram": "Instagram URL",
+        "socialLinkedin": "LinkedIn URL",
+        "socialYoutube": "YouTube URL",
+        "testimonials": "Testimonios de Clientes",
+        "googleReviewsLink": "Link de Google Reviews",
+        "aboutOwner": "Sobre el Dueño / Historia",
+        "yearsInBusiness": "Años en el Mercado",
+        "objectives": {
+          "leads": "Generar Leads",
+          "leadsDesc": "Foco en llamadas y formularios",
+          "info": "Institucional",
+          "infoDesc": "Informar sobre servicios",
+          "credibility": "Credibilidad",
+          "credibilityDesc": "Mostrar portafolio y testimonios",
+          "bookings": "Reservas Online",
+          "bookingsDesc": "Agendamiento directo"
+        },
+        "niches": {
+          "restaurant": "Restaurante",
+          "lawyer": "Abogado",
+          "dentist": "Dentista",
+          "realEstate": "Inmobiliaria",
+          "plumber": "Plomero",
+          "electrician": "Electricista",
+          "landscaping": "Paisajismo",
+          "cleaning": "Limpieza",
+          "general": "Servicios Generales",
+          "other": "Otro"
+        },
+        "pages": {
+          "home": "Inicio",
+          "about": "Sobre Nosotros",
+          "services": "Servicios",
+          "contact": "Contacto",
+          "gallery": "Galería",
+          "testimonials": "Testimonios",
+          "faq": "Preguntas Frecuentes",
+          "pricing": "Precios",
+          "team": "Equipo",
+          "blog": "Blog"
+        },
+        "tones": {
+          "professional": "Profesional",
+          "professionalDesc": "Sobrio y confiable",
+          "friendly": "Amigable",
+          "friendlyDesc": "Cercano y acogedor",
+          "premium": "Premium / Sofisticado",
+          "premiumDesc": "Exclusivo y elegante"
+        },
+        "cta": {
+          "call": "Llamar ahora",
+          "whatsapp": "WhatsApp",
+          "form": "Llenar formulario",
+          "bookOnline": "Reservar online"
+        },
+        "emailCheck": {
+          "checking": "Verificando correo...",
+          "available": "Correo disponible",
+          "exists": "Este correo ya está registrado"
+        },
+        "loginModal": {
+          "title": "Correo Ya Registrado",
+          "message": "Este correo ya está asociado a una cuenta. Por favor, inicie sesión para continuar.",
+          "loginButton": "Iniciar Sesión",
+          "cancelButton": "Usar Otro Correo"
+        },
+        "errors": {
+          "minPassword": "Mín. 8 caracteres",
+          "mismatch": "Las contraseñas no coinciden",
+          "generic": "Algo salió mal. Por favor, intente de nuevo.",
+          "submit": "Error al enviar. Por favor, intente de nuevo."
+        },
+        "contract": {
+          "signatureLabel": "Nombre Completo para Firma Digital *",
+          "signaturePlaceholder": "Ingrese su nombre legal",
+          "signButton": "Firmar Contrato",
+          "signingDisclaimer": "Al firmar, acepta los términos de servicio y el alcance del proyecto.",
+          "signedTitle": "¡Contrato Firmado!",
+          "signedAs": "Firmado como: {name} el {date}",
+          "proceedMessage": "Ahora puede proceder a finalizar su proyecto.",
+          "orderIdError": "ID de pedido no encontrado. Intente regresar al paso anterior o actualizar la página.",
+          "nameRequired": "Por favor ingrese su nombre completo para firmar"
+        },
+        "backHome": "Volver al Inicio"
+      },
+      "complete": {
+        "title": "¡Todo Listo!",
+        "subtitle": "Tu onboarding está completo",
+        "message": "Nuestro equipo comenzará a trabajar en tu sitio web de inmediato. Recibirás actualizaciones por correo electrónico.",
+        "loadingMessage": "IA iniciando construcción de tu sitio...",
+        "loadingDescription": "Recibirás actualizaciones por correo electrónico y puedes seguir el progreso en el panel.",
+        "dashboardButton": "Ver Panel del Proyecto",
+        "timeline": "Tiempo Estimado: 5 días hábiles",
+        "nextSteps": "¿Qué sucede ahora?",
+        "step1": "Nuestro equipo de diseño revisa tus requisitos",
+        "step2": "Creamos un mockup personalizado para tu aprobación",
+        "step3": "El desarrollo comienza después de tu aprobación",
+        "step4": "Revisión final y entrega del sitio"
+      },
+      "completeOld": {
+        "title": "¡Casi listo!",
+        "subtitle": "Tus datos han sido recibidos con éxito.",
+        "message": "Nuestra inteligencia artificial y equipo de diseño comenzarán a trabajar en tu proyecto ahora mismo.",
+        "dashboardButton": "Ir al Panel de Cliente",
+        "nextSteps": "¿Qué sucede ahora?",
+        "step1": "Correo de confirmación con detalles",
+        "step2": "Nuestro equipo revisa tus requisitos",
+        "step3": "Primera versión lista en 3-5 días",
+        "step4": "2 rondas de revisiones incluidas"
+      }
+    }
+  },
+  "promo": {
+    "hero": {
+      "headline": "Sitio web profesional listo en 48 horas — $199",
+      "subheadline": "Sitio de 3 páginas creado para tu negocio. Sin cuotas mensuales.",
+      "cta": "Quiero mi sitio ahora",
+      "trust": "Checkout seguro • Sin cargos ocultos",
+      "couponCode": "Código de cupón (opcional)",
+      "couponPlaceholder": "ej. DESCONTO10"
+    },
+    "included": {
+      "title": "Qué está incluido",
+      "item1": "3 páginas (Inicio, Nosotros, Contacto)",
+      "item2": "Diseño responsive para móvil",
+      "item3": "Hosting incluido (3 meses)",
+      "item4": "Dominio incluido (hasta $15)",
+      "item5": "2 revisiones incluidas",
+      "item6": "Entregado en 48 horas*",
+      "note": "* La entrega comienza después del envío del formulario."
+    },
+    "howItWorks": {
+      "title": "Cómo funciona",
+      "step1": "Paga online con seguridad",
+      "step2": "Completa un formulario rápido",
+      "step3": "Recibe tu sitio en 48 horas",
+      "subtitle": "Sin llamadas. Sin reuniones. Sin complicaciones."
+    },
+    "guarantee": {
+      "title": "¿No te gustó la primera versión?",
+      "subtitle": "La revisamos — o te devolvemos el dinero."
+    },
+    "finalCta": {
+      "button": "Quiero mi sitio ahora — $199",
+      "subtitle": "Oferta limitada de lanzamiento"
+    }
+  },
+  "dashboard": {
+    "header": {
+      "logout": "Cerrar sesión"
+    },
+    "welcome": {
+      "greeting": "Hola",
+      "subtitle": "Siga el progreso de su proyecto a continuación."
+    },
+    "status": {
+      "label": "Estado Actual",
+      "paid": "Pago Confirmado",
+      "onboarding": "Esperando Onboarding",
+      "building": "En Desarrollo",
+      "review": "Listo para Revisión",
+      "delivered": "Entregado",
+      "delivery": "Entrega prevista"
+    },
+    "business": {
+      "title": "Su Negocio",
+      "name": "Nombre",
+      "location": "Ubicación",
+      "pending": "Complete el onboarding para ver la información"
+    },
+    "order": {
+      "title": "Detalles del Pedido",
+      "number": "Pedido #",
+      "total": "Valor Total",
+      "revisions": "Revisiones Utilizadas"
+    },
+    "success": {
+      "title": "¡Su Sitio Está en Línea! 🎉",
+      "message": "¡Felicidades! Su sitio web ha sido publicado y está listo para el mundo. Puede acceder a él a través del botón de abajo.",
+      "button": "Visitar Mi Sitio"
+    },
+    "actions": {
+      "title": "Acciones Rápidas",
+      "viewPreview": "Ver Vista Previa",
+      "requestChanges": "Solicitar Cambios",
+      "approveDesign": "Aprovar Diseño",
+      "contactSupport": "Contactar Soporte"
+    },
+    "support": {
+      "title": "¿Necesita Ayuda?",
+      "message": "Nuestro equipo está aquí para ayudarle.",
+      "email": "Enviarnos un Correo",
+      "whatsapp": "WhatsApp"
+    },
+    "error": {
+      "title": "Error al cargar",
+      "fetch": "Fallo al cargar el proyecto",
+      "generic": "Error al cargar",
+      "notFound": "Proyecto no encontrado",
+      "retry": "Regresar al inicio de sesión"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Bienvenido de nuevo",
+      "subtitle": "Acceda a su portal de cliente para seguir el desarrollo de su sitio.",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "Ingrese su correo electrónico",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "Ingrese su contraseña",
+      "forgotPassword": "¿Olvidó su contraseña?",
+      "submit": "Iniciar sesión",
+      "noAccount": "¿No tienes una cuenta?",
+      "getStarted": "Comenzar ahora",
+      "error": {
+        "invalid": "Correo electrónico o contraseña inválidos",
+        "generic": "Algo salió mal. Por favor, intente de nuevo."
+      }
+    },
+    "forgotPassword": {
+      "title": "Restablecer contraseña",
+      "subtitle": "Ingrese su correo electrónico y le enviaremos un enlace para restablecer su contraseña.",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "Ingrese su correo electrónico",
+      "submit": "Enviar enlace de restablecimiento",
+      "backToLogin": "Volver al inicio de sesión",
+      "success": "Revise su correo electrónico para ver el enlace de restablecimiento.",
+      "error": "No se pudo encontrar una cuenta con ese correo electrónico."
+    },
+    "resetPassword": {
+      "title": "Nueva contraseña",
+      "subtitle": "Cree una nueva contraseña para su cuenta.",
+      "passwordLabel": "Nueva contraseña",
+      "passwordPlaceholder": "Al menos 8 caracteres",
+      "confirmPasswordLabel": "Confirmar nueva contraseña",
+      "confirmPasswordPlaceholder": "Repita su nueva contraseña",
+      "submit": "Actualizar contraseña",
+      "success": "¡Contraseña actualizada con éxito!",
+      "error": "Error al restablecer la contraseña. El enlace puede haber expirado.",
+      "mismatch": "Las contraseñas no coinciden"
+    },
+    "verifyEmail": {
+      "title": "Revise su bandeja de entrada",
+      "subtitle": "Hemos enviado un enlace de verificación a su dirección de correo electrónico.",
+      "resend": "¿No recibió el correo electrónico?",
+      "resendButton": "Reenviar correo electrónico de verificación",
+      "success": "¡Correo electrónico de verificación enviado!",
+      "verified": {
+        "title": "¡Correo electrónico verificado!",
+        "subtitle": "Su cuenta ahora está activa. Puede acceder a su portal.",
+        "cta": "Ir al portal"
+      }
+    }
+  },
+  "cookies": {
+    "title": "🍪 Usamos Cookies",
+    "description": "Utilizamos cookies para mejorar su experiencia, analizar tráfico y personalizar contenido. Puede gestionar sus preferencias abajo.",
+    "essential": "Cookies Esenciales",
+    "essentialDesc": "Necesarias para funcionamiento básico del sitio",
+    "analytics": "Cookies de Analytics",
+    "analyticsDesc": "Google Analytics para entender cómo usa el sitio",
+    "marketing": "Cookies de Marketing",
+    "marketingDesc": "Meta Pixel y Google Ads para publicidad personalizada",
+    "required": "Obligatorio",
+    "settings": "Configuración",
+    "rejectAll": "Rechazar Todos",
+    "acceptAll": "Aceptar Todos",
+    "savePreferences": "Guardar Preferencias"
+  },
+  "legal": {
+    "terms": {
+      "title": "Términos de Servicio",
+      "lastUpdated": "Última actualización: 30 de enero de 2026",
+      "sections": {
+        "acceptance": {
+          "title": "Aceptación de los Términos",
+          "content": "Al acceder y utilizar los servicios de Innexar, usted acepta cumplir con estos Términos de Servicio y todas las leyes y regulaciones aplicables."
+        },
+        "services": {
+          "title": "Servicios Prestados",
+          "content": "Innexar ofrece servicios de desarrollo web, SaaS y consultoría digital. Cada proyecto está sujeto a su contrato específico y a los requisitos de registro."
+        },
+        "hosting": {
+          "title": "Alojamiento y Soporte",
+          "content": "Los servicios de alojamiento se proporcionan según lo especificado en el plan de servicio. Las tarifas de alojamiento y mantenimiento son recurrentes después del período de prueba inicial, como se detalla en el contrato del proyecto."
+        },
+        "intellectualProperty": {
+          "title": "Propiedad Intelectual",
+          "content": "El contenido del sitio web y el software desarrollado para el cliente están sujetos a los términos de propiedad definidos en el contrato de servicio específico firmado durante el registro."
+        },
+        "limitations": {
+          "title": "Limitaciones de Responsabilidad",
+          "content": "Innexar no será responsable de ningún daño indirecto, incidental o consecuente que resulte del uso o la imposibilidad de usar nuestros servicios."
+        },
+        "governingLaw": {
+          "title": "Ley Aplicable",
+          "content": "Estos términos se rigen por las leyes del Estado de Florida, Estados Unidos, sin tener en cuenta sus conflictos de disposiciones legales."
+        }
+      },
+      "footerNote": "Para cualquier pregunta sobre estos términos, contáctenos en sales@innexar.app"
+    },
+    "privacy": {
+      "title": "Política de Privacidad",
+      "lastUpdated": "Última actualización: 30 de enero de 2026",
+      "sections": {
+        "dataCollection": {
+          "title": "Recopilación de Datos",
+          "content": "Recopilamos información que nos proporciona directamente (nombre, correo electrónico, detalles comerciales) y datos de uso automatizados a través de cookies para mejorar nuestros servicios."
+        },
+        "dataUsage": {
+          "title": "Cómo Usamos sus Datos",
+          "content": "Sus datos se utilizan para proporcionar servicios, procesar pagos, comunicar actualizaciones de proyectos y mejorar el rendimiento del sitio web."
+        },
+        "dataSharing": {
+          "title": "Compartir Datos",
+          "content": "No vendemos sus datos personales. Solo compartimos información con proveedores de servicios de terceros confiables (como Stripe o Dynadot) necesarios para cumplir con nuestros servicios."
+        },
+        "cookies": {
+          "title": "Cookies y Seguimiento",
+          "content": "Utilizamos cookies para personalizar el contenido, analizar el tráfico y con fines de marketing. Puede gestionar sus preferencias a través de nuestro banner de Consentimiento de Cookies."
+        },
+        "security": {
+          "title": "Seguridad de Datos",
+          "content": "Implementamos medidas de seguridad estándar de la industria para proteger su información contra el acceso no autorizado, la alteración o la divulgación."
+        },
+        "rights": {
+          "title": "Sus Derechos",
+          "content": "Usted tiene derecho a acceder, corregir o eliminar sus datos personales. Contáctenos para ejercer estos derechos."
+        }
+      },
+      "footerNote": "Esta política de Privacidad está sujeta a cambios. Por favor, revísela periódicamente."
+    }
+  },
+  "waas": {
+    "success": {
+      "title": "¡Pago Exitoso! 🎉",
+      "message": "Gracias por suscribirse. Hemos recibido su pago y su cuenta está siendo configurada.",
+      "redirectingToPortal": "Redirigiendo al Portal",
+      "portalDesc": "Iniciará sesión automáticamente en el portal del cliente para comenzar el onboarding.",
+      "redirecting": "Redirigiendo en",
+      "seconds": "s...",
+      "goToPortal": "Ir al Portal Ahora",
+      "timeline": {
+        "step1": "Pago",
+        "step1Desc": "Confirmado",
+        "step2": "Email Enviado",
+        "step2Desc": "Revisar bandeja",
+        "step3": "Acceso al Portal",
+        "step3Desc": "Auto-login",
+        "step4": "Onboarding",
+        "step4Desc": "Briefing"
+      }
+    }
+  }
+}

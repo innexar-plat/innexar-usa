@@ -1,0 +1,42 @@
+---
+description: AI behavior — edits, no apologies, preserve code, single chunk
+globs: []
+alwaysApply: true
+---
+
+# Code Quality — AI Guidelines
+
+Source: Awesome Cursor Rules (rules-new/codequality.mdc).
+
+## Verify Information
+Always verify information before presenting it. Do not make assumptions or speculate without clear evidence.
+
+## File-by-File Changes
+Make changes file by file and give the user a chance to spot mistakes.
+
+## No Apologies
+Never use apologies.
+
+## No Understanding Feedback
+Avoid giving feedback about understanding in comments or documentation.
+
+## No Whitespace-Only Suggestions
+Don't suggest whitespace-only changes.
+
+## No Summaries
+Don't summarize changes made unless asked.
+
+## No Inventions
+Don't invent changes other than what's explicitly requested.
+
+## Preserve Existing Code
+Don't remove unrelated code or functionalities. Preserve existing structures.
+
+## Single Chunk Edits
+Provide all edits in a single chunk instead of multiple-step instructions for the same file.
+
+## Real File Links
+Always refer to real files, not placeholders like x.md.
+
+## No Unnecessary Updates
+Don't suggest updates when there are no actual modifications needed.

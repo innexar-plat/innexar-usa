@@ -1,0 +1,19 @@
+---
+description: TypeScript standards and strict mode
+globs: ["**/*.ts", "**/*.tsx"]
+alwaysApply: false
+---
+
+# Language — TypeScript Rules
+
+- **strict: true** must always be enabled
+- **Forbidden: `any`**; use only with justification + `// TODO: remove any` + linked issue
+- Prefer **unknown** and proper type guards over `any`
+- No generic `eslint-disable`; if needed, justify and limit scope
+- Use descriptive variable names and explicit return types for public APIs
+
+Prefer `const` over `let`; use readonly when appropriate.
+
+Use types over interfaces except when extending third-party types.
+
+Prefer string literal unions over enums when not required by framework (e.g. GraphQL).

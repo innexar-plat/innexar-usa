@@ -1,0 +1,101 @@
+name: innexar-usa
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: innexar-usa-workspace-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-innexar_workspace}
+      POSTGRES_USER: ${POSTGRES_USER:-workspace_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - innexar-usa-workspace
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-workspace_user} -d ${POSTGRES_DB:-innexar_workspace}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  minio:
+    image: minio/minio:latest
+    container_name: innexar-usa-workspace-minio
+    restart: unless-stopped
+    command: server /data
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    volumes:
+      - minio_data:/data
+    networks:
+      - innexar-usa-workspace
+
+  backend:
+    build: ./backend
+    container_name: innexar-usa-workspace-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_started
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-workspace_user}:${POSTGRES_PASSWORD:-change_me}@postgres:5432/${POSTGRES_DB:-innexar_workspace}
+      SECRET_KEY_STAFF: ${SECRET_KEY_STAFF:-change-me-staff}
+      SECRET_KEY_CUSTOMER: ${SECRET_KEY_CUSTOMER:-change-me-customer}
+      CORS_ORIGINS: ${CORS_ORIGINS:-https://innexar.app,https://panel.innexar.app,https://workspace.innexar.app,https://innexar.com.br,http://localhost:3000}
+      FRONTEND_URL: ${FRONTEND_URL:-https://innexar.app}
+      SEED_TOKEN: ${SEED_TOKEN:-}
+      MP_ACCESS_TOKEN: ${MP_ACCESS_TOKEN:-${MERCADOPAGO_ACCESS_TOKEN:-}}
+      MERCADOPAGO_ACCESS_TOKEN: ${MERCADOPAGO_ACCESS_TOKEN:-${MP_ACCESS_TOKEN:-}}
+      MP_PUBLIC_KEY: ${MP_PUBLIC_KEY:-}
+      MP_WEBHOOK_SECRET: ${MP_WEBHOOK_SECRET:-}
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
+      STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
+      PORTAL_URL: ${PORTAL_URL:-https://panel.innexar.app}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_USE_TLS: ${SMTP_USE_TLS:-1}
+      STORAGE_PROVIDER: ${STORAGE_PROVIDER:-minio}
+      MINIO_ENDPOINT: ${MINIO_ENDPOINT:-http://minio:9000}
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-minioadmin}
+      MINIO_BUCKET_PROJECTS: ${MINIO_BUCKET_PROJECTS:-project-files}
+    ports:
+      - "8002:8000"
+    networks:
+      - innexar-usa-workspace
+      # Rede Traefik: só use se o backend rodar no mesmo host do site (innexar-websitebr). Senão remova esta rede e os labels abaixo.
+      - fixelo_fixelo-network
+    labels:
+      # Traefik USA: api3.innexar.app (WaaS EUA)
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.usa-api-compress.compress=true"
+      - "traefik.http.routers.usa-api.rule=Host(`api3.innexar.app`)"
+      - "traefik.http.routers.usa-api.entrypoints=websecure"
+      - "traefik.http.routers.usa-api.tls.certresolver=cloudflare"
+      - "traefik.http.routers.usa-api.middlewares=usa-api-compress"
+      - "traefik.http.routers.usa-api.service=usa-api-service"
+      - "traefik.http.services.usa-api-service.loadbalancer.server.port=8000"
+      - "traefik.http.services.usa-api-service.loadbalancer.passHostHeader=true"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/health')\""]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+networks:
+  innexar-usa-workspace:
+    name: innexar-usa-workspace
+    driver: bridge
+  fixelo_fixelo-network:
+    external: true
+
+volumes:
+  postgres_data:
+  minio_data:

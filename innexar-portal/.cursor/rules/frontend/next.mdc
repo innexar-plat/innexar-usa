@@ -1,0 +1,15 @@
+---
+description: Next.js app structure and conventions
+globs: ["**/app/**/*", "**/pages/**/*", "**/next.config.*"]
+alwaysApply: false
+---
+
+# Frontend — Next.js Rules
+
+- Use App Router conventions when applicable
+- Keep page components thin; delegate to feature components
+- Use server components by default; client only when needed
+- Colocate data fetching with the component that uses it or in dedicated loaders
+- Use consistent file naming: kebab-case for files, PascalCase for components
+
+Avoid large page files; split into sections and components.

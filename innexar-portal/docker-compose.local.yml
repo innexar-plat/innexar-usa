@@ -1,0 +1,11 @@
+# Uso: docker compose -f docker-compose.yml -f docker-compose.local.yml up -d
+# Backend deve estar em http://localhost:8002 (workspace). Expõe portal em :3000.
+services:
+  innexar-portal:
+    build:
+      args:
+        - NEXT_PUBLIC_USE_WORKSPACE_API=true
+        - NEXT_PUBLIC_WORKSPACE_API_URL=http://localhost:8002
+        - NEXT_PUBLIC_SITE_URL=http://localhost:3000
+    ports:
+      - "3000:3000"

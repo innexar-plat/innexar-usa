@@ -1,0 +1,17 @@
+---
+description: Service layer and business logic
+globs: ["**/services/**/*", "**/service*.py", "**/business/**/*"]
+alwaysApply: false
+---
+
+# Backend — Services Rules
+
+Business logic lives in **services**, not in controllers or routers.
+
+- One service per domain or aggregate
+- Services call repositories; they do not contain raw SQL
+- Use dependency injection to pass repositories and other services
+- Return domain objects or DTOs, not ORM models when crossing boundaries
+- Keep functions small and single-purpose
+
+Never put HTTP or request/response details inside services; keep them in the API layer.

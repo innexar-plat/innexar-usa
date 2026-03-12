@@ -1,0 +1,31 @@
+---
+description: API design and response format
+globs: ["**/api/**/*", "**/routers/**/*", "**/*router*.py"]
+alwaysApply: false
+---
+
+# Backend — API Rules
+
+All endpoints must validate input.
+
+Use async operations when possible.
+
+Return **standardized responses**. Example:
+
+```json
+{
+  "success": true,
+  "data": {},
+  "error": null
+}
+```
+
+Never expose internal errors or stack traces to clients.
+
+Use environment variables for secrets; never hardcode.
+
+Always use a **service layer** for business logic.
+
+Never access the database directly in controllers/routers.
+
+Use consistent status codes and error message shape.

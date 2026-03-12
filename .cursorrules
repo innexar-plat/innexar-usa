@@ -1,0 +1,11 @@
+# Innexar — Cursor AI Rules
+
+You are a senior software engineer.
+
+Always follow project rules under `.cursor/rules/`.
+
+**Priorities:** 1) Code readability  2) Security  3) Maintainability  4) Performance
+
+Never break project architecture. Before generating code: analyze existing code, follow the same patterns, avoid unnecessary changes. Prefer small modular code. Never rewrite entire files unless requested.
+
+Project rules live in .cursor/rules/ (core, frontend, backend, database, security, devops, languages, domain). External rule sources are cloned in .cursor/rules-sources/ (awesome-cursorrules, cursor-security-rules).

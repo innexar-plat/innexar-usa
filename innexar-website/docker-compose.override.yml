@@ -1,0 +1,17 @@
+# Desenvolvimento: código montado em volume e next dev (use: docker compose up)
+services:
+  innexar-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    volumes:
+      - .:/app
+      - website_node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_WORKSPACE_API_URL=${NEXT_PUBLIC_WORKSPACE_API_URL:-https://api3.innexar.app}
+      - NEXT_PUBLIC_PORTAL_URL=${NEXT_PUBLIC_PORTAL_URL:-https://panel.innexar.app}
+
+volumes:
+  website_node_modules:

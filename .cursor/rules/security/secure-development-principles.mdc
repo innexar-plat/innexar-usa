@@ -1,0 +1,36 @@
+---
+description: Universal secure development principles — no raw input, no secrets in code
+globs: []
+alwaysApply: true
+---
+
+# Secure Development Principles
+
+Source: cursor-security-rules. Apply to all development and AI-generated code.
+
+## 1. No Raw User Input in Sensitive Operations
+- Untrusted input must never be used directly in file access, command execution, database queries, or similar.
+
+## 2. No Secrets in Public Code
+- No API keys, credentials, private keys, or tokens in frontend code, public repos, or client-distributed files.
+
+## 3. Secure Communication Only
+- Use only HTTPS/TLS for external communications.
+
+## 4. No Executing Dynamic Code
+- Do not execute dynamically constructed code or expressions at runtime.
+
+## 5. Validate All External Input
+- Validate inputs from users, external APIs, or third-party systems before use.
+
+## 6. No Sensitive Data in Logs
+- Logs must not contain credentials, tokens, PII, or other sensitive data.
+
+## 7. Do Not Disable Security Controls
+- Do not bypass or suppress security checks without documented and reviewed justification.
+
+## 8. Do Not Rely on Client-Side Only for Security
+- Critical logic for permissions, authentication, or validation must not rely solely on client-side code.
+
+## 9. No Hardcoded Credentials
+- No credentials in source files, config, or scripts. Use env or a secure secrets store.

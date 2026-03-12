@@ -1,0 +1,25 @@
+---
+description: SSRF prevention — do not let user input control outbound URLs
+globs: ["**/*.py", "**/*.ts", "**/*.js", "**/api/**/*"]
+alwaysApply: false
+---
+
+# SSRF Prevention
+
+Source: cursor-security-rules. Applies to all code that performs outbound HTTP/network requests.
+
+## 1. No User-Controlled Target URLs
+- Never use raw or unchecked user input as the destination for outbound requests.
+- **Unsafe:** `requests.get(request.args["url"])`
+
+## 2. Block Private/Internal IP Ranges
+- Do not allow requests to localhost, 127.0.0.1, 169.254.0.0/16, 192.168.0.0/16, 10.0.0.0/8, or other internal/reserved ranges.
+
+## 3. Resolve and Validate Hostnames
+- Perform DNS resolution and validate that the resolved IP is in an allowed range before connecting.
+
+## 4. Restrict Protocols and Ports
+- Allow only HTTP/HTTPS and known-safe ports (e.g. 80, 443). Block file:, gopher, FTP, or custom handlers.
+
+## 5. Do Not Forward Auth Headers Automatically
+- Never pass internal tokens, cookies, or auth headers when proxying/forwarding outbound requests unless explicitly scoped and audited.

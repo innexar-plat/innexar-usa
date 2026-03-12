@@ -1,0 +1,18 @@
+---
+description: PostgreSQL and database usage
+globs: ["**/migrations/**/*", "**/models/**/*", "**/repositories/**/*"]
+alwaysApply: false
+---
+
+# Database Rules
+
+Use **PostgreSQL** as the primary database.
+
+- Use **indexes** on frequently queried columns
+- Avoid **N+1 queries**; use eager loading or batch queries when needed
+- Never write raw SQL unless necessary; prefer ORM or query builder
+- Use connection pooling and async drivers when applicable
+
+Never modify the database schema directly in production.
+
+Always go through migrations.

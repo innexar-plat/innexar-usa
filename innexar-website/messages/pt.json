@@ -1,0 +1,2451 @@
+{
+  "navigation": {
+    "home": "Início",
+    "services": "Serviços",
+    "saas": "SaaS",
+    "saasInnexar": "Innexar ERP",
+    "saasStructurone": "StructurOne",
+    "about": "Sobre",
+    "portfolio": "Portfólio",
+    "blockchain": "Blockchain",
+    "contact": "Contato",
+    "getStarted": "Começar",
+    "launch": "Sites $399",
+    "newWebsiteSystem": "Site por assinatura",
+    "termsOfService": "Termos de Serviço",
+    "privacyPolicy": "Política de Privacidade",
+    "portal": "Portal do Cliente"
+  },
+  "home": {
+    "newSystem": {
+      "badge": "Novo",
+      "title": "Seu site profissional. Feito, hospedado e mantido por nós.",
+      "subtitle": "No ar em dias. Sem custo inicial. A partir de $129/mês.",
+      "bullet1": "No ar em dias",
+      "bullet2": "Sem custo inicial",
+      "bullet3": "Hospedagem incluída",
+      "bullet4": "Manutenção contínua",
+      "cta": "Quero meu site",
+      "ctaSecondary": "Ver planos"
+    }
+  },
+  "launchBanner": {
+    "badge": "🚀 Oferta Limitada",
+    "title": "Site Profissional",
+    "highlight": "em 5 Dias",
+    "subtitle": "Tenha um site incrível e otimizado para conversão. Sem templates. Sem complicação. Só resultados.",
+    "feature1": "Entrega em 5 Dias",
+    "feature2": "100% Exclusivo",
+    "feature3": "SEO Pronto",
+    "originalPrice": "$799",
+    "price": "$399",
+    "savings": "Economize 50%",
+    "cta": "Quero Meu Site",
+    "guarantee": "Garantia de 30 dias"
+  },
+  "saas": {
+    "title": "Innexar SaaS - Gestão Empresarial (ERP)",
+    "subtitle": "Plataforma ERP SaaS rebrandable e multi-tenant para pequenas e médias empresas",
+    "overviewTitle": "Visão Geral",
+    "overviewDescription": "Plataforma 100% web, multiempresa e multiusuário, com subdomínios exclusivos por cliente e provisionamento automático. A solução é rebrandable e modular, oferecendo escalabilidade e personalização.",
+    "objectiveTitle": "Objetivo do Sistema",
+    "objective": "Oferecer uma suíte integrada de gestão (comercial, administrativa e operacional), contratação de planos online, criação automática de instâncias/subdomínios e módulos ativáveis por plano.",
+    "techTitle": "Estrutura Técnica",
+    "tech": "Backend em Python, PostgreSQL, frontend em JavaScript moderno, deploy containerizado (Docker/Kubernetes), wildcard DNS para subdomínios e integração com gateways de pagamento (Stripe, PayPal).",
+    "featuresTitle": "Recursos de Nível Empresarial",
+    "featuresSubtitle": "Construída com escalabilidade e segurança em mente, nossa plataforma fornece tudo o que você precisa para executar um negócio SaaS de sucesso.",
+    "feature1": {
+      "title": "Arquitetura Multi-Tenant",
+      "description": "Ambientes seguros e isolados para cada cliente com infraestrutura compartilhada para eficiência de custos ideal."
+    },
+    "saasSelector": {
+      "hero": {
+        "badge": "Nossas Plataformas SaaS",
+        "title": "Escolha sua",
+        "highlight": "solução SaaS",
+        "subtitle": "Oferecemos duas soluções SaaS poderosas: o ERP multi-tenant Innexar e o StructurOne, focado em construtoras e incorporadoras.",
+        "cta": "Começar"
+      },
+      "title": "Escolha a plataforma SaaS da Innexar",
+      "subtitle": "Temos duas soluções SaaS: o ERP multi-tenant Innexar e o StructurOne, focado em construtoras e incorporadoras.",
+      "innexar": {
+        "title": "Innexar ERP",
+        "description": "ERP SaaS multi-tenant e rebrandable para pequenas e médias empresas, com módulos de estoque, vendas, financeiro e mais.",
+        "points": [
+          "Multiempresa e multiusuário",
+          "Subdomínios por cliente e provisionamento automático",
+          "Gestão comercial, administrativa e operacional"
+        ],
+        "cta": "Ver detalhes do Innexar ERP"
+      },
+      "structurone": {
+        "title": "StructurOne",
+        "description": "SaaS especializado para construtoras e incorporadoras, cobrindo empreendimentos, vendas, investidores e financeiro.",
+        "points": [
+          "Onboarding por país (CNPJ, EIN, etc.)",
+          "Módulos de projetos, investidores e financeiro",
+          "Billing integrado com Stripe e Asaas"
+        ],
+        "cta": "Ver detalhes do StructurOne"
+      }
+    },
+    "feature2": {
+      "title": "Provisionamento Automático",
+      "description": "Criação instantânea de subdomínio, configuração de banco de dados e provisionamento de contas de usuário na assinatura."
+    },
+    "feature3": {
+      "title": "Segurança Empresarial",
+      "description": "Criptografia SSL, controle de acesso baseado em funções, logs de auditoria e conformidade com padrões da indústria."
+    },
+    "feature4": {
+      "title": "Análises Avançadas",
+      "description": "Inteligência de negócios em tempo real, dashboards personalizados e relatórios abrangentes em todos os módulos."
+    },
+    "feature5": {
+      "title": "Gestão de Usuários",
+      "description": "Sistema de permissões granulares, ferramentas de colaboração em equipe e fluxos de integração de usuários perfeitos."
+    },
+    "feature6": {
+      "title": "Pronto para White-Label",
+      "description": "Personalização completa de marca, domínio e interface de usuário para corresponder à identidade da sua empresa."
+    },
+    "hero": {
+      "badge": "Plataforma SaaS Pronta para Empresas",
+      "watchDemo": "Assistir Demo",
+      "clientDashboard": "Painel do Cliente",
+      "benefits": [
+        "Plataforma Multi-tenant 100% Web",
+        "Provisionamento Automático de Subdomínios",
+        "Rebranding White-label Completo",
+        "Ativação de Módulos Escalável"
+      ]
+    },
+    "pricing": {
+      "title": "Preços Simples e Transparentes",
+      "subtitle": "Escolha o plano perfeito para as necessidades do seu negócio",
+      "monthly": "Mensal",
+      "yearly": "Anual",
+      "save20": "Economize 20%",
+      "perMonth": "/mês",
+      "selectPlan": "Selecionar Plano",
+      "starter": {
+        "name": "Inicial",
+        "price": "R$ 249",
+        "description": "Perfeito para pequenas empresas começando",
+        "features": [
+          "Até 5 usuários",
+          "Gestão básica de estoque",
+          "Vendas e faturamento",
+          "Suporte por email",
+          "1 GB armazenamento"
+        ]
+      },
+      "professional": {
+        "name": "Profissional",
+        "price": "R$ 499",
+        "description": "Ideal para empresas em crescimento com necessidades avançadas",
+        "popular": "Mais Popular",
+        "features": [
+          "Até 25 usuários",
+          "Estoque avançado e CRM",
+          "Gestão financeira",
+          "Suporte prioritário",
+          "10 GB armazenamento",
+          "Relatórios personalizados"
+        ]
+      },
+      "enterprise": {
+        "name": "Empresarial",
+        "price": "R$ 999",
+        "description": "Solução completa para grandes organizações",
+        "features": [
+          "Usuários ilimitados",
+          "Todos os módulos incluídos",
+          "Suporte dedicado",
+          "Armazenamento ilimitado",
+          "Acesso à API",
+          "Integrações personalizadas",
+          "Opções white-label"
+        ]
+      },
+      "allPlansInclude": "Todos os planos incluem teste gratuito de 14 dias • Sem taxas de configuração • Cancele a qualquer momento",
+      "sslSecurity": "Segurança SSL",
+      "uptimeSla": "SLA de 99,9% de Uptime",
+      "dailyBackups": "Backups Diários"
+    },
+    "structurone": {
+      "title": "StructurOne - Gestão para Construtoras e Incorporadoras",
+      "subtitle": "Plataforma SaaS especializada da Innexar para gestão de empreendimentos imobiliários, obras, vendas e investidores.",
+      "hero": {
+        "badge": "SaaS focado em construção civil",
+        "watchDemo": "Ver demo do StructurOne",
+        "clientDashboard": "Painel StructurOne",
+        "benefits": [
+          "Onboarding por país (CNPJ, EIN, etc.)",
+          "Módulos de projetos, investidores e financeiro",
+          "Multi-tenant com subdomínios por empresa",
+          "Billing integrado (Stripe e Asaas) por país/moeda"
+        ],
+        "cta": "Começar conversa sobre StructurOne",
+        "mock": {
+          "projects": "Projetos ativos",
+          "volume": "VGV em captação",
+          "project1": "Torre Horizonte",
+          "status1": "Em obras",
+          "project2": "Centro Empresarial Vista",
+          "status2": "Lançamento",
+          "project3": "Condomínio Jardim",
+          "status3": "Entregue"
+        }
+      },
+      "pricing": {
+        "title": "Planos do StructurOne",
+        "subtitle": "Preços pensados para construtoras e incorporadoras de diferentes portes.",
+        "perMonth": "/mês",
+        "selectPlan": "Começar com este plano",
+        "plans": [
+          {
+            "slug": "essential",
+            "name": "Essencial",
+            "price": "R$ 197",
+            "description": "Para pequenas construtoras que querem sair do Excel e organizar 3 empreendimentos.",
+            "features": [
+              "Até 3 empreendimentos ativos",
+              "Até 3 usuários",
+              "Dashboard financeiro básico",
+              "Controle simples de investidores",
+              "Relatórios PDF padrão"
+            ]
+          },
+          {
+            "slug": "professional",
+            "name": "Profissional",
+            "price": "R$ 797",
+            "description": "Ideal para construtoras e incorporadoras em crescimento com portfólio de empreendimentos.",
+            "highlight": "Mais vendido",
+            "features": [
+              "Até 20 empreendimentos ativos",
+              "Até 20 usuários",
+              "Dashboard avançado (vendas, captação, obras)",
+              "Módulo completo de investidores",
+              "Fluxos de aprovação e governança",
+              "Exportação avançada (CSV / Excel)",
+              "Suporte prioritário em horário comercial"
+            ]
+          },
+          {
+            "slug": "enterprise",
+            "name": "Enterprise",
+            "price": "R$ 1.997",
+            "description": "Para grupos econômicos, holdings e grandes incorporadoras com múltiplos CNPJs.",
+            "features": [
+              "Empreendimentos ilimitados",
+              "Usuários ilimitados",
+              "Múltiplos CNPJs / tenants",
+              "Relatórios e integrações customizadas",
+              "Suporte dedicado com SLA",
+              "Onboarding e treinamento personalizados"
+            ]
+          }
+        ]
+      }
+    },
+    "overview": {
+      "title": "Visão Geral da Plataforma",
+      "subtitle": "Uma solução SaaS abrangente projetada para escalabilidade e personalização",
+      "stats": {
+        "clients": "Clientes Ativos",
+        "uptime": "Uptime",
+        "transactions": "Transações/Mês",
+        "support": "Resposta Suporte"
+      },
+      "architecture": {
+        "title": "Arquitetura Técnica",
+        "frontend": "Frontend Moderno",
+        "frontendDesc": "React, TypeScript, Tailwind CSS",
+        "backend": "Backend Escalável",
+        "backendDesc": "Python, FastAPI, PostgreSQL",
+        "infrastructure": "Infraestrutura em Nuvem",
+        "infrastructureDesc": "Docker, Kubernetes, AWS",
+        "security": "Segurança Empresarial",
+        "securityDesc": "SSL, OAuth2, Criptografia de Dados"
+      }
+    },
+    "testimonials": {
+      "title": "O Que Nossos Clientes Dizem",
+      "subtitle": "Junte-se a centenas de empresas satisfeitas usando nossa plataforma",
+      "happyClients": "Clientes Satisfeitos",
+      "transactions": "Transações",
+      "countries": "Países",
+      "rating": "Avaliação",
+      "readyToGetStarted": "Pronto para Começar?",
+      "readyToGetStartedDescription": "Junte-se a centenas de empresas que já usam nossa plataforma para escalar seus negócios.",
+      "startFreeTrial": "Iniciar Teste Gratuito",
+      "scheduleDemo": "Agendar Demonstração",
+      "client1": {
+        "quote": "Esta plataforma transformou como gerenciamos nosso negócio. Só os recursos de automação nos pouparam inúmeras horas.",
+        "author": "João Silva",
+        "company": "Tech Solutions Inc",
+        "role": "CEO"
+      },
+      "client2": {
+        "quote": "Excelente suporte e recursos em constante melhoria. Melhor investimento que fizemos para nossas operações.",
+        "author": "Maria Garcia",
+        "company": "Global Logistics",
+        "role": "Diretora de Operações"
+      },
+      "client3": {
+        "quote": "As capacidades white-label nos permitiram oferecer isso como nossa própria solução. Mudança de jogo para nosso modelo de negócio.",
+        "author": "David Chen",
+        "company": "StartupHub",
+        "role": "Fundador"
+      },
+      "trustBadges": {
+        "certified": "Certificado ISO 27001",
+        "gdpr": "Conformidade GDPR",
+        "support": "Suporte 24/7",
+        "uptime": "SLA 99.9%"
+      }
+    },
+    "plansTitle": "Planos e Modularidade",
+    "cta": "Solicitar Demonstração"
+  },
+  "hero": {
+    "badge": "Estúdio digital full-stack",
+    "title": "Transformamos operações complexas em",
+    "highlight": "produtos digitais que convertem.",
+    "subtitle": "A Innexar cria sites, plataformas SaaS e sistemas corporativos ponta a ponta com times seniores de estratégia, design, engenharia, QA e dados.",
+    "primaryCta": "Agende uma call estratégica",
+    "secondaryCta": "Veja lançamentos recentes",
+    "coverage": "Atuamos no Brasil, Estados Unidos e América Latina",
+    "problem": {
+      "title": "Antes da Innexar",
+      "items": [
+        "Experiências fragmentadas entre marketing, produto e backoffice",
+        "Cadência de lançamentos travada por dívidas técnicas e processos manuais",
+        "Decisões sem dados confiáveis, analytics ou automações"
+      ]
+    },
+    "solution": {
+      "title": "Depois da Innexar",
+      "items": [
+        "Plataformas unificadas com UX premium, localizações e acessibilidade",
+        "Arquitetura componível, integrações e fluxos prontos para automação",
+        "Observabilidade, analytics e experimentos lançados a cada sprint"
+      ]
+    },
+    "callout": "Escale mais rápido",
+    "metrics": [
+      {
+        "value": "120+",
+        "label": "Lançamentos digitais entregues"
+      },
+      {
+        "value": "45%",
+        "label": "Aumento médio de conversão"
+      },
+      {
+        "value": "6x",
+        "label": "Cadência de releases mais veloz"
+      },
+      {
+        "value": "24/7",
+        "label": "Suporte bilíngue com SLAs"
+      }
+    ],
+    "outcome": {
+      "title": "Resultados que podemos comprovar",
+      "subtitle": "Produto, design, engenharia e dados atuando como um único time.",
+      "description": "Squads dedicados co-criam com seus stakeholders, entregando incrementos prontos para produção a cada duas semanas com QA, segurança e documentação."
+    },
+    "impact": {
+      "title": "Do lançamento ao scale-up",
+      "description": "Orquestramos funis de marketing, monetização SaaS, infraestrutura, pagamentos, analytics e portais em uma única parceria."
+    }
+  },
+  "technologies": {
+    "badge": "Stack de tecnologia confiável",
+    "title": "Construímos com as melhores tecnologias do mercado",
+    "subtitle": "Aliamos frameworks modernos, nuvens globais e ferramentas de IA para entregar produtos prontos para escala, compliance e inovação contínua.",
+    "stack": {
+      "title": "Frontend & Camada de Aplicação",
+      "description": "Experiências com foco em performance, acessibilidade e produtividade de desenvolvimento.",
+      "items": [
+        "Next.js 14 / React 18",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Storybook",
+        "Vercel Edge"
+      ]
+    },
+    "cloud": {
+      "title": "Cloud & Infraestrutura",
+      "description": "Arquiteturas multi-cloud com deploy resiliente e observabilidade completa.",
+      "items": [
+        "Google Cloud Platform",
+        "Amazon Web Services",
+        "Microsoft Azure",
+        "Kubernetes",
+        "Docker",
+        "Terraform"
+      ]
+    },
+    "ai": {
+      "title": "IA & Dados",
+      "description": "Inteligência aplicada para experiências de produto, automações e analytics.",
+      "items": [
+        "OpenAI GPT-4 / GPT-4o",
+        "Vertex AI",
+        "LangChain",
+        "BigQuery",
+        "Pinecone",
+        "dbt"
+      ]
+    },
+    "tooling": {
+      "title": "DevOps & Qualidade",
+      "description": "Pipelines automatizados com confiabilidade, segurança e monitoramento em tempo real.",
+      "items": [
+        "GitHub Actions",
+        "Sentry",
+        "Datadog",
+        "SonarQube",
+        "Postman",
+        "Cypress"
+      ]
+    },
+    "cta": "Precisa de outro stack? Integrarmos com o seu ecossistema atual ou desenhamos uma arquitetura sob medida para o seu roadmap."
+  },
+  "services": {
+    "eyebrow": "O que entregamos",
+    "title": "Produtos digitais prontos para escalar",
+    "subtitle": "Estratégia, design, engenharia e growth atuando juntos para lançar e acelerar suas experiências web, mobile e SaaS.",
+    "items": [
+      {
+        "key": "web",
+        "title": "Experiências web focadas em conversão",
+        "headline": "Landing pages, sites institucionais e launchpads que vendem.",
+        "description": "Criamos sites e funis com storytelling, localização, SEO e analytics prontos para crescer desde o primeiro dia.",
+        "results": [
+          "Websites premium, microsites e hubs multilíngues",
+          "Copywriting, design system e CMS preparados para seu time",
+          "Experimentos, testes A/B e otimização de performance"
+        ],
+        "tag": "Brand & Marketing"
+      },
+      {
+        "key": "saas",
+        "title": "Plataformas SaaS e ERPs",
+        "headline": "Do MVP à plataforma pronta para assinatura.",
+        "description": "Estratégia de produto, UX, billing, permissões e integrações ponta a ponta para você focar em tração.",
+        "results": [
+          "Arquitetura multi-tenant com onboarding e billing",
+          "Integrações Stripe, Asaas, marketplaces e ERPs",
+          "Portais administrativos, analytics e workflows por papéis"
+        ],
+        "tag": "Products & Platforms"
+      },
+      {
+        "key": "mobile",
+        "title": "Mobile & operações em campo",
+        "headline": "Apps que conectam matriz, equipes externas e clientes.",
+        "description": "Experiências nativas com modo offline, geolocalização, fluxos de tarefas e sincronização rápida com seus sistemas.",
+        "results": [
+          "Apps iOS, Android e PWA com um único codebase",
+          "Formulários digitais, workflows, aprovações e automações",
+          "Push, chat, captura de mídia e dashboards em tempo real"
+        ],
+        "tag": "Field Ops"
+      },
+      {
+        "key": "ai",
+        "title": "IA, automação e analytics",
+        "headline": "Times aumentados com decisões data-driven e copilotos.",
+        "description": "Ativamos dados, LLMs e automações para personalizar experiências, eliminar trabalhos manuais e gerar insights de negócio.",
+        "results": [
+          "Assistentes com LLM treinados na sua base de conhecimento",
+          "Pipelines de dados, governança e relatórios em tempo real",
+          "RPA, orquestração de workflows e alertas inteligentes"
+        ],
+        "tag": "Intelligence"
+      },
+      {
+        "key": "cloud",
+        "title": "Arquitetura cloud & DevOps",
+        "headline": "Infraestrutura segura, observável e escalável.",
+        "description": "Landing zone, IaC, CI/CD e confiabilidade para seu time entregar mais rápido com segurança em ambientes multi-cloud.",
+        "results": [
+          "Arquiteturas Google Cloud, AWS e Azure",
+          "IaC com Terraform, Kubernetes e serviços gerenciados",
+          "Observabilidade, hardening de segurança e compliance"
+        ],
+        "tag": "Platform Engineering"
+      },
+      {
+        "key": "integrations",
+        "title": "Integrações & modernização de legados",
+        "headline": "Sistemas conectados, processos automatizados e legados renovados.",
+        "description": "APIs, middleware e ERPs conversando para você ter visibilidade total e operação em tempo real.",
+        "results": [
+          "Padrões API-first, event-driven e serverless",
+          "Integrações com CRM, ERP, pagamentos, logística e IoT",
+          "Replatforming progressivo com downtime mínimo"
+        ],
+        "tag": "Enterprise"
+      }
+    ],
+    "footnote": "Precisa de algo específico? Desenhamos escopos sob medida com o squad ideal para cada fase.",
+    "hero": {
+      "title": "Transforme Seu Negócio com Tecnologia",
+      "subtitle": "Entregamos soluções inovadoras que impulsionam inovação, eficiência e crescimento em todos os setores",
+      "cta": "Iniciar Seu Projeto",
+      "consultation": "Consultoria Gratuita",
+      "stats": {
+        "projectsDelivered": "Projetos Entregues",
+        "yearsExperience": "Anos de Experiência",
+        "happyClients": "Clientes Satisfeitos",
+        "support": "Suporte"
+      }
+    },
+    "process": {
+      "title": "Nosso Processo Comprovado",
+      "subtitle": "Uma abordagem sistemática que garante o sucesso do projeto e entrega resultados excepcionais",
+      "steps": [
+        {
+          "title": "Descoberta e Planejamento",
+          "description": "Analisamos seus requisitos, definimos o escopo do projeto e criamos um roteiro detalhado para o sucesso."
+        },
+        {
+          "title": "Design e Arquitetura",
+          "description": "Nossos especialistas projetam soluções escaláveis com padrões de arquitetura modernos e melhores práticas."
+        },
+        {
+          "title": "Desenvolvimento e Testes",
+          "description": "Desenvolvimento ágil com testes contínuos, revisões de código e processos de garantia de qualidade."
+        },
+        {
+          "title": "Implantação e Suporte",
+          "description": "Implantação perfeita em produção com monitoramento, manutenção e suporte contínuos."
+        }
+      ],
+      "cta": {
+        "title": "Pronto para iniciar seu projeto?",
+        "description": "Nosso processo comprovado garante a entrega bem-sucedida de suas soluções tecnológicas. Vamos começar com uma consultoria gratuita para entender suas necessidades.",
+        "button": "Agendar Consultoria Gratuita"
+      }
+    },
+    "whyChooseUs": {
+      "title": "Por Que Escolher a Innexar?",
+      "subtitle": "Combinamos experiência técnica com conhecimento de negócios para entregar soluções que geram resultados reais",
+      "advantages": [
+        {
+          "icon": "ClockIcon",
+          "title": "Entrega Rápida",
+          "description": "Metodologia ágil e equipes experientes garantem conclusão rápida do projeto sem comprometer a qualidade.",
+          "stats": "30% Mais Rápido"
+        },
+        {
+          "icon": "ShieldCheckIcon",
+          "title": "Segurança Empresarial",
+          "description": "Abordagem focada em segurança com as melhores práticas do setor, padrões de conformidade e testes robustos.",
+          "stats": "99.9% Uptime"
+        },
+        {
+          "icon": "UserGroupIcon",
+          "title": "Equipe Especializada",
+          "description": "Desenvolvedores seniores, arquitetos e consultores com histórico comprovado em projetos complexos.",
+          "stats": "15+ Anos Média"
+        },
+        {
+          "icon": "LightBulbIcon",
+          "title": "Foco em Inovação",
+          "description": "Tecnologias de ponta e soluções inovadoras que mantêm você à frente da concorrência.",
+          "stats": "Última Tecnologia"
+        },
+        {
+          "icon": "CogIcon",
+          "title": "Soluções Escaláveis",
+          "description": "Arquitetura projetada para crescimento, garantindo que seus sistemas possam lidar com demandas crescentes.",
+          "stats": "Escala 10x"
+        },
+        {
+          "icon": "CheckCircleIcon",
+          "title": "Garantia de Qualidade",
+          "description": "Processos de teste rigorosos e portais de qualidade garantem entrega de software confiável e sem bugs.",
+          "stats": "99.5% de Precisão"
+        }
+      ],
+      "metrics": {
+        "title": "Histórico Comprovado",
+        "subtitle": "Números que falam sobre nosso compromisso com a excelência e o sucesso do cliente",
+        "stats": [
+          {
+            "number": "500+",
+            "label": "Projetos Concluídos"
+          },
+          {
+            "number": "98%",
+            "label": "Satisfação do Cliente"
+          },
+          {
+            "number": "250+",
+            "label": "Clientes Satisfeitos"
+          },
+          {
+            "number": "15+",
+            "label": "Países Atendidos"
+          }
+        ]
+      },
+      "testimonials": {
+        "title": "O Que Nossos Clientes Dizem",
+        "quotes": [
+          {
+            "quote": "A Innexar transformou nosso sistema legado em uma plataforma moderna e escalável. Trabalho excepcional!",
+            "author": "Sarah Johnson",
+            "company": "TechCorp",
+            "role": "CTO"
+          },
+          {
+            "quote": "Profissionais, confiáveis e inovadores. Eles superaram nossas expectativas em todos os aspectos.",
+            "author": "Miguel Rodriguez",
+            "company": "Innovation Labs",
+            "role": "CEO"
+          },
+          {
+            "quote": "O melhor parceiro de tecnologia com quem trabalhamos. Recomendo muito seus serviços.",
+            "author": "Lisa Chen",
+            "company": "Global Solutions",
+            "role": "Diretora de TI"
+          }
+        ]
+      }
+    },
+    "development": {
+      "title": "Desenvolvimento de Software",
+      "description": "Aplicações personalizadas, plataformas web e soluções móveis construídas com tecnologias modernas",
+      "fullDescription": "Nossa equipe especializada cria soluções de software escaláveis, seguras e de alta performance, adaptadas aos seus requisitos únicos de negócio. De aplicações web a apps mobile e sistemas empresariais.",
+      "benefits": [
+        "Soluções personalizadas",
+        "Arquitetura escalável",
+        "Stack tecnológico moderno",
+        "Metodologia ágil",
+        "Suporte 24/7"
+      ],
+      "technologies": [
+        "React",
+        "Node.js",
+        "Python",
+        "TypeScript",
+        "AWS",
+        "Docker"
+      ]
+    },
+    "infrastructure": {
+      "title": "Infraestrutura & DevOps",
+      "description": "Arquitetura em nuvem, automação e soluções de infraestrutura escaláveis",
+      "fullDescription": "Transforme sua infraestrutura de TI com soluções nativas da nuvem, automação e práticas DevOps que garantem confiabilidade, escalabilidade e custo-efetividade.",
+      "benefits": [
+        "Migração para nuvem",
+        "Automação de infraestrutura",
+        "Pipelines CI/CD",
+        "Monitoramento e alertas",
+        "Otimização de custos"
+      ],
+      "technologies": [
+        "AWS",
+        "Azure",
+        "Kubernetes",
+        "Terraform",
+        "Jenkins",
+        "Prometheus"
+      ]
+    },
+    "consulting": {
+      "title": "Consultoria Tecnológica",
+      "description": "Orientação estratégica e conselhos especializados para impulsionar sua transformação digital",
+      "fullDescription": "Navegue no complexo cenário tecnológico com nossos serviços de consultoria estratégica. Ajudamos você a tomar decisões informadas, otimizar processos e acelerar a transformação digital.",
+      "benefits": [
+        "Planejamento estratégico",
+        "Avaliação tecnológica",
+        "Otimização de processos",
+        "Gestão de mudanças",
+        "Maximização do ROI"
+      ],
+      "technologies": [
+        "Arquitetura Empresarial",
+        "Estratégia Digital",
+        "Process Mining",
+        "Analytics",
+        "AI/ML",
+        "Blockchain"
+      ]
+    },
+    "support": {
+      "title": "Suporte & Manutenção",
+      "description": "Suporte contínuo e manutenção para manter seus sistemas funcionando perfeitamente",
+      "fullDescription": "Garanta que seus sistemas operem com máxima performance com nossos serviços abrangentes de suporte e manutenção. Do monitoramento proativo à resolução rápida de problemas.",
+      "benefits": [
+        "Monitoramento 24/7",
+        "Resposta rápida",
+        "Manutenção preventiva",
+        "Otimização de performance",
+        "Atualizações de segurança"
+      ],
+      "technologies": [
+        "Ferramentas de Monitoramento",
+        "ITSM",
+        "Automação",
+        "Patches de Segurança",
+        "Otimização de Performance",
+        "Soluções de Backup"
+      ]
+    },
+    "whyChoose": {
+      "title": "Por Que Escolher a Innexar?",
+      "subtitle": "Expertise da indústria e resultados comprovados",
+      "reasons": [
+        {
+          "title": "Equipe Especializada",
+          "description": "Profissionais certificados com profundo conhecimento da indústria"
+        },
+        {
+          "title": "Histórico Comprovado",
+          "description": "50+ projetos bem-sucedidos em diversos setores"
+        },
+        {
+          "title": "Foco em Inovação",
+          "description": "Sempre usando as tecnologias mais recentes e melhores práticas"
+        },
+        {
+          "title": "Centrado no Cliente",
+          "description": "Seu sucesso é nossa prioridade, a cada passo do caminho"
+        }
+      ]
+    },
+    "servicesCta": {
+      "title": "Pronto para Começar Seu Próximo Projeto?",
+      "subtitle": "Entre em contato com nossos especialistas hoje e descubra como podemos transformar seu negócio com soluções tecnológicas inovadoras.",
+      "primaryButton": "Consultoria Gratuita",
+      "secondaryButton": "Ver Portfólio",
+      "options": {
+        "phone": {
+          "title": "Ligue para Nós",
+          "description": "Fale diretamente com nossos especialistas",
+          "action": "Ligar Agora"
+        },
+        "email": {
+          "title": "Envie um Email",
+          "description": "Envie-nos os detalhes do seu projeto",
+          "action": "Enviar Email"
+        },
+        "meeting": {
+          "title": "Agendar Reunião",
+          "description": "Agende uma consultoria",
+          "action": "Agendar Agora",
+          "value": "Chamada Gratuita de 30 min"
+        },
+        "chat": {
+          "title": "Chat ao Vivo",
+          "description": "Converse com nossa equipe",
+          "action": "Iniciar Chat",
+          "value": "Online Agora"
+        }
+      },
+      "urgency": {
+        "title": "Oferta por Tempo Limitado",
+        "description": "Obtenha uma avaliação gratuita do projeto e 20% de desconto no seu primeiro projeto ao entrar em contato este mês.",
+        "badge": "LIMITADO",
+        "offer": "20% de Desconto no Primeiro Projeto",
+        "action": "Aproveitar Oferta"
+      },
+      "trust": {
+        "subtitle": "Confiável por empresas em todo o mundo",
+        "indicators": [
+          "Certificado ISO 27001",
+          "Conformidade GDPR",
+          "Suporte 24/7",
+          "Garantia de Devolução do Dinheiro"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Pronto para Transformar Seu Negócio?",
+      "subtitle": "Vamos discutir como podemos ajudá-lo a alcançar seus objetivos tecnológicos",
+      "button": "Comece Hoje",
+      "contact": "Agendar uma Consultoria"
+    },
+    "serviceDetails": {
+      "keyBenefits": "Principais Benefícios:",
+      "technologiesWeUse": "Tecnologias que Utilizamos:",
+      "learnMore": "Saiba Mais",
+      "getQuote": "Solicitar Orçamento",
+      "readyToGetStarted": "Pronto para começar?",
+      "readyToGetStartedDescription": "Vamos discutir como podemos ajudar a transformar seu negócio com {service}."
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "Quem Somos",
+      "title": "Somos uma equipe de",
+      "highlight": "especialistas em tecnologia",
+      "subtitle": "Profissionais apaixonados dedicados a entregar resultados excepcionais. Com anos de experiência em desenvolvimento de software, infraestrutura e consultoria, ajudamos empresas a se transformar e crescer na era digital.",
+      "primaryCta": "Trabalhe Conosco",
+      "secondaryCta": "Ver Portfólio",
+      "metrics": [
+        {
+          "value": "5+",
+          "label": "Anos de Excelência"
+        },
+        {
+          "value": "50+",
+          "label": "Projetos Entregues"
+        },
+        {
+          "value": "100%",
+          "label": "Satisfação do Cliente"
+        },
+        {
+          "value": "24/7",
+          "label": "Suporte Disponível"
+        }
+      ]
+    },
+    "title": "Sobre a Innexar",
+    "subtitle": "Liderando o caminho em soluções tecnológicas inovadoras",
+    "description": "Somos uma equipe de especialistas em tecnologia apaixonados, dedicados a entregar resultados excepcionais para nossos clientes. Com anos de experiência em desenvolvimento de software, infraestrutura e consultoria, ajudamos empresas a se transformar e crescer na era digital.",
+    "features": {
+      "expertTeam": "Equipe Especializada",
+      "provenTrack": "Histórico Comprovado",
+      "cuttingEdge": "Tecnologia de Ponta",
+      "customerFocus": "Foco no Cliente",
+      "support247": "Suporte 24/7",
+      "scalable": "Soluções Escaláveis"
+    },
+    "stats": {
+      "yearsTitle": "Anos de Excelência",
+      "projectsTitle": "Projetos Entregues",
+      "satisfactionTitle": "Satisfação do Cliente"
+    },
+    "learnMoreBtn": "Saiba Mais Sobre Nós",
+    "mission": {
+      "title": "Nossa Missão",
+      "description": "Capacitar empresas em todo o mundo com soluções tecnológicas de ponta que impulsionam inovação, eficiência e crescimento sustentável. Conectamos desafios técnicos complexos com objetivos de negócio, entregando resultados mensuráveis que transformam organizações."
+    },
+    "vision": {
+      "title": "Nossa Visão",
+      "description": "Tornar-nos o parceiro tecnológico mais confiável para empresas que buscam transformação digital. Vislumbramos um futuro onde toda empresa, independentemente do tamanho, tenha acesso a soluções tecnológicas de nível empresarial que permitam competir e prosperar na economia digital."
+    },
+    "values": {
+      "title": "Nossos Valores Fundamentais",
+      "subtitle": "Os princípios que guiam tudo o que fazemos",
+      "items": [
+        {
+          "icon": "LightBulbIcon",
+          "title": "Inovação",
+          "description": "Exploramos constantemente novas tecnologias e metodologias para entregar soluções de ponta que mantêm nossos clientes à frente da concorrência."
+        },
+        {
+          "icon": "ShieldCheckIcon",
+          "title": "Integridade",
+          "description": "Construímos confiança através de transparência, honestidade e práticas éticas em cada interação e projeto que realizamos."
+        },
+        {
+          "icon": "UserGroupIcon",
+          "title": "Colaboração",
+          "description": "Acreditamos no poder do trabalho em equipe, tanto dentro de nossa organização quanto com nossos clientes, para alcançar resultados excepcionais."
+        },
+        {
+          "icon": "RocketLaunchIcon",
+          "title": "Excelência",
+          "description": "Estamos comprometidos em entregar o trabalho de mais alta qualidade, melhorando continuamente nossos processos e superando expectativas."
+        }
+      ]
+    },
+    "timeline": {
+      "title": "Nossa Jornada",
+      "subtitle": "Marcos que moldaram quem somos hoje",
+      "items": [
+        {
+          "year": "2020",
+          "title": "Fundação",
+          "description": "A Innexar foi fundada com a visão de democratizar soluções tecnológicas empresariais para empresas de todos os tamanhos."
+        },
+        {
+          "year": "2021",
+          "title": "Primeiros Grandes Clientes",
+          "description": "Entregamos com sucesso nossos primeiros projetos empresariais, estabelecendo nossa reputação por qualidade e confiabilidade."
+        },
+        {
+          "year": "2022",
+          "title": "Expansão Internacional",
+          "description": "Expandimos operações para os Estados Unidos e América Latina, atendendo clientes em múltiplos continentes."
+        },
+        {
+          "year": "2023",
+          "title": "Lançamento de Plataformas SaaS",
+          "description": "Lançamos nossos primeiros produtos SaaS, Innexar ERP e StructurOne, revolucionando como empresas gerenciam operações."
+        },
+        {
+          "year": "2024",
+          "title": "Integração de IA",
+          "description": "Integramos capacidades de IA e machine learning em nossas soluções, permitindo processos de negócio mais inteligentes e automatizados."
+        },
+        {
+          "year": "2025",
+          "title": "Liderança no Setor",
+          "description": "Hoje, somos reconhecidos como líderes em transformação digital, atendendo mais de 50 clientes com soluções tecnológicas de ponta."
+        }
+      ]
+    },
+    "technologies": {
+      "title": "Tecnologias que Dominamos",
+      "subtitle": "Nossa expertise abrange toda a stack tecnológica",
+      "items": [
+        "React & Next.js",
+        "Python & Django",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
+        "MongoDB",
+        "AWS",
+        "Google Cloud",
+        "Azure",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Stripe",
+        "OpenAI GPT",
+        "GraphQL",
+        "Redis",
+        "Elasticsearch",
+        "CI/CD"
+      ]
+    },
+    "certifications": {
+      "title": "Certificações e Padrões",
+      "subtitle": "Mantemos os mais altos padrões em segurança, qualidade e conformidade",
+      "items": [
+        "Certificado ISO 27001",
+        "Conformidade GDPR",
+        "SOC 2 Tipo II",
+        "Conformidade HIPAA",
+        "PCI DSS Nível 1",
+        "Parceiros Certificados AWS",
+        "Parceiros Google Cloud",
+        "Parceiros Microsoft Azure"
+      ]
+    }
+  },
+  "process": {
+    "eyebrow": "Workflow comprovado",
+    "title": "Da descoberta ao crescimento mensurável em semanas",
+    "subtitle": "Conduzimos cada iniciativa em um trilho acelerado que mantém stakeholders alinhados e incrementos entregues em produção a cada sprint.",
+    "deliverable": "Entregáveis-chave",
+    "nextStep": "Próximo passo",
+    "steps": [
+      {
+        "title": "Descoberta & estratégia",
+        "description": "Imersões para entender objetivos, personas, restrições e integrações enquanto desenhamos a visão do produto.",
+        "deliverable": "Vision deck, métricas de sucesso, roadmap priorizado e diagnóstico técnico.",
+        "duration": "Semana 0-1"
+      },
+      {
+        "title": "Experiência & arquitetura",
+        "description": "Fluxos de UX, identidade visual, modelo de dados e decisões de arquitetura que blindam o futuro do produto.",
+        "deliverable": "Protótipos interativos, base do design system e blueprint de arquitetura.",
+        "duration": "Semana 1-2"
+      },
+      {
+        "title": "Construção & automação",
+        "description": "Entrega ágil com CI/CD, QA, analytics e automações implementadas junto de cada incremento.",
+        "deliverable": "Incrementos prontos para produção, testes automatizados, IaC e tracking de analytics.",
+        "duration": "Semana 2-6"
+      },
+      {
+        "title": "Lançamento & growth",
+        "description": "Orquestração de go-live, documentação, treinamento e otimizações contínuas guiadas por dados.",
+        "deliverable": "Playbook de lançamento, SLOs, dashboards, enablement e roadmap dos próximos experimentos.",
+        "duration": "Semana 6+"
+      }
+    ]
+  },
+  "successStories": {
+    "eyebrow": "Casos de sucesso",
+    "title": "Impacto em diferentes setores",
+    "subtitle": "Criamos plataformas que destravam eficiência, receita e experiências incríveis para equipes e clientes.",
+    "challenge": "Desafio",
+    "solution": "Solução",
+    "results": "Resultados",
+    "cases": [
+      {
+        "name": "StructurOne",
+        "industry": "SaaS para Construção",
+        "challenge": "Planilhas manuais, equipes desconectadas e nenhuma visibilidade em obras multimilionárias.",
+        "solution": "ERP multi-tenant com orçamentos, compras, gestão documental e analytics, integrado ao Stripe para billing e Procore para operações.",
+        "results": [
+          "85% mais rápido para aprovar orçamentos e atualizar obras",
+          "Cobrança automatizada com assinaturas multi-moeda",
+          "Dashboards executivos com saúde do projeto em tempo real"
+        ]
+      },
+      {
+        "name": "Bluemart Marketplace",
+        "industry": "Varejo & eCommerce",
+        "challenge": "Jornadas fragmentadas e atualizações lentas de merchandising em 12 categorias.",
+        "solution": "Arquitetura headless com CMS, motor de promoções, recomendações com IA e contas unificadas.",
+        "results": [
+          "3x mais conversões em add-to-cart",
+          "Sincronização unificada entre ERP, logística e PDV",
+          "Experiências personalizadas em três idiomas"
+        ]
+      },
+      {
+        "name": "Helios Energy Field Ops",
+        "industry": "Energia & Utilities",
+        "challenge": "Inspeções em papel e dados de compliance espalhados em sistemas legados.",
+        "solution": "Apps mobile offline-first para equipes de campo, pipelines automatizados de relatórios e dashboards de conformidade.",
+        "results": [
+          "40% de redução no tempo de inspeção",
+          "Relatórios para auditoria gerados automaticamente",
+          "Alertas de manutenção preditiva com dados de IoT"
+        ]
+      }
+    ],
+    "cta": "Solicite os cases completos",
+    "ctaLink": "#contact"
+  },
+  "testimonials": {
+    "eyebrow": "Depoimentos",
+    "title": "Times que crescem com a Innexar",
+    "subtitle": "Entramos como parceiros, trabalhando lado a lado com o seu time.",
+    "items": [
+      {
+        "quote": "A Innexar transformou nossa visão em uma plataforma escalável cuidando de produto, design, engenharia e growth. Lançamos um SaaS completo em 90 dias e a conversão subiu imediatamente.",
+        "name": "Carolina Mendes",
+        "role": "Head de Growth",
+        "company": "ScaleUp Latam"
+      },
+      {
+        "quote": "Reconstruíram nossa operação logística com APIs, automações e dashboards que finalmente deram visibilidade em tempo real. Hoje lançamos semanalmente sem indisponibilidade.",
+        "name": "Michael Turner",
+        "role": "CTO",
+        "company": "Northbridge Logistics"
+      },
+      {
+        "quote": "Além do código impecável, o squad trouxe pensamento de produto, analytics e experimentação. Reduzimos o onboarding pela metade e nosso NPS chegou a 72.",
+        "name": "Ana Paula Ribeiro",
+        "role": "Diretora de Produto",
+        "company": "Habitus"
+      }
+    ]
+  },
+  "engagement": {
+    "eyebrow": "Como colaboramos",
+    "title": "Modelos de parceria sob medida",
+    "subtitle": "Escolha o formato ideal para o seu estágio. Podemos acelerar discovery, operar squads ou assumir toda a frente digital.",
+    "models": [
+      {
+        "title": "Acelerador de discovery",
+        "description": "Valide oportunidades, mapeie requisitos e defina o roadmap com um pod multidisciplinar dedicado.",
+        "badge": "Sprint de 2 semanas",
+        "items": [
+          "Visão de produto, personas e KPIs",
+          "Jornadas, protótipos e backlog priorizado",
+          "Arquitetura técnica e plano de integrações"
+        ]
+      },
+      {
+        "title": "Product squad",
+        "description": "Squad autônomo entregando continuamente com UX, engenharia, QA e analytics integrados.",
+        "badge": "Retainer mensal",
+        "items": [
+          "Roadmap com rituais ágeis e OKRs compartilhados",
+          "Design system, codebase e automações sob nossa gestão",
+          "Experimentação de growth e relatórios recorrentes"
+        ]
+      },
+      {
+        "title": "Extensão de time dedicado",
+        "description": "Escale seu time interno com talentos especialistas imersos nos seus rituais, cultura e ferramentas.",
+        "badge": "Parceria contínua",
+        "items": [
+          "Engenheiros, PMs, designers e especialistas em dados seniores",
+          "Suporte 24/7, SLAs e transferência de conhecimento",
+          "OKRs conjuntos, playbooks de entrega e documentação"
+        ]
+      }
+    ]
+  },
+  "leadMagnet": {
+    "eyebrow": "Vamos construir juntos",
+    "title": "Receba um blueprint de crescimento digital",
+    "subtitle": "Agende uma sessão estratégica com nossos leads e receba um plano de ação sob medida cobrindo produto, tecnologia e go-to-market.",
+    "features": [
+      "Workshop de 60 minutos com especialistas de produto, design e engenharia",
+      "Benchmark de concorrentes e oportunidades no seu segmento",
+      "Faixas de investimento, cenários de prazo e estrutura de squad recomendada"
+    ],
+    "primaryCta": "Agendar workshop",
+    "secondaryCta": "Baixar checklist",
+    "secondaryLink": "#contact",
+    "stats": [
+      {
+        "value": "2-4 semanas",
+        "label": "Tempo médio para blueprint de MVP"
+      },
+      {
+        "value": "99,9%",
+        "label": "Arquiteturas em cloud projetadas com SLA"
+      }
+    ],
+    "footnote": "Assinamos NDA, atuamos em múltiplos fusos e nos plugamos às ferramentas que você já usa."
+  },
+  "checklist": {
+    "badge": "Checklist Digital",
+    "title": "Checklist de Crescimento Digital",
+    "subtitle": "Preencha este checklist para receber um blueprint personalizado de crescimento digital para seu projeto.",
+    "sections": {
+      "contact": "Informações de Contato",
+      "checklist": "Checklist de Projeto"
+    },
+    "fields": {
+      "name": "Nome Completo",
+      "namePlaceholder": "Seu nome completo",
+      "email": "Email",
+      "emailPlaceholder": "seu@email.com",
+      "phone": "Telefone",
+      "phonePlaceholder": "+55 11 99999-9999",
+      "company": "Empresa",
+      "companyPlaceholder": "Nome da sua empresa"
+    },
+    "items": [
+      {
+        "key": "currentChallenges",
+        "label": "Quais são os principais desafios que você está enfrentando atualmente?",
+        "placeholder": "Descreva os desafios principais do seu negócio ou projeto...",
+        "type": "textarea"
+      },
+      {
+        "key": "targetAudience",
+        "label": "Quem é seu público-alvo?",
+        "placeholder": "Descreva seu público-alvo...",
+        "type": "textarea"
+      },
+      {
+        "key": "businessGoals",
+        "label": "Quais são seus objetivos de negócio?",
+        "placeholder": "Descreva seus objetivos principais...",
+        "type": "textarea"
+      },
+      {
+        "key": "technicalRequirements",
+        "label": "Quais são seus requisitos técnicos?",
+        "placeholder": "Descreva requisitos técnicos, integrações necessárias, etc...",
+        "type": "textarea"
+      },
+      {
+        "key": "budgetRange",
+        "label": "Qual é sua faixa de orçamento?",
+        "placeholder": "Ex: R$ 50.000 - R$ 100.000",
+        "type": "text"
+      },
+      {
+        "key": "timeline",
+        "label": "Qual é o prazo esperado?",
+        "placeholder": "Ex: 3-6 meses",
+        "type": "text"
+      },
+      {
+        "key": "teamSize",
+        "label": "Qual é o tamanho da equipe disponível?",
+        "placeholder": "Ex: 2-5 pessoas",
+        "type": "text"
+      },
+      {
+        "key": "existingTools",
+        "label": "Quais ferramentas você já utiliza?",
+        "placeholder": "Liste as ferramentas e sistemas que já usa...",
+        "type": "textarea"
+      },
+      {
+        "key": "successMetrics",
+        "label": "Como você medirá o sucesso do projeto?",
+        "placeholder": "Descreva as métricas de sucesso...",
+        "type": "textarea"
+      },
+      {
+        "key": "additionalNotes",
+        "label": "Observações adicionais",
+        "placeholder": "Alguma informação adicional que gostaria de compartilhar?",
+        "type": "textarea"
+      }
+    ],
+    "submit": "Enviar Checklist",
+    "submitting": "Enviando...",
+    "privacy": "Ao enviar este checklist, você concorda com nossa política de privacidade.",
+    "errors": {
+      "nameRequired": "Nome é obrigatório",
+      "emailRequired": "Email é obrigatório",
+      "emailInvalid": "Email inválido",
+      "submitFailed": "Erro ao enviar checklist. Tente novamente."
+    },
+    "success": {
+      "title": "Checklist enviado com sucesso!",
+      "message": "Recebemos seu checklist e entraremos em contato em breve com seu blueprint personalizado."
+    },
+    "email": {
+      "checklistSubject": "Novo Checklist Recebido - {{name}}",
+      "checklistHeader": "Informações de Contato",
+      "checklistInfo": "Dados do Cliente",
+      "checklistData": "Respostas do Checklist",
+      "checklistFooter": "Este checklist foi enviado através do site innexar.app",
+      "autoReplySubject": "Checklist Recebido - Innexar",
+      "autoReplyHeader": "Checklist Recebido",
+      "autoReplyGreeting": "Olá",
+      "autoReplyThanks": "Obrigado por preencher nosso checklist de crescimento digital!",
+      "autoReplyReceived": "Recebemos suas respostas e nossa equipe está analisando seu projeto.",
+      "autoReplyWhile": "Enquanto isso, você pode explorar nossos serviços e casos de sucesso em nosso site.",
+      "autoReplyVisit": "Visite nosso site para conhecer mais sobre nossos serviços",
+      "autoReplySignature": "Atenciosamente,",
+      "autoReplyTeam": "Equipe Innexar",
+      "autoReplyFooter": "Estamos prontos para transformar suas ideias em realidade digital.",
+      "labels": {
+        "name": "Nome",
+        "email": "Email",
+        "phone": "Telefone",
+        "company": "Empresa"
+      },
+      "notInformed": "Não informado"
+    }
+  },
+  "blockchain": {
+    "hero": {
+      "badge": "Tecnologia Blockchain",
+      "title": "Desenvolvimento de Apps",
+      "highlight": "Blockchain & Consultoria",
+      "subtitle": "Criamos aplicações descentralizadas, smart contracts e soluções blockchain personalizadas para transformar seu negócio.",
+      "cta": "Fale Conosco",
+      "consultation": "Agendar Consultoria",
+      "stats": [
+        {
+          "value": "15+",
+          "label": "Projetos Blockchain"
+        },
+        {
+          "value": "5+",
+          "label": "Anos de Experiência"
+        },
+        {
+          "value": "10+",
+          "label": "Smart Contracts"
+        },
+        {
+          "value": "24/7",
+          "label": "Suporte Técnico"
+        }
+      ]
+    },
+    "services": {
+      "title": "Nossos Serviços Blockchain",
+      "subtitle": "Soluções completas em desenvolvimento e consultoria blockchain para empresas",
+      "items": [
+        {
+          "icon": "dapps",
+          "title": "DApps (Aplicações Descentralizadas)",
+          "description": "Desenvolvimento de aplicações descentralizadas completas com frontend moderno e contratos inteligentes.",
+          "features": [
+            "Interface de usuário moderna e responsiva",
+            "Integração com carteiras Web3",
+            "Contratos inteligentes auditados",
+            "Deploy em redes principais"
+          ]
+        },
+        {
+          "icon": "defi",
+          "title": "Soluções DeFi",
+          "description": "Plataformas de finanças descentralizadas para empréstimos, staking, yield farming e mais.",
+          "features": [
+            "Protocolos de empréstimo",
+            "Sistemas de staking e yield",
+            "DEX (Corretoras Descentralizadas)",
+            "Gestão de liquidez"
+          ]
+        },
+        {
+          "icon": "nft",
+          "title": "Plataformas NFT",
+          "description": "Mercados, coleções e sistemas NFT personalizados com funcionalidades avançadas.",
+          "features": [
+            "Mercados NFT completos",
+            "Sistemas de minting",
+            "Royalties e royalties automáticos",
+            "Integração com múltiplas blockchains"
+          ]
+        },
+        {
+          "icon": "smartContracts",
+          "title": "Smart Contracts",
+          "description": "Desenvolvimento, auditoria e otimização de contratos inteligentes seguros e eficientes.",
+          "features": [
+            "Desenvolvimento em Solidity/Rust",
+            "Auditorias de segurança",
+            "Otimização de gas",
+            "Testes abrangentes"
+          ]
+        },
+        {
+          "icon": "wallets",
+          "title": "Carteiras Digitais",
+          "description": "Desenvolvimento de carteiras Web3 e mobile para gerenciamento seguro de criptomoedas.",
+          "features": [
+            "Carteiras multi-chain",
+            "Interface intuitiva",
+            "Segurança de nível empresarial",
+            "Suporte a múltiplas moedas"
+          ]
+        },
+        {
+          "icon": "tokens",
+          "title": "Tokens & Tokenomics",
+          "description": "Criação de tokens personalizados (ERC-20, ERC-721, ERC-1155) e design de economia de tokens.",
+          "features": [
+            "Criação de tokens customizados",
+            "Design de tokenomics",
+            "Sistemas de distribuição",
+            "Governança descentralizada"
+          ]
+        }
+      ]
+    },
+    "technologies": {
+      "title": "Tecnologias que Utilizamos",
+      "subtitle": "Trabalhamos com as principais tecnologias e blockchains do mercado",
+      "items": [
+        {
+          "name": "Ethereum",
+          "category": "blockchains"
+        },
+        {
+          "name": "Polygon",
+          "category": "blockchains"
+        },
+        {
+          "name": "Binance Smart Chain",
+          "category": "blockchains"
+        },
+        {
+          "name": "Solana",
+          "category": "blockchains"
+        },
+        {
+          "name": "Avalanche",
+          "category": "blockchains"
+        },
+        {
+          "name": "Solidity",
+          "category": "linguagens"
+        },
+        {
+          "name": "Rust",
+          "category": "linguagens"
+        },
+        {
+          "name": "JavaScript/TypeScript",
+          "category": "linguagens"
+        },
+        {
+          "name": "Web3.js",
+          "category": "frameworks"
+        },
+        {
+          "name": "Ethers.js",
+          "category": "frameworks"
+        },
+        {
+          "name": "Hardhat",
+          "category": "frameworks"
+        },
+        {
+          "name": "Truffle",
+          "category": "frameworks"
+        },
+        {
+          "name": "IPFS",
+          "category": "infraestrutura"
+        },
+        {
+          "name": "The Graph",
+          "category": "infraestrutura"
+        },
+        {
+          "name": "MetaMask",
+          "category": "ferramentas"
+        },
+        {
+          "name": "Remix",
+          "category": "ferramentas"
+        }
+      ]
+    },
+    "consulting": {
+      "title": "Consultoria Blockchain",
+      "subtitle": "Ajudamos empresas a entender e implementar soluções blockchain estratégicas",
+      "items": [
+        {
+          "icon": "strategy",
+          "title": "Estratégia Blockchain",
+          "description": "Análise de casos de uso, viabilidade técnica e estratégia de implementação para seu negócio."
+        },
+        {
+          "icon": "audit",
+          "title": "Auditoria de Segurança",
+          "description": "Revisão completa de smart contracts e aplicações para identificar vulnerabilidades e garantir segurança."
+        },
+        {
+          "icon": "training",
+          "title": "Treinamento & Capacitação",
+          "description": "Workshops e treinamentos para equipes sobre blockchain, Web3 e desenvolvimento de DApps."
+        },
+        {
+          "icon": "integration",
+          "title": "Integração Blockchain",
+          "description": "Integração de funcionalidades blockchain em sistemas existentes e arquiteturas híbridas."
+        },
+        {
+          "icon": "documentation",
+          "title": "Documentação Técnica",
+          "description": "Documentação completa de arquitetura, contratos e processos para facilitar manutenção e evolução."
+        },
+        {
+          "icon": "analysis",
+          "title": "Análise de Tokenomics",
+          "description": "Design e análise de modelos econômicos para tokens, incluindo distribuição e mecanismos de governança."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Pronto para Inovar com Blockchain?",
+      "subtitle": "Entre em contato e descubra como podemos transformar sua ideia em uma solução blockchain de sucesso.",
+      "button": "Iniciar Projeto"
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "Vamos Conversar",
+      "title": "Pronto para iniciar",
+      "highlight": "seu próximo projeto?",
+      "subtitle": "Entre em contato com nossa equipe. Estamos aqui para ajudar você a transformar suas ideias em soluções digitais poderosas.",
+      "emailValue": "comercial@innexar.app",
+      "emailLabel": "Email",
+      "addressLabel": "Endereço",
+      "phones": [
+        {
+          "label": "Estados Unidos",
+          "display": "+1 407 473-6081",
+          "href": "+14074736081"
+        }
+      ],
+      "addressLines": [
+        "13013 Yardsley Ct",
+        "Orlando, Flórida 32837"
+      ]
+    },
+    "title": "Entre em Contato",
+    "subtitle": "Pronto para começar seu próximo projeto?",
+    "info": {
+      "title": "Entre em Contato",
+      "subtitle": "Estamos aqui para ajudar você a transformar suas ideias em realidade. Entre em contato pelo canal que preferir.",
+      "email": "Email",
+      "emailValue": "comercial@innexar.app",
+      "phone": "Telefone",
+      "phones": [
+        {
+          "label": "Estados Unidos",
+          "display": "+1 407 473-6081",
+          "href": "+14074736081"
+        }
+      ],
+      "address": "Escritório nos Estados Unidos",
+      "addressLines": [
+        "13013 Yardsley Ct",
+        "Orlando, Flórida 32837"
+      ],
+      "hours": {
+        "title": "Horário de Atendimento",
+        "weekdays": "Segunda - Sexta: 9:00 - 18:00",
+        "weekend": "Sábado - Domingo: Fechado"
+      }
+    },
+    "form": {
+      "title": "Envie uma mensagem",
+      "subtitle": "Preencha o formulário abaixo e retornaremos em até 24 horas.",
+      "name": "Nome Completo",
+      "email": "Endereço de Email",
+      "phone": "Telefone",
+      "company": "Nome da Empresa",
+      "projectType": "Tipo de Projeto",
+      "budget": "Faixa de Orçamento",
+      "timeline": "Prazo",
+      "message": "Detalhes do Projeto",
+      "submit": "Enviar Mensagem",
+      "submitting": "Enviando...",
+      "privacy": "Ao enviar este formulário, você concorda com nossa política de privacidade e termos de serviço.",
+      "placeholders": {
+        "name": "João Silva",
+        "email": "joao@empresa.com",
+        "phone": "+55 11 99999-9999",
+        "company": "Sua Empresa",
+        "projectType": "Selecione o tipo de projeto",
+        "budget": "Selecione a faixa de orçamento",
+        "timeline": "Selecione o prazo",
+        "message": "Conte-nos sobre seu projeto, objetivos e requisitos específicos..."
+      },
+      "projectTypes": [
+        {
+          "value": "web",
+          "label": "Desenvolvimento Web"
+        },
+        {
+          "value": "saas",
+          "label": "Plataforma SaaS"
+        },
+        {
+          "value": "mobile",
+          "label": "App Mobile"
+        },
+        {
+          "value": "ecommerce",
+          "label": "E-commerce"
+        },
+        {
+          "value": "erp",
+          "label": "Sistema ERP"
+        },
+        {
+          "value": "integration",
+          "label": "Integração de Sistemas"
+        },
+        {
+          "value": "consulting",
+          "label": "Consultoria"
+        },
+        {
+          "value": "other",
+          "label": "Outro"
+        }
+      ],
+      "budgetRanges": [
+        {
+          "value": "under-10k",
+          "label": "Abaixo de R$ 50.000"
+        },
+        {
+          "value": "10k-25k",
+          "label": "R$ 50.000 - R$ 125.000"
+        },
+        {
+          "value": "25k-50k",
+          "label": "R$ 125.000 - R$ 250.000"
+        },
+        {
+          "value": "50k-100k",
+          "label": "R$ 250.000 - R$ 500.000"
+        },
+        {
+          "value": "100k-250k",
+          "label": "R$ 500.000 - R$ 1.250.000"
+        },
+        {
+          "value": "over-250k",
+          "label": "Acima de R$ 1.250.000"
+        },
+        {
+          "value": "discuss",
+          "label": "Prefiro discutir"
+        }
+      ],
+      "timelines": [
+        {
+          "value": "asap",
+          "label": "O quanto antes"
+        },
+        {
+          "value": "1-3months",
+          "label": "1-3 meses"
+        },
+        {
+          "value": "3-6months",
+          "label": "3-6 meses"
+        },
+        {
+          "value": "6-12months",
+          "label": "6-12 meses"
+        },
+        {
+          "value": "planning",
+          "label": "Apenas planejando"
+        }
+      ],
+      "errors": {
+        "nameRequired": "Nome é obrigatório",
+        "emailRequired": "Email é obrigatório",
+        "emailInvalid": "Por favor, insira um email válido",
+        "phoneRequired": "Telefone é obrigatório",
+        "messageRequired": "Mensagem é obrigatória",
+        "messageMinLength": "Mensagem deve ter pelo menos 10 caracteres",
+        "submitFailed": "Falha ao enviar mensagem. Tente novamente.",
+        "networkError": "Erro de conexão. Verifique sua internet e tente novamente.",
+        "error": "Erro"
+      },
+      "success": {
+        "title": "Mensagem enviada com sucesso!",
+        "message": "Recebemos sua mensagem e retornaremos em até 24 horas."
+      }
+    },
+    "email": {
+      "contactSubject": "Novo contato do site - {{name}}",
+      "contactHeader": "📧 Novo Contato do Site Innexar",
+      "contactInfo": "Informações do Contato",
+      "contactProject": "Detalhes do Projeto",
+      "contactMessage": "Mensagem",
+      "contactFooter": "Este email foi enviado automaticamente através do formulário de contato do site Innexar.",
+      "autoReplySubject": "Recebemos sua mensagem - Innexar",
+      "autoReplyHeader": "✅ Mensagem Recebida",
+      "autoReplyGreeting": "Olá",
+      "autoReplyThanks": "Obrigado por entrar em contato com a",
+      "autoReplyReceived": "Recebemos sua mensagem e nossa equipe entrará em contato em breve.",
+      "autoReplyWhile": "Enquanto isso, você pode:",
+      "autoReplyVisit": "Visitar nosso site",
+      "autoReplyServices": "Conhecer nossos serviços e soluções",
+      "autoReplyPortfolio": "Ver nosso portfólio de projetos",
+      "autoReplySignature": "Atenciosamente,",
+      "autoReplyTeam": "Equipe Innexar",
+      "autoReplyFooter": "Este é um email automático. Por favor, não responda este email.",
+      "autoReplyAdvantages": "Por Que Escolher a Innexar?",
+      "autoReplyAdvantage1": "Entrega Rápida - 30% Mais Rápido",
+      "autoReplyAdvantage2": "Segurança Empresarial - 99.9% Uptime",
+      "autoReplyAdvantage3": "Equipe Especializada - 15+ Anos Média",
+      "autoReplyAdvantage4": "Foco em Inovação - Última Tecnologia",
+      "autoReplyAdvantage5": "Soluções Escaláveis - Escala 10x",
+      "autoReplyAdvantage6": "Garantia de Qualidade - 99.5% Precisão",
+      "autoReplyContactTitle": "Entre em Contato",
+      "autoReplyContactEmail": "comercial@innexar.app",
+      "autoReplyContactPhone": "+1 407 473-6081",
+      "autoReplyContactWebsite": "innexar.app",
+      "autoReplyCta": "Conheça nossas soluções",
+      "autoReplyCtaButton": "Visitar Site",
+      "labels": {
+        "name": "Nome",
+        "email": "Email",
+        "phone": "Telefone",
+        "company": "Empresa",
+        "type": "Tipo",
+        "budget": "Orçamento",
+        "timeline": "Prazo"
+      },
+      "notInformed": "Não informado"
+    }
+  },
+  "header": {
+    "top": {
+      "emailValue": "comercial@innexar.app",
+      "phones": [
+        {
+          "label": "Estados Unidos",
+          "display": "+1 407 473-6081",
+          "href": "+14074736081"
+        }
+      ],
+      "cta": "Solicite uma proposta"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Innexar. Todos os direitos reservados.",
+    "description": "Soluções tecnológicas inovadoras para empresas modernas",
+    "quickLinks": "Links Rápidos",
+    "legal": "Legal",
+    "termsOfService": "Termos de Serviço",
+    "privacyPolicy": "Política de Privacidade"
+  },
+  "portfolio": {
+    "hero": {
+      "badge": "Nosso Trabalho",
+      "title": "Soluções inovadoras",
+      "highlight": "que entregamos",
+      "subtitle": "Descubra os produtos digitais, plataformas e sistemas que construímos para clientes de diversos setores.",
+      "cta": "Inicie Seu Projeto",
+      "stats": [
+        {
+          "value": "50+",
+          "label": "Projetos Concluídos"
+        },
+        {
+          "value": "30+",
+          "label": "Clientes Satisfeitos"
+        },
+        {
+          "value": "5+",
+          "label": "Anos de Experiência"
+        }
+      ]
+    },
+    "title": "Nosso Portfólio",
+    "subtitle": "Descubra as soluções inovadoras que construímos para nossos clientes",
+    "filterAll": "Todos os Projetos",
+    "filterWeb": "Desenvolvimento Web",
+    "filterMobile": "Apps Mobile",
+    "filterCloud": "Soluções em Nuvem",
+    "filterData": "Análise de Dados",
+    "viewProject": "Ver Projeto",
+    "technologies": "Tecnologias Utilizadas",
+    "projectsCount": "Projetos Concluídos",
+    "clientsCount": "Clientes Satisfeitos",
+    "yearsCount": "Anos de Experiência"
+  },
+  "seo": {
+    "default": {
+      "title": "Innexar | Site Barato Orlando, Tampa, Miami, Jacksonville — Sites Florida",
+      "description": "Site profissional e barato para sua empresa na Flórida. Orlando, Tampa, Miami, Jacksonville. Criação de sites a partir de $129/mês — hospedagem incluída. SEO local.",
+      "keywords": "site barato em Orlando, site Orlando, site Tampa, site Miami, site Jacksonville, criação de site Orlando, site profissional Flórida, sites para negócios Florida, site barato Tampa Miami, SEO local Orlando Tampa, website barato Florida"
+    },
+    "home": {
+      "title": "Innexar | Site Barato Orlando FL — Sites Tampa, Miami, Jacksonville | Florida",
+      "description": "Site barato e profissional em Orlando, Tampa, Miami e Jacksonville. Sites para pequenos negócios na Flórida. A partir de $129/mês, hospedagem e SEO incluídos.",
+      "keywords": "site barato em Orlando, sites Orlando, site Tampa, site Miami, site Jacksonville, site profissional Orlando FL, criação de site barato Florida, sites para empresas Orlando Tampa Miami, SEO local Florida, website Orlando barato"
+    },
+    "about": {
+      "title": "Nossa História | Innexar - Excelência em Engenharia de Software",
+      "description": "Conheça a Innexar e nossa missão de entregar excelência tecnológica. Uma equipe dedicada a criar o futuro digital com qualidade premium.",
+      "keywords": "sobre Innexar, time de tecnologia, especialistas em software, história da empresa"
+    },
+    "services": {
+      "title": "Serviços Premium | Desenvolvimento sob Medida, Nuvem e IA",
+      "description": "Soluções tecnológicas completas para empresas visionárias. Do desenvolvimento de apps à integração de inteligência artificial de ponta.",
+      "keywords": "desenvolvimento personalizado, arquitetura em nuvem, IA, machine learning, outsourcing de software"
+    },
+    "portfolio": {
+      "title": "Casos de Sucesso | Explore Nossas Soluções Digitais Premium",
+      "description": "Veja como ajudamos empresas ao redor do mundo a brilhar com produtos digitais inovadores e de alta qualidade.",
+      "keywords": "portfólio, cases de sucesso, projetos de software, experiência digital"
+    },
+    "contact": {
+      "title": "Contato Innexar | Orlando, Tampa, Miami, Jacksonville FL",
+      "description": "Solicite orçamento para seu site ou projeto. Atendemos a Flórida: Orlando, Tampa, Miami, Jacksonville. Sites profissionais a partir de $129/mês.",
+      "keywords": "contato Innexar Orlando, orçamento site Florida, contato criação de site Tampa Miami Jacksonville"
+    },
+    "saas": {
+      "title": "SaaS - Plataformas de Software como Serviço",
+      "description": "Conheça nossas plataformas SaaS: Innexar ERP e StructurOne. Soluções empresariais completas e escaláveis.",
+      "keywords": "SaaS, software como serviço, ERP, gestão empresarial, plataformas SaaS"
+    },
+    "blockchain": {
+      "title": "Blockchain - Soluções Descentralizadas e Smart Contracts",
+      "description": "Soluções avançadas em blockchain, contratos inteligentes personalizados e arquiteturas descentralizadas para seu negócio.",
+      "keywords": "blockchain, smart contracts, web3, dapps, soluções descentralizadas"
+    },
+    "checklist": {
+      "title": "Checklist de Site - Planeje seu Projeto Digital",
+      "description": "Use nosso checklist para planejar seu próximo site ou produto digital. Um guia completo para começar seu projeto com a Innexar.",
+      "keywords": "checklist de site, planejamento de projeto, guia de desenvolvimento web, produto digital"
+    },
+    "launch": {
+      "title": "Site Barato em Orlando, Tampa, Miami, Jacksonville — A partir de $129/mês",
+      "description": "Site profissional para seu negócio na Flórida. Orlando, Tampa, Miami, Jacksonville. A partir de $129/mês — hospedagem, SEO e manutenção incluídas. Sem custo inicial alto.",
+      "keywords": "site barato em Orlando, site Orlando Tampa Miami Jacksonville, site profissional Florida, criação de site barato Orlando, sites para empresas Florida, WaaS, site mensal 129"
+    },
+    "privacy-policy": {
+      "title": "Política de Privacidade - Innexar",
+      "description": "Leia nossa política de privacidade para entender como coletamos, usamos e protegemos seus dados pessoais.",
+      "keywords": "política de privacidade, proteção de dados, LGPD, privacidade"
+    },
+    "terms-of-service": {
+      "title": "Termos de Serviço - Innexar",
+      "description": "Leia nossos termos de serviço para entender as regras e regulamentos de uso dos serviços da Innexar.",
+      "keywords": "termos de serviço, jurídico, contrato"
+    }
+  },
+  "launch": {
+    "hero": {
+      "badge": "Website as a Service",
+      "title": "Site Profissional para Seu Negócio",
+      "titleHighlight": "Sem Pagar Milhares de Uma Vez",
+      "subtitle": "A partir de $129/mês. Hospedagem e manutenção incluídas. Fique online em dias, não semanas.",
+      "fromPrice": "A partir de $129/mês",
+      "cta": "Começar Meu Site",
+      "ctaSecondary": "Ver Exemplos",
+      "guarantee": "Garantia de Satisfação de 30 Dias"
+    },
+    "benefits": {
+      "title": "Por que WaaS",
+      "noUpfront": "Sem custo inicial alto",
+      "noUpfrontDesc": "Pague mensalmente. Sem taxa única.",
+      "hostingIncluded": "Hospedagem e manutenção incluídas",
+      "hostingIncludedDesc": "Mantemos seu site rápido e seguro.",
+      "mobileOptimized": "Otimizado para mobile",
+      "mobileOptimizedDesc": "Perfeito em qualquer dispositivo.",
+      "builtForLeads": "Feito para gerar leads",
+      "builtForLeadsDesc": "Desenhado para transformar visitantes em clientes."
+    },
+    "plans": {
+      "title": "Escolha Seu Plano",
+      "perMonth": "/mês",
+      "starter": "Starter",
+      "business": "Business",
+      "pro": "Pro",
+      "selectPlan": "Começar Meu Site",
+      "mostPopular": "Mais Popular",
+      "contractTerm": "Mínimo 12 meses • Cobrado mensalmente",
+      "featurePages": "Até 5 páginas",
+      "featureRevisions": "Revisões mensais",
+      "featureSupport": "Suporte por e-mail",
+      "featureAdvanced": "SEO avançado",
+      "featurePriority": "Suporte prioritário",
+      "featureExtra": "Páginas extras e mais"
+    },
+    "included": {
+      "title": "Tudo incluso no seu plano",
+      "subtitle": "Sem taxas escondidas. Todos os planos incluem:",
+      "hosting": "Hospedagem incluída",
+      "ssl": "Certificado SSL gratuito (HTTPS)",
+      "seo": "Otimização SEO",
+      "maintenance": "Manutenção e atualizações contínuas",
+      "support": "Suporte por e-mail",
+      "mobile": "Design responsivo (mobile)",
+      "security": "Atualizações de segurança",
+      "backups": "Backups regulares",
+      "speed": "Carregamento rápido e CDN",
+      "content": "Atualizações de conteúdo incluídas"
+    },
+    "checkoutPage": {
+      "title": "Complete seus dados",
+      "yourPlan": "Seu plano",
+      "planBenefits": "Benefícios do plano",
+      "continueToPayment": "Ir para o pagamento",
+      "backToPlans": "Voltar aos planos",
+      "stepInfo": "Suas Informações",
+      "stepPayment": "Pagamento",
+      "companyName": "Nome da empresa (opcional)",
+      "companyPlaceholder": "Nome do seu negócio",
+      "contractAgreement": "Concordo com o contrato mínimo de 12 meses e os",
+      "termsLink": "Termos de Serviço",
+      "contractRequired": "Você deve aceitar o contrato para continuar.",
+      "securitySSL": "SSL Protegido",
+      "securityStripe": "Pagamento via Stripe",
+      "contractTerms": "Compromisso mínimo de 12 meses. Cobrança mensal. Multa por cancelamento antecipado: 50% dos meses restantes. Garantia de 30 dias.",
+      "couponCode": "Cupom (opcional)",
+      "couponPlaceholder": "ex. DESCONTO10"
+    },
+    "checkout": {
+      "title": "Complete seus dados",
+      "email": "E-mail",
+      "emailPlaceholder": "voce@exemplo.com",
+      "name": "Nome (opcional)",
+      "namePlaceholder": "Seu nome",
+      "phone": "Telefone (opcional)",
+      "phonePlaceholder": "+55 11 99999 9999",
+      "couponCode": "Cupom (opcional)",
+      "couponPlaceholder": "ex. DESCONTO10",
+      "submit": "Ir para pagamento",
+      "loading": "Redirecionando para o pagamento...",
+      "error": "Algo deu errado. Tente novamente."
+    },
+    "guaranteeSection": {
+      "title": "Garantia de Satisfação de 30 Dias",
+      "description": "Experimente sem risco. Não gostou? Cancele em 30 dias e devolvemos seu dinheiro."
+    },
+    "ctaFinal": {
+      "title": "Tenha Seu Site Profissional Hoje",
+      "subtitle": "A partir de $129/mês",
+      "cta": "Começar Meu Site"
+    },
+    "features": {
+      "title": "Tudo Incluído",
+      "responsive": "100% Responsivo",
+      "responsiveDesc": "Perfeito em todos os dispositivos",
+      "seo": "Otimizado para SEO",
+      "seoDesc": "Apareça no Google",
+      "fast": "Ultrarrápido",
+      "fastDesc": "Carrega em menos de 2s",
+      "support": "30 Dias de Suporte",
+      "supportDesc": "Estamos aqui para ajudar"
+    },
+    "process": {
+      "title": "Como Funciona",
+      "step1": "Pague e Comece",
+      "step1Desc": "Checkout seguro em 2 minutos",
+      "step2": "Conte Sobre Seu Negócio",
+      "step2Desc": "Formulário simples de 8 etapas",
+      "step3": "Nós Criamos",
+      "step3Desc": "Nossa equipe cria seu site",
+      "step4": "Revise e Lance",
+      "step4Desc": "Preview, feedback, ao vivo!"
+    },
+    "addons": {
+      "title": "Turbine Seu Pacote",
+      "logo": "Logo Profissional",
+      "logoDesc": "3 conceitos únicos",
+      "seo": "SEO Local Pro",
+      "seoDesc": "Otimização avançada",
+      "extraPage": "Página Extra",
+      "extraPageDesc": "Página adicional personalizada",
+      "whatsapp": "Widget WhatsApp",
+      "whatsappDesc": "Mensagens diretas",
+      "googleBusiness": "Google Meu Negócio",
+      "googleBusinessDesc": "Configuração completa"
+    },
+    "explanation": {
+      "title": "Por que seu negócio precisa de um site profissional",
+      "subtitle": "A primeira impressão acontece online",
+      "problemLabel": "O problema",
+      "solutionLabel": "Nossa solução",
+      "problem": "Muitos pequenos negócios perdem clientes porque não têm um site profissional. Quando alguém busca no Google, escolhe quem parece confiável. Sem um site moderno, você perde oportunidades.",
+      "solution": "Simplificamos: em vez de pagar milhares de uma vez, você tem tudo em uma assinatura mensal. Nós criamos, hospedamos e mantemos seu site para você focar no negócio."
+    },
+    "trustSeal": {
+      "title": "Seguro e confiável",
+      "ssl": "Conexão SSL — seus dados protegidos",
+      "securePayment": "Pagamento seguro via Stripe"
+    },
+    "testimonials": {
+      "title": "O que nossos clientes dizem",
+      "subtitle": "Veja o que empresários como você falam sobre nosso trabalho.",
+      "titleLegacy": "Confiado por Negócios Locais",
+      "review1": "Melhor investimento para minha loja. Triplicou minhas vendas!",
+      "review1Author": "João Silva",
+      "review1Business": "Silva Reformas",
+      "review2": "Profissional, rápido e acessível. Recomendo muito!",
+      "review2Author": "Maria Santos",
+      "review2Business": "Limpeza & Brilho",
+      "review3": "Meu restaurante está incrível online. Valeu cada centavo.",
+      "review3Author": "Carlos Oliveira",
+      "review3Business": "Cantina do Carlos"
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "q1": "O que está incluído no pacote básico?",
+      "a1": "Site responsivo de 5 páginas, otimização mobile, formulários de contato, SEO básico e 30 dias de suporte pós-lançamento.",
+      "q2": "Quanto tempo leva?",
+      "a2": "A maioria dos sites é entregue em 5 dias úteis após você completar o formulário de onboarding.",
+      "q3": "E quanto ao meu domínio?",
+      "a3": "Você compra e é dono do seu domínio. Ajudamos a conectá-lo ao seu novo site sem custo adicional.",
+      "q4": "Há suporte contínuo?",
+      "a4": "30 dias de suporte pós-lançamento estão incluídos. Pacotes de suporte estendido estão disponíveis como add-on.",
+      "q5": "Como funciona o processo?",
+      "a5": "Após o pagamento, você preenche um formulário simples. Nossa equipe cria seu site, envia um preview e, após seu feedback, entregamos."
+    },
+    "cta": {
+      "total": "Total",
+      "checkout": "Finalizar Compra",
+      "processing": "Processando...",
+      "secure": "Pagamento seguro via Stripe"
+    },
+    "success": {
+      "title": "Pagamento Confirmado!",
+      "subtitle": "Obrigado pela sua compra",
+      "message": "Seu site profissional está a caminho! Próximo passo: complete o formulário de onboarding.",
+      "orderSummary": "Resumo do Pedido",
+      "orderId": "ID do Pedido",
+      "redirecting": "Redirecionando para onboarding em",
+      "seconds": "segundos",
+      "continueButton": "Continuar para Onboarding",
+      "dashboardLink": "Ou veja seu painel do projeto",
+      "timeline": {
+        "step1": "Pagamento Confirmado",
+        "step1Desc": "Tudo certo!",
+        "step2": "Onboarding",
+        "step2Desc": "Conte sobre seu negócio",
+        "step3": "Revisão",
+        "step3Desc": "Veja o preview do site",
+        "step4": "Lançamento",
+        "step4Desc": "Vá ao ar!"
+      }
+    },
+    "dashboard": {
+      "title": "Painel do Projeto",
+      "subtitle": "Acompanhe o progresso do desenvolvimento do seu site",
+      "statuses": {
+        "pending": "Pendente",
+        "development": "Em Desenvolvimento",
+        "review": "Pronto para Revisão",
+        "delivered": "Entregue"
+      },
+      "timeline": {
+        "title": "Linha do Tempo do Projeto",
+        "payment": "Pagamento Confirmado",
+        "onboarding": "Onboarding Completo",
+        "design": "Fase de Design",
+        "development": "Fase de Desenvolvimento",
+        "review": "Fase de Revisão",
+        "launch": "Lançamento"
+      },
+      "actions": {
+        "requestChanges": "Solicitar Alterações",
+        "viewPreview": "Ver Preview",
+        "approveDesign": "Aprovar Design",
+        "contactSupport": "Contatar Suporte"
+      },
+      "info": {
+        "order": "Pedido",
+        "date": "Data",
+        "status": "Status Atual"
+      }
+    },
+    "onboarding": {
+      "title": "Vamos Criar Seu Site",
+      "subtitle": "Conte sobre seu negócio para criarmos o site perfeito para você",
+      "steps": {
+        "step1": "Dados da Empresa",
+        "step1Desc": "Sobre seu negócio",
+        "step2": "Localização",
+        "step2Desc": "Onde você atua",
+        "step3": "Serviços",
+        "step3Desc": "O que você oferece",
+        "step4": "Objetivos",
+        "step4Desc": "Páginas e metas",
+        "step5": "Design",
+        "step5Desc": "Cores e estilo",
+        "step6": "Horários e Redes",
+        "step6Desc": "Informações de contato",
+        "step7": "Depoimentos",
+        "step7Desc": "Avaliações de clientes",
+        "step8": "Contrato",
+        "step8Desc": "Assinatura do contrato de serviço",
+        "step9": "Arquivos",
+        "step9Desc": "Envio de logo e imagens"
+      },
+      "form": {
+        "businessName": "Nome da Empresa",
+        "businessNamePlaceholder": "Nome da Sua Empresa",
+        "email": "Email Comercial",
+        "emailPlaceholder": "email@suaempresa.com.br",
+        "phone": "Telefone",
+        "phonePlaceholder": "(11) 99999-9999",
+        "hasWhatsApp": "Este número tem WhatsApp",
+        "password": "Criar Senha de Acesso",
+        "confirmPassword": "Confirmar Senha",
+        "passwordHelp": "Esta senha será usada para acessar o portal do seu projeto.",
+        "passwordPlaceholder": "Mínimo 8 caracteres",
+        "address": "Endereço",
+        "addressPlaceholder": "Rua, número, cidade",
+        "desiredDomain": "Domínio desejado (opcional)",
+        "desiredDomainHelp": "ex: meusite.com — Depois orientamos onde apontar o domínio.",
+        "domainQuestion": "Você já tem um domínio?",
+        "hasDomain": "Sim, já tenho",
+        "noDomain": "Não, quero comprar",
+        "existingDomain": "Domínio existente",
+        "existingDomainPlaceholder": "meusite.com",
+        "existingDomainHelp": "Enviaremos instruções por email para apontar seu domínio ao nosso servidor quando o site estiver pronto.",
+        "domainToPurchase": "Domínio para comprar",
+        "domainToPurchasePlaceholder": "meusite.com",
+        "checkDomain": "Verificar",
+        "checkingDomain": "Verificando...",
+        "purchaseDomain": "Comprar Domínio",
+        "purchasingDomain": "Comprando...",
+        "domainAvailable": "Domínio disponível",
+        "domainAvailableFree": "Domínio disponível e GRÁTIS!",
+        "domainAvailablePrice": "Domínio disponível por {price}/ano",
+        "domainNotAvailable": "Domínio não disponível. Tente outro nome.",
+        "domainPurchased": "Domínio {domain} comprado com sucesso!",
+        "domainCheckError": "Erro ao verificar domínio",
+        "domainPurchaseError": "Erro ao comprar domínio",
+        "niche": "Categoria do Negócio",
+        "selectNiche": "Selecione seu setor...",
+        "city": "Cidade Principal",
+        "cityPlaceholder": "Cidade onde você atua",
+        "state": "Estado",
+        "statePlaceholder": "UF",
+        "serviceAreas": "Áreas de Atendimento",
+        "serviceAreasPlaceholder": "Outras cidades atendidas",
+        "addArea": "Adicionar",
+        "services": "Serviços Oferecidos",
+        "servicesPlaceholder": "Adicionar serviço...",
+        "addService": "Adicionar",
+        "primaryService": "Serviço Principal",
+        "siteObjective": "Objetivo Principal do Site",
+        "objectives": {
+          "leads": "Gerar Leads / Ligações",
+          "leadsDesc": "Receber mais ligações e consultas",
+          "info": "Mostrar Serviços",
+          "infoDesc": "Exibir seu trabalho e portfólio",
+          "bookings": "Agendamentos Online",
+          "bookingsDesc": "Permitir agendamentos online",
+          "credibility": "Construir Credibilidade",
+          "credibilityDesc": "Estabelecer confiança com clientes"
+        },
+        "siteDescription": "Descrição Breve",
+        "siteDescriptionPlaceholder": "Descreva seu negócio em algumas frases...",
+        "selectPages": "Selecione as Páginas do Seu Site",
+        "requiredPages": "Obrigatório",
+        "colorPalette": "Escolha uma Paleta de Cores",
+        "designNotes": "Notas de Design",
+        "designNotesPlaceholder": "Algum pedido específico de design?",
+        "referenceSites": "Sites de Referência",
+        "referencePlaceholder": "https://exemplo.com",
+        "addReference": "Adicionar",
+        "businessHours": "Horário de Funcionamento",
+        "socialMedia": "Redes Sociais",
+        "testimonials": "Depoimentos de Clientes",
+        "addTestimonial": "Adicionar Depoimento",
+        "testimonialName": "Nome do Cliente",
+        "testimonialRole": "Cargo/Título",
+        "testimonialText": "Depoimento",
+        "googleReviews": "Link do Google Avaliações",
+        "aboutOwner": "Sobre o Proprietário",
+        "aboutOwnerPlaceholder": "Uma breve bio para a página Sobre...",
+        "yearsInBusiness": "Anos no Mercado",
+        "niches": {
+          "restaurant": "Restaurante / Alimentação",
+          "lawyer": "Advogado / Jurídico",
+          "dentist": "Dentista / Saúde",
+          "realEstate": "Imobiliário",
+          "plumber": "Encanador",
+          "electrician": "Eletricista",
+          "landscaping": "Paisagismo",
+          "cleaning": "Limpeza",
+          "general": "Negócio Geral",
+          "other": "Outro"
+        },
+        "customNiche": "Descreva o Tipo do Seu Negócio",
+        "customNichePlaceholder": "Ex: Pet Shop, Oficina Mecânica, Estúdio de Fotografia",
+        "pages": {
+          "home": "Início",
+          "about": "Sobre Nós",
+          "services": "Serviços",
+          "contact": "Contato",
+          "gallery": "Galeria / Portfólio",
+          "testimonials": "Depoimentos",
+          "faq": "FAQ",
+          "pricing": "Preços",
+          "team": "Nossa Equipe",
+          "blog": "Blog"
+        },
+        "tones": {
+          "professional": "Profissional",
+          "professionalDesc": "Corporativo e confiável",
+          "friendly": "Amigável",
+          "friendlyDesc": "Caloroso e acessível",
+          "premium": "Premium",
+          "premiumDesc": "Luxuoso e exclusivo"
+        },
+        "cta": {
+          "call": "Ligar Agora",
+          "whatsapp": "WhatsApp",
+          "form": "Formulário de Contato",
+          "bookOnline": "Agendar Online"
+        },
+        "emailCheck": {
+          "checking": "Verificando e-mail...",
+          "available": "E-mail disponível",
+          "exists": "Este e-mail já está cadastrado"
+        },
+        "loginModal": {
+          "title": "E-mail Já Cadastrado",
+          "message": "Este e-mail já está associado a uma conta. Por favor, faça login para continuar.",
+          "loginButton": "Fazer Login",
+          "cancelButton": "Usar Outro E-mail"
+        },
+        "errors": {
+          "minPassword": "A senha deve ter pelo menos 8 caracteres",
+          "mismatch": "As senhas não coincidem"
+        },
+        "contract": {
+          "signatureLabel": "Nome Completo para Assinatura Digital *",
+          "signaturePlaceholder": "Digite seu nome legal",
+          "signButton": "Assinar Contrato",
+          "signingDisclaimer": "Ao assinar, você concorda com os termos de serviço e escopo do projeto.",
+          "signedTitle": "Contrato Assinado!",
+          "signedAs": "Assinado como: {name} em {date}",
+          "proceedMessage": "Você pode prosseguir para finalizar seu projeto.",
+          "orderIdError": "ID do pedido não encontrado. Tente voltar ao passo anterior ou atualizar a página.",
+          "nameRequired": "Por favor, digite seu nome completo para assinar"
+        },
+        "fileUpload": {
+          "title": "Envio de Arquivos",
+          "subtitle": "Envie seu logo, imagens ou documentos importantes para o site.",
+          "dropzone": "Arraste e solte arquivos aqui, ou clique para selecionar",
+          "uploading": "Enviando...",
+          "success": "Arquivo enviado com sucesso!",
+          "error": "Erro ao enviar arquivo",
+          "filesUploaded": "Arquivos enviados:",
+          "noFiles": "Nenhum arquivo enviado ainda.",
+          "skip": "Pular esta etapa por enquanto",
+          "logoLabel": "Logo da Empresa",
+          "imagesLabel": "Imagens do Negócio",
+          "docsLabel": "Outros Documentos"
+        },
+        "backHome": "Voltar ao Início"
+      },
+      "navigation": {
+        "previous": "Anterior",
+        "next": "Próximo",
+        "submit": "Enviar e Lançar",
+        "submitting": "Enviando..."
+      },
+      "complete": {
+        "title": "Tudo Pronto!",
+        "subtitle": "Seu onboarding foi concluído",
+        "message": "Nossa equipe começará a trabalhar no seu site imediatamente. Você receberá atualizações por email.",
+        "loadingMessage": "IA iniciando construção do seu site...",
+        "loadingDescription": "Você receberá atualizações por email e pode acompanhar o progresso no dashboard.",
+        "dashboardButton": "Ver Painel do Projeto",
+        "timeline": "Prazo Estimado: 5 dias úteis",
+        "nextSteps": "O que acontece agora?",
+        "step1": "Nossa equipe de design analisa seus requisitos",
+        "step2": "Criamos um mockup personalizado para sua aprovação",
+        "step3": "Após sua aprovação, começamos o desenvolvimento",
+        "step4": "Revisão final e entrega do site"
+      },
+      "dashboard": {
+        "title": "Painel do Projeto",
+        "subtitle": "Acompanhe o progresso do seu site",
+        "timeline": {
+          "title": "Linha do Tempo do Projeto"
+        }
+      }
+    }
+  },
+  "promo": {
+    "hero": {
+      "headline": "Site profissional pronto em 48 horas — $199",
+      "subheadline": "Site de 3 páginas criado para seu negócio. Sem mensalidades.",
+      "cta": "Quero meu site agora",
+      "trust": "Checkout seguro • Sem taxas ocultas",
+      "couponCode": "Cupom (opcional)",
+      "couponPlaceholder": "ex. DESCONTO10"
+    },
+    "included": {
+      "title": "O que está incluído",
+      "item1": "3 páginas (Início, Sobre, Contato)",
+      "item2": "Design responsivo para mobile",
+      "item3": "Hospedagem incluída (3 meses)",
+      "item4": "Domínio incluído (até $15)",
+      "item5": "2 revisões incluídas",
+      "item6": "Entregue em 48 horas*",
+      "note": "* Entrega inicia após envio do formulário."
+    },
+    "howItWorks": {
+      "title": "Como funciona",
+      "step1": "Pague online com segurança",
+      "step2": "Preencha um formulário rápido",
+      "step3": "Receba seu site em 48 horas",
+      "subtitle": "Sem ligações. Sem reuniões. Sem complicação."
+    },
+    "guarantee": {
+      "title": "Não gostou da primeira versão?",
+      "subtitle": "Vamos revisar — ou devolvemos seu dinheiro."
+    },
+    "finalCta": {
+      "button": "Quero meu site agora — $199",
+      "subtitle": "Oferta limitada de lançamento"
+    }
+  },
+  "dashboard": {
+    "header": {
+      "logout": "Sair"
+    },
+    "welcome": {
+      "greeting": "Olá",
+      "subtitle": "Acompanhe o progresso do seu projeto abaixo."
+    },
+    "status": {
+      "label": "Status Atual",
+      "paid": "Pagamento Confirmado",
+      "onboarding": "Aguardando Onboarding",
+      "building": "Em Desenvolvimento",
+      "review": "Pronto para Revisão",
+      "delivered": "Entregue",
+      "delivery": "Entrega prevista"
+    },
+    "business": {
+      "title": "Seu Negócio",
+      "name": "Nome",
+      "location": "Localização",
+      "pending": "Preencha o onboarding para ver as informações"
+    },
+    "order": {
+      "title": "Detalhes do Pedido",
+      "number": "Pedido #",
+      "total": "Valor Total",
+      "revisions": "Revisões Utilizadas"
+    },
+    "success": {
+      "title": "Seu Site Está no Ar! 🎉",
+      "message": "Parabéns! Seu site foi publicado e está pronto para o mundo. Você pode acessá-lo pelo botão abaixo.",
+      "button": "Visitar Meu Site"
+    },
+    "actions": {
+      "title": "Ações Rápidas",
+      "viewPreview": "Ver Prévia",
+      "requestChanges": "Solicitar Alterações",
+      "approveDesign": "Aprovar Design",
+      "contactSupport": "Contatar Suporte"
+    },
+    "support": {
+      "title": "Precisa de Ajuda?",
+      "message": "Nossa equipe está aqui para ajudar.",
+      "email": "Enviar E-mail",
+      "whatsapp": "WhatsApp"
+    },
+    "error": {
+      "title": "Erro ao carregar",
+      "fetch": "Falha ao carregar projeto",
+      "generic": "Erro ao carregar",
+      "notFound": "Projeto não encontrado",
+      "retry": "Fazer login novamente"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Bem-vindo de volta",
+      "subtitle": "Acesse seu portal de cliente para acompanhar o desenvolvimento do seu site.",
+      "emailLabel": "Endereço de E-mail",
+      "emailPlaceholder": "Digite seu e-mail",
+      "passwordLabel": "Senha",
+      "passwordPlaceholder": "Digite sua senha",
+      "forgotPassword": "Esqueceu sua senha?",
+      "submit": "Entrar",
+      "noAccount": "Não tem uma conta?",
+      "getStarted": "Começar agora",
+      "error": {
+        "invalid": "E-mail ou senha inválidos",
+        "generic": "Algo deu errado. Por favor, tente novamente."
+      }
+    },
+    "forgotPassword": {
+      "title": "Recuperar Senha",
+      "subtitle": "Digite seu e-mail e enviaremos um link para você redefinir sua senha.",
+      "emailLabel": "Endereço de E-mail",
+      "emailPlaceholder": "Digite seu e-mail",
+      "submit": "Enviar Link de Recuperação",
+      "backToLogin": "Voltar para o login",
+      "success": "Verifique seu e-mail para o link de recuperação.",
+      "error": "Não conseguimos encontrar uma conta com esse e-mail."
+    },
+    "resetPassword": {
+      "title": "Nova Senha",
+      "subtitle": "Crie uma nova senha para sua conta.",
+      "passwordLabel": "Nova Senha",
+      "passwordPlaceholder": "Pelo menos 8 caracteres",
+      "confirmPasswordLabel": "Confirmar Nova Senha",
+      "confirmPasswordPlaceholder": "Repita sua nova senha",
+      "submit": "Atualizar Senha",
+      "success": "Senha atualizada com sucesso!",
+      "error": "Falha ao redefinir a senha. O link pode estar expirado.",
+      "mismatch": "As senhas não coincidem"
+    },
+    "verifyEmail": {
+      "title": "Verifique sua Caixa de Entrada",
+      "subtitle": "Enviamos um link de verificação para o seu endereço de e-mail.",
+      "resend": "Não recebeu o e-mail?",
+      "resendButton": "Reenviar e-mail de verificação",
+      "success": "E-mail de verificação enviado!",
+      "verified": {
+        "title": "E-mail Verificado!",
+        "subtitle": "Sua conta agora está ativa. Você pode acessar seu portal.",
+        "cta": "Ir para o Portal"
+      }
+    }
+  },
+  "cookies": {
+    "title": "🍪 Usamos Cookies",
+    "description": "Utilizamos cookies para melhorar sua experiência, analisar tráfego e personalizar conteúdo. Você pode gerenciar suas preferências abaixo.",
+    "essential": "Cookies Essenciais",
+    "essentialDesc": "Necessários para funcionamento básico do site",
+    "analytics": "Cookies de Analytics",
+    "analyticsDesc": "Google Analytics para entender como você usa o site",
+    "marketing": "Cookies de Marketing",
+    "marketingDesc": "Meta Pixel e Google Ads para anúncios personalizados",
+    "required": "Obrigatório",
+    "settings": "Configurações",
+    "rejectAll": "Rejeitar Todos",
+    "acceptAll": "Aceitar Todos",
+    "savePreferences": "Salvar Preferências"
+  },
+  "legal": {
+    "terms": {
+      "title": "Termos de Serviço",
+      "lastUpdated": "Última atualização: 30 de Janeiro de 2026",
+      "sections": {
+        "acceptance": {
+          "title": "Aceitação dos Termos",
+          "content": "Ao acessar e usar os serviços da Innexar, você concorda em cumprir estes Termos de Serviço e todas as leis e regulamentos aplicáveis."
+        },
+        "services": {
+          "title": "Serviços Prestados",
+          "content": "A Innexar fornece serviços de desenvolvimento web, SaaS e consultoria digital. Cada projeto está sujeito ao seu contrato específico e aos requisitos de onboarding."
+        },
+        "hosting": {
+          "title": "Hospedagem e Suporte",
+          "content": "Os serviços de hospedagem são prestados conforme especificado no plano de serviço. As taxas de hospedagem e manutenção são recorrentes após o período inicial de teste, conforme detalhado no contrato do projeto."
+        },
+        "intellectualProperty": {
+          "title": "Propriedade Intelectual",
+          "content": "O conteúdo do site e o software desenvolvido para o cliente estão sujeitos aos termos de propriedade definidos no contrato de serviço específico assinado durante o onboarding."
+        },
+        "limitations": {
+          "title": "Limitações de Responsabilidade",
+          "content": "A Innexar não será responsável por quaisquer danos indiretos, incidentais ou consequenciais resultantes do uso ou da incapacidade de usar nossos serviços."
+        },
+        "governingLaw": {
+          "title": "Lei Aplicável",
+          "content": "Estes termos são regidos pelas leis do Estado da Flórida, Estados Unidos, sem levar em conta seus conflitos de disposições legais."
+        }
+      },
+      "footerNote": "Para qualquer dúvida sobre estes termos, entre em contato conosco pelo e-mail sales@innexar.app"
+    },
+    "privacy": {
+      "title": "Política de Privacidade",
+      "lastUpdated": "Última atualização: 30 de Janeiro de 2026",
+      "sections": {
+        "dataCollection": {
+          "title": "Coleta de Dados",
+          "content": "Coletamos informações que você nos fornece diretamente (nome, e-mail, detalhes da empresa) e dados de uso automatizados via cookies para melhorar nossos serviços."
+        },
+        "dataUsage": {
+          "title": "Como Usamos Seus Dados",
+          "content": "Seus dados são usados para prestar serviços, processar pagamentos, comunicar atualizações de projetos e melhorar o desempenho do site."
+        },
+        "dataSharing": {
+          "title": "Compartilhamento de Dados",
+          "content": "Não vendemos seus dados pessoais. Apenas compartilhamos informações com provedores de serviços terceirizados confiáveis (como Stripe ou Dynadot) necessários para realizar nossos serviços."
+        },
+        "cookies": {
+          "title": "Cookies e Rastreamento",
+          "content": "Usamos cookies para personalizar o conteúdo, analisar o tráfego e para fins de marketing. Você pode gerenciar suas preferências através do nosso banner de Consentimento de Cookies."
+        },
+        "security": {
+          "title": "Segurança de Dados",
+          "content": "Implementamos medidas de segurança padrão da indústria para proteger suas informações contra acesso não autorizado, alteração ou divulgação."
+        },
+        "rights": {
+          "title": "Seus Direitos",
+          "content": "Você tem o direito de acessar, corrigir ou excluir seus dados pessoais. Entre em contato conosco para exercer esses direitos."
+        }
+      },
+      "footerNote": "Esta política de privacidade está sujeita a alterações. Por favor, revise-a periodicamente."
+    }
+  },
+  "waas": {
+    "success": {
+      "title": "Pagamento Aprovado! 🎉",
+      "message": "Obrigado por assinar. Recebemos seu pagamento e sua conta está sendo configurada.",
+      "redirectingToPortal": "Redirecionando para o Portal",
+      "portalDesc": "Você será conectado automaticamente ao seu portal de cliente para iniciar o onboarding.",
+      "redirecting": "Redirecionando em",
+      "seconds": "s...",
+      "goToPortal": "Ir para o Portal Agora",
+      "timeline": {
+        "step1": "Pagamento",
+        "step1Desc": "Confirmado",
+        "step2": "Email Enviado",
+        "step2Desc": "Cheque a caixa",
+        "step3": "Acesso ao Portal",
+        "step3Desc": "Auto-login",
+        "step4": "Onboarding",
+        "step4Desc": "Briefing"
+      }
+    }
+  }
+}

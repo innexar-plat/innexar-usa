@@ -1,0 +1,34 @@
+---
+description: Clean architecture and layer separation for the project
+globs: []
+alwaysApply: true
+---
+
+# Architecture Rules
+
+Follow clean architecture.
+
+## Layers
+
+- **Controllers**: validate input, call services, return response only
+- **Services**: all business logic
+- **Repositories**: database queries
+- **Models**: data structures and entities
+
+Business logic must never exist in controllers.
+
+Controllers should only:
+
+- validate input
+- call services
+- return response
+
+Services contain all business logic.
+
+Repositories handle database queries.
+
+Keep modules isolated and reusable.
+
+Never create large monolithic files.
+
+**Maximum file size: 300 lines.**

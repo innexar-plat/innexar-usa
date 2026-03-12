@@ -1,0 +1,22 @@
+---
+description: OWASP-oriented security practices
+globs: ["**/api/**/*", "**/auth/**/*", "**/routers/**/*"]
+alwaysApply: false
+---
+
+# Security — OWASP Awareness
+
+Apply OWASP Top 10 awareness:
+
+- **Injection**: parameterized queries, input validation, least privilege
+- **Broken Auth**: strong session/token handling, no default credentials
+- **Sensitive Data**: encrypt at rest and in transit; minimize exposure
+- **XXE**: disable external entities when parsing XML if not needed
+- **Access Control**: enforce authorization on every request; fail closed
+- **Misconfiguration**: secure defaults; no debug in production
+- **XSS**: encode output; use CSP and safe frameworks
+- **Insecure Deserialization**: avoid deserializing untrusted input
+- **Vulnerable Components**: keep dependencies updated; scan for CVEs
+- **Logging/Monitoring**: log security events; monitor for anomalies
+
+Prefer allowlists over blocklists for input validation.

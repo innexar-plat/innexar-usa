@@ -1,0 +1,30 @@
+---
+description: Python and FastAPI type hints and style
+globs: ["**/*.py"]
+alwaysApply: false
+---
+
+# Language — Python Rules
+
+- **Always use type hints** on function parameters and return values
+- Never return raw `dict` when a Pydantic or dataclass schema exists
+- Use **Pydantic models** for request/response and validation
+- **Structured logging** only; no `print` for production code
+- Standardized error handling: **HTTPException** with consistent payload
+- Follow PEP 8; use **ruff** or **black** for format, **ruff** for lint
+
+Prefer pathlib over os.path. Use async/await where the framework supports it.
+
+Keep functions short and single-purpose; avoid deep nesting.
+
+## Security (Python)
+- Do not use user input in file paths; validate and use pathlib with directory containment check
+- Never use eval(), exec(), or compile() on user-controllable input
+- Use hmac.compare_digest() for comparing secrets (tokens, passwords) to prevent timing attacks
+- Do not log passwords, tokens, API keys, or PII
+- Avoid subprocess/os.system with user input; use parameterized APIs if needed
+- Escape output in web contexts (HTML, JSON, CLI)
+- No hardcoded secrets; use environment variables or secure config
+- Avoid __import__() or importlib with dynamic/user-controlled values
+- Do not use pickle with untrusted data; use json or Pydantic for structured exchange
+- Use strict type checks in security logic; avoid implicit truthiness

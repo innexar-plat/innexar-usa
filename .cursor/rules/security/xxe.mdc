@@ -1,0 +1,28 @@
+---
+description: XXE prevention — disable DTDs and external entities in XML parsing
+globs: ["**/*.py", "**/*.xml", "**/parsers/**/*"]
+alwaysApply: false
+---
+
+# XXE Prevention
+
+Source: cursor-security-rules. Applies to all code that parses or processes XML.
+
+## 1. Disable DTDs and External Entities
+- XML parsers must have DTDs disabled and must not resolve external entities.
+- Use safe libraries (e.g. defusedxml in Python, secure processing features in Java).
+
+## 2. Use Secure Parser Features / Libraries
+- Choose parsers with XXE protection by default; verify that external DTDs and entities are disallowed.
+
+## 3. Restrict Schema and XInclude
+- Do not allow remote or file-based schema/XInclude/XSLT on untrusted XML unless sandboxed.
+
+## 4. Limit Resource Consumption
+- Configure limits (size, entity expansion depth, timeouts) to prevent Billion Laughs / DoS.
+
+## 5. Validate Input
+- Validate XML against a known schema or allow-list; reject malformed or unexpected content.
+
+## 6. Do Not Log Sensitive XML
+- Do not log raw XML that may contain credentials or PII.

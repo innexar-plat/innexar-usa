@@ -1,0 +1,53 @@
+---
+description: Gitflow — branches, commits, PRs, semantic versioning
+globs: [".github/**/*", "**/.git*"]
+alwaysApply: false
+---
+
+# Gitflow Workflow Rules
+
+Source: Awesome Cursor Rules (rules-new/gitflow.mdc).
+
+## Main Branches
+
+### main (or master)
+- Contains production-ready code
+- Never commit directly to main
+- Only accepts merges from hotfix/* and release/*
+- Must be tagged with version number after each merge
+
+### develop
+- Main development branch
+- Source branch for feature branches
+- Never commit directly to develop
+
+## Supporting Branches
+
+### feature/*
+- Branch from: develop. Merge back into: develop
+- Naming: feature/[issue-id]-descriptive-name (e.g. feature/123-user-authentication)
+- Delete after merge
+
+### release/*
+- Branch from: develop. Merge into: main and develop
+- Naming: release/vX.Y.Z. Only bug fixes and release tasks; no new features
+
+### hotfix/*
+- Branch from: main. Merge into: main and develop
+- Naming: hotfix/vX.Y.Z. Only for urgent production fixes
+
+## Commit Messages
+- Format: `type(scope): description`
+- Types: feat, fix, docs, style, refactor, test, chore
+
+## Semantic Versioning
+- MAJOR: incompatible API changes
+- MINOR: backwards-compatible functionality
+- PATCH: backwards-compatible bug fixes
+
+## Pull Request Rules
+1. All changes via Pull Requests
+2. CI checks must pass
+3. No direct commits to protected branches
+4. Branch must be up to date before merging
+5. Delete branch after merge

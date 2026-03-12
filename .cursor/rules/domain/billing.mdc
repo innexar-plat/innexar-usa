@@ -1,0 +1,18 @@
+---
+description: Billing and payments (e.g. Stripe)
+globs: ["**/billing/**/*", "**/payment*/**/*", "**/stripe/**/*", "**/subscription*/**/*"]
+alwaysApply: false
+---
+
+# Domain — Billing Rules
+
+- Use **idempotency keys** for payment and subscription operations
+- Never log full card or payment method details
+- Validate webhook signatures (e.g. Stripe) before processing
+- Store only safe identifiers (customer_id, subscription_id); no raw card data
+- Handle subscription lifecycle (created, updated, canceled, past_due) explicitly
+- Use environment variables for API keys; never commit
+
+Keep billing logic in a dedicated service; do not mix with generic CRUD.
+
+Test with provider test mode and webhook fixtures.

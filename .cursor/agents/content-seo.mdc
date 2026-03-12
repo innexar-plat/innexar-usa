@@ -1,0 +1,257 @@
+---
+description: Content SEO rules — activated when writing, editing, or reviewing blog posts, articles, landing pages, product descriptions, or any content where keyword optimization and readability matter.
+globs: ["**/*.md", "**/*.mdx", "**/content/**", "**/posts/**", "**/articles/**", "**/blog/**", "**/pages/**/*.tsx", "**/pages/**/*.jsx"]
+alwaysApply: false
+---
+
+# ✍️ Content SEO Rules
+
+## Content Brief Template
+
+When creating or reviewing content, always generate a brief:
+
+```markdown
+## Content Brief: {Title}
+
+**Target URL**: /path/to/page/
+**Primary Keyword**: {keyword} ({monthly searches} searches/mo)
+**Secondary Keywords**: {kw1}, {kw2}, {kw3}
+**Search Intent**: Informational / Commercial / Transactional
+**Content Type**: Guide / List / Review / Landing Page / Product
+**Target Word Count**: {number} (based on top 3 competitors avg)
+
+**SERP Features to Target**:
+- [ ] Featured Snippet (answer box)
+- [ ] People Also Ask
+- [ ] Image Pack
+- [ ] Video Carousel
+- [ ] Local Pack
+
+**Content Outline**:
+H1: {Primary keyword + modifier}
+  H2: {Main section 1}
+    H3: {Subsection}
+  H2: {Main section 2}
+  H2: FAQ (for PAA keywords)
+
+**Internal Links TO add**: {related pages to link to}
+**Internal Links FROM**: {pages that should link here}
+**CTA**: {primary conversion goal}
+```
+
+## Heading Hierarchy Rules
+
+```markdown
+<!-- ✅ Correct -->
+# Primary Keyword: Complete Guide (H1 — one per page)
+## What is {Topic}? (H2 — main sections)
+### Types of {Topic} (H3 — subsections)
+#### Specific Type Details (H4 — rarely needed)
+
+<!-- ❌ Wrong -->
+# Title
+### Skipped H2 (never skip levels)
+## Back to H2
+# Another H1 (never use multiple H1s)
+```
+
+**H1 Rules**:
+- Exactly ONE per page
+- Contains primary keyword (naturally)
+- Under 60 characters ideally
+- Matches or closely mirrors title tag
+- Compelling to humans, not just keyword-stuffed
+
+**H2 Rules**:
+- Use for major sections
+- Include secondary/related keywords naturally
+- Questions make great H2s (target PAA)
+- Minimum 300 words of content per H2
+
+## URL Structure
+
+```
+✅ Good URLs:
+/pilates-studio/
+/pilates-studio/mat-pilates-classes/
+/blog/pilates-benefits-for-back-pain/
+
+❌ Bad URLs:
+/page?id=123
+/pilates-studio/page1/subpage2/category/article-name/
+/PILATES-STUDIO/ (uppercase)
+/pilates_studio/ (underscores)
+/pilates-studio-best-pilates-studio-classes/ (keyword stuffing)
+```
+
+**URL Rules**:
+- Use hyphens (-) not underscores (_)
+- Lowercase only
+- Short and descriptive (3–5 words max)
+- Include primary keyword
+- No stop words unless needed for clarity
+- End with slash for consistency (pick one and stick to it)
+- Avoid dates in URLs for evergreen content
+
+## Image SEO
+
+```html
+<!-- ✅ Optimized image -->
+<img 
+  src="/images/pilates-reformer-class-beginner.webp"
+  alt="Beginner Pilates Reformer class at Lumina Studio with instructor"
+  title="Pilates Reformer for Beginners"
+  width="800" 
+  height="533"
+  loading="lazy"        <!-- lazy for below-fold, eager for above-fold -->
+  decoding="async"
+  srcset="/images/pilates-reformer-400.webp 400w,
+          /images/pilates-reformer-800.webp 800w,
+          /images/pilates-reformer-1200.webp 1200w"
+  sizes="(max-width: 768px) 100vw, 800px"
+>
+
+<!-- ❌ Bad image SEO -->
+<img src="/img/IMG_20240115_001.jpg" alt="image">
+```
+
+**Image Optimization Checklist**:
+- [ ] Descriptive filename (keyword-phrase.webp)
+- [ ] Alt text describes image + includes keyword when natural
+- [ ] WebP or AVIF format (fallback JPG/PNG)
+- [ ] Compressed (use Squoosh, TinyPNG, or imagemin)
+- [ ] Explicit width and height (prevents CLS)
+- [ ] Lazy load below fold, eager load above fold
+- [ ] Responsive srcset for different viewports
+
+## Internal Linking Strategy
+
+### Hub and Spoke Model
+```
+Pillar Page: "Complete Pilates Guide"
+├── Spoke: "Mat Pilates for Beginners"
+├── Spoke: "Pilates Equipment Explained"
+├── Spoke: "Pilates Benefits for Back Pain"
+├── Spoke: "Prenatal Pilates Guide"
+└── Spoke: "Pilates vs Yoga Comparison"
+
+All spokes link BACK to pillar.
+Pillar links OUT to all spokes.
+Spokes cross-link to related spokes.
+```
+
+### Anchor Text Rules
+```
+✅ Good anchor text:
+- Descriptive: "learn more about mat pilates classes"
+- Keyword-rich: "pilates exercises for back pain"
+- Natural: "as we covered in our Reformer guide"
+
+❌ Bad anchor text:
+- Generic: "click here", "read more", "this article"
+- Over-optimized: "best pilates studio classes near me cheap"
+- Bare URL: "https://example.com/pilates/"
+```
+
+## E-E-A-T Signals
+
+Incorporate these to improve trustworthiness:
+
+### Experience
+```markdown
+- First-person accounts: "In our studio, we've seen..."
+- Original photos and videos (not stock)
+- Case studies with real client stories
+- Personal testing and results
+```
+
+### Expertise
+```markdown
+- Author bio with credentials and photo
+- Sources cited (studies, .gov, .edu, authoritative sites)
+- Accurate, detailed information
+- Technical depth appropriate to audience
+- Regular content updates with dates
+```
+
+### Authoritativeness
+```markdown
+- External links to and from authority sites
+- Expert quotes and interviews
+- Industry awards and certifications mentioned
+- Press coverage and mentions
+- Verified business information
+```
+
+### Trustworthiness
+```markdown
+- HTTPS everywhere
+- Privacy policy, terms of service
+- About page with team and contact info
+- Clear editorial guidelines
+- No misleading claims
+- Medical/legal content reviewed by professionals
+```
+
+## Readability Standards
+
+```
+Flesch-Kincaid Grade Level:
+- General audience: 6–8
+- Technical/B2B: 8–12
+- Academic: 12+
+
+Sentence Rules:
+- Average: 15–20 words
+- Max: 30 words before breaking
+- Variety: mix short punchy sentences with longer ones
+
+Paragraph Rules:
+- Max 3–4 sentences for web content
+- One idea per paragraph
+- White space is your friend
+
+Formatting for Scan-Ability:
+- Use bullet points for 3+ items
+- Bold key terms and takeaways
+- Use tables for comparisons
+- Add TL;DR at the top for long posts
+- Include a table of contents for 1500+ word articles
+```
+
+## Content Freshness Strategy
+
+```markdown
+## When to Update Content
+- Traffic drops 20%+ over 3 months
+- Rankings slip for target keywords
+- Factual information becomes outdated
+- Competitor content is more comprehensive
+- Statistics/data are older than 2 years
+
+## How to Update
+1. Add "Last Updated: {Date}" to front matter/post
+2. Update statistics and outdated facts
+3. Add new sections for topics competitors cover
+4. Improve existing sections with more depth
+5. Add new internal links to recent content
+6. Update meta description if CTR is low
+7. Submit to Google via GSC URL Inspection
+
+## Front Matter Template (MDX/Markdown)
+---
+title: "Complete Guide to Pilates for Beginners (2025)"
+description: "Learn pilates from scratch with our step-by-step beginner guide. Discover benefits, exercises, and tips from certified instructors."
+date: 2024-01-15
+updated: 2025-03-10
+author: "Ana Paula Ferreira"
+authorUrl: "/team/ana-paula/"
+category: "Pilates Guides"
+tags: ["pilates", "beginners", "workout", "flexibility"]
+image: "/images/pilates-beginners-guide.webp"
+imageAlt: "Beginner doing pilates mat exercise"
+canonical: "https://example.com/pilates-beginners-guide/"
+schema: "HowTo"    # or Article, FAQPage, etc.
+noindex: false
+---
+```

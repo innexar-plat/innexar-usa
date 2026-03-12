@@ -1,0 +1,95 @@
+# Configuração Nginx para Innexar Website
+# Copie este arquivo para /etc/nginx/sites-available/innexar
+# e crie um link simbólico em /etc/nginx/sites-enabled/
+
+# Redirecionamento HTTP para HTTPS (opcional)
+server {
+    listen 80;
+    server_name innexar.com www.innexar.com;
+    
+    # Redireciona para HTTPS
+    return 301 https://$server_name$request_uri;
+}
+
+# Configuração HTTPS
+server {
+    listen 443 ssl http2;
+    server_name innexar.com www.innexar.com;
+
+    # Certificados SSL (ajuste os caminhos)
+    ssl_certificate /etc/letsencrypt/live/innexar.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/innexar.com/privkey.pem;
+    
+    # Configurações SSL recomendadas
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+
+    # Logs
+    access_log /var/log/nginx/innexar-access.log;
+    error_log /var/log/nginx/innexar-error.log;
+
+    # Tamanho máximo de upload
+    client_max_body_size 10M;
+
+    # Proxy para aplicação Next.js
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        
+        # Headers importantes
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # Cache bypass
+        proxy_cache_bypass $http_upgrade;
+        
+        # Timeouts
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+    }
+
+    # Cache para arquivos estáticos
+    location /_next/static {
+        proxy_pass http://localhost:3000;
+        proxy_cache_valid 200 60m;
+        add_header Cache-Control "public, immutable";
+    }
+
+    # Cache para imagens
+    location ~* \.(jpg|jpeg|png|gif|ico|svg|webp)$ {
+        proxy_pass http://localhost:3000;
+        proxy_cache_valid 200 30d;
+        add_header Cache-Control "public, immutable";
+        expires 30d;
+    }
+}
+
+# Configuração apenas HTTP (sem SSL) - use apenas para desenvolvimento
+# server {
+#     listen 80;
+#     server_name innexar.com www.innexar.com;
+#
+#     access_log /var/log/nginx/innexar-access.log;
+#     error_log /var/log/nginx/innexar-error.log;
+#
+#     location / {
+#         proxy_pass http://localhost:3000;
+#         proxy_http_version 1.1;
+#         proxy_set_header Upgrade $http_upgrade;
+#         proxy_set_header Connection 'upgrade';
+#         proxy_set_header Host $host;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#         proxy_set_header X-Forwarded-Proto $scheme;
+#         proxy_cache_bypass $http_upgrade;
+#     }
+# }
+

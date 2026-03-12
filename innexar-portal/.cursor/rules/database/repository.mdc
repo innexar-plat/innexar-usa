@@ -1,0 +1,18 @@
+---
+description: Repository pattern for data access
+globs: ["**/repositories/**/*", "**/repository*.py", "**/repos/**/*"]
+alwaysApply: false
+---
+
+# Database — Repository Rules
+
+Use the **repository pattern** for database access.
+
+- One repository per aggregate or main entity
+- Repositories return domain objects or DTOs; hide ORM details from services
+- No business logic in repositories; only queries and persistence
+- Prefer methods like `get_by_id`, `list`, `add`, `update`, `delete` with clear signatures
+
+Controllers and services must not access the database directly; they use repositories.
+
+Avoid N+1: expose batch methods or use joins/select_related when needed.

@@ -1,0 +1,22 @@
+---
+description: Path traversal prevention — never use user input in file paths
+globs: ["**/*.py", "**/*.ts", "**/*.js", "**/uploads/**/*", "**/files/**/*"]
+alwaysApply: false
+---
+
+# Path Traversal Prevention
+
+Source: cursor-security-rules. Never use raw user input to construct file paths.
+
+## Rule: No User Input in File Paths
+- Validate filename format (e.g. allow only `[a-zA-Z0-9._-]+`)
+- Use pathlib (Python) or path.resolve() + path.join() (Node); then ensure resolved path is within intended directory
+- **Check:** `str(file_path.resolve()).startswith(str(base_dir.resolve()))` (Python) or equivalent
+
+## Safe Patterns
+- Use allow-list of allowed filenames when possible
+- For uploads: generate safe filenames (e.g. UUID + extension); do not trust user-provided filenames
+- Block `..` and path separators in input; be aware of encoding bypasses (`%2e%2e%2f`)
+
+## Common Payloads to Block
+- `../../../etc/passwd`, `..\..\..\windows\...`, `....//....//etc/passwd`, URL-encoded variants

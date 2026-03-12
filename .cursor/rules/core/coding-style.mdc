@@ -1,0 +1,25 @@
+---
+description: Code quality and readability standards
+globs: []
+alwaysApply: true
+---
+
+# Code Quality Rules
+
+Always write clean, readable code.
+
+- Use descriptive variable names
+- Avoid deeply nested logic
+- Break complex functions into smaller functions
+- **Maximum function size: 40 lines**
+- Prefer composition over inheritance
+- Avoid duplicated code
+- Add comments to explain complex logic only
+- Use consistent naming conventions
+
+## Naming
+
+- Variables/functions: camelCase
+- Constants: SCREAMING_SNAKE_CASE
+- Types/classes: PascalCase
+- Files/directories: kebab-case

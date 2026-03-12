@@ -1,0 +1,24 @@
+---
+description: Reusable UI components and structure
+globs: ["**/components/**/*", "**/ui/**/*"]
+alwaysApply: false
+---
+
+# Frontend — Components Rules
+
+Keep components **small and reusable**.
+
+- Maximum component size: 200 lines
+- One main responsibility per component
+- Props: explicit types; required first, optional last
+- Compose small components instead of large monolithic ones
+
+Folder structure:
+
+- `components/` — feature or layout components
+- `ui/` or `components/ui/` — generic, reusable UI primitives
+- `hooks/` — custom hooks
+- `services/` — API clients and external calls
+- `utils/` — pure helpers
+
+Separate UI components from business logic.

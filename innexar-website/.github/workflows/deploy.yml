@@ -1,0 +1,125 @@
+name: Deploy Innexar Website
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint || true
+
+      - name: Build application
+        run: npm run build
+        env:
+          # Build-time env vars
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=sha,prefix=
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build and push Docker image
+        if: github.event_name != 'pull_request'
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    
+    steps:
+      - name: Deploy to Production Server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /opt/innexar-website
+            
+            # Login to GitHub Container Registry
+            echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u viniciussvasques --password-stdin
+            
+            # Pull the latest image
+            docker pull ghcr.io/${{ github.repository }}:latest
+            
+            # Stop and remove old container
+            docker stop innexar-website || true
+            docker rm innexar-website || true
+            
+            # Start new container connected to fixelo network (where Traefik runs)
+            docker run -d \
+              --name innexar-website \
+              --restart unless-stopped \
+              --network fixelo_fixelo-network \
+              -e NODE_ENV=production \
+              -e PORT=3000 \
+              -e NEXT_TELEMETRY_DISABLED=1 \
+              -e CRM_API_URL=http://crm-backend:8000/api \
+              -e SMTP_HOST=my.mailbux.com \
+              -e SMTP_PORT=587 \
+              -e SMTP_SECURE=false \
+              -e SMTP_USER=no-reply@innexar.app \
+              -e SMTP_PASSWORD='${{ secrets.SMTP_PASSWORD }}' \
+              -e SMTP_FROM_EMAIL=no-reply@innexar.app \
+              -e CONTACT_RECIPIENT_EMAIL=sales@innexar.app \
+              -e ENABLE_AUTO_REPLY=true \
+              -l "traefik.enable=true" \
+              -l "traefik.http.routers.innexar.rule=Host(\`innexar.app\`) || Host(\`www.innexar.app\`)" \
+              -l "traefik.http.routers.innexar.entrypoints=websecure" \
+              -l "traefik.http.routers.innexar.tls.certresolver=cloudflare" \
+              -l "traefik.http.services.innexar-service.loadbalancer.server.port=3000" \
+              -l "traefik.http.routers.innexar.service=innexar-service" \
+              ghcr.io/${{ github.repository }}:latest
+            
+            # Cleanup old images
+            docker image prune -f

@@ -1,0 +1,16 @@
+---
+description: Tailwind CSS usage and styling
+globs: ["**/*.tsx", "**/*.jsx", "**/*.css"]
+alwaysApply: false
+---
+
+# Frontend — Tailwind Rules
+
+Use **Tailwind CSS** for styling.
+
+- Prefer utility classes over custom CSS
+- Avoid inline styles; use Tailwind classes
+- Use design tokens (e.g. theme colors, spacing) from tailwind.config
+- Keep responsive breakpoints consistent (sm, md, lg, xl)
+
+Extract repeated class strings into components or constants when they grow long.

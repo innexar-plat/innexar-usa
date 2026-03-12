@@ -1,0 +1,20 @@
+{
+  "workspace": {
+    "title": "Workspace Innexar",
+    "login": "Iniciar sesión",
+    "logout": "Salir",
+    "dashboard": "Panel",
+    "customers": "Clientes",
+    "contacts": "Contactos",
+    "projects": "Proyectos",
+    "support": "Soporte",
+    "billing": "Facturación",
+    "invoices": "Facturas",
+    "products": "Productos",
+    "pricePlans": "Planes de precios",
+    "hestia": "Hestia",
+    "config": "Configuración",
+    "integrations": "Integraciones",
+    "account": "Cuenta"
+  }
+}

@@ -1,0 +1,32 @@
+---
+description: Secure SQL — parameterized queries, no injection
+globs: ["**/*.py", "**/*.ts", "**/*.js", "**/repositories/**/*", "**/db/**/*"]
+alwaysApply: false
+---
+
+# Secure SQL Usage
+
+Source: cursor-security-rules (matank001/Deadly244). Applies to all code that interacts with SQL databases.
+
+## 1. Always Use Parameterized Queries
+- Never concatenate or interpolate user input into SQL. Use parameterized queries or prepared statements.
+- **Unsafe (Python):** `cursor.execute(f"SELECT * FROM users WHERE username = '{username}'")`
+- **Safe (Python):** `cursor.execute("SELECT * FROM users WHERE username = ?", (username,))`
+
+## 2. Validate and Sanitize All Input
+- Validate type, length, and format. Prefer allow-lists.
+
+## 3. Avoid Dynamic SQL
+- Do not build table or column names from user input unless unavoidable; then strictly allow-list.
+
+## 4. Least Privilege
+- Use database accounts with minimum required privileges. Never use admin for application queries.
+
+## 5. Do Not Expose Database Errors to Users
+- Log errors securely; return generic messages to clients.
+
+## 6. No Plaintext Sensitive Data
+- Do not store passwords or tokens in plaintext. Use strong salted hashing and encryption.
+
+## 7. Close Connections
+- Always close connections and cursors to avoid leaks.

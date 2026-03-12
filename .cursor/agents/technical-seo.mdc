@@ -1,0 +1,260 @@
+---
+description: Technical SEO rules — activated when working with robots.txt, sitemaps, .htaccess, nginx config, next.config.js, redirects, canonical tags, hreflang, structured data files, or any server/infrastructure configuration with SEO implications.
+globs: ["**/robots.txt", "**/sitemap*.xml", "**/.htaccess", "**/nginx.conf", "**/next.config.*", "**/gatsby-config.*", "**/nuxt.config.*", "**/vercel.json", "**/netlify.toml", "**/_redirects", "**/schema*.json", "**/structured-data*"]
+alwaysApply: false
+---
+
+# ⚙️ Technical SEO Rules
+
+## robots.txt Best Practices
+
+```
+# Correct structure
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /*?*           # Block URL parameters (careful!)
+Allow: /api/public/      # Allow exceptions
+
+# Always reference sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://yourdomain.com/sitemap-news.xml
+
+# Googlebot specific rules
+User-agent: Googlebot
+Crawl-delay: 1           # Only if needed (avoid — slows Googlebot)
+```
+
+⚠️ **Never disallow**:
+- CSS files (`/wp-content/themes/`)
+- JavaScript files (`/static/js/`)
+- Core pages unless intentionally private
+- Image directories (unless thin content)
+
+## Sitemap Standards
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <url>
+    <loc>https://example.com/page/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>   <!-- Optional hint, Google may ignore -->
+    <priority>0.8</priority>           <!-- Optional hint, Google may ignore -->
+    <image:image>
+      <image:loc>https://example.com/image.jpg</image:loc>
+      <image:title>Descriptive image title</image:title>
+    </image:image>
+  </url>
+</urlset>
+```
+
+**Sitemap Rules**:
+- Max 50,000 URLs or 50MB per sitemap file
+- Use sitemap index for large sites
+- Only include canonical, indexable URLs (200 status)
+- Exclude noindex pages, paginated pages (unless using proper canonical)
+- Update `<lastmod>` only when content actually changed
+
+## Redirect Rules
+
+### Apache (.htaccess)
+```apache
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force www (choose ONE)
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force non-www (choose ONE)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# Trailing slash consistency
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*[^/])$ /$1/ [L,R=301]
+
+# Custom page redirect
+Redirect 301 /old-page/ https://example.com/new-page/
+```
+
+### Nginx
+```nginx
+# Force HTTPS
+server {
+    listen 80;
+    server_name example.com www.example.com;
+    return 301 https://example.com$request_uri;
+}
+
+# Force non-www
+server {
+    listen 443 ssl;
+    server_name www.example.com;
+    return 301 https://example.com$request_uri;
+}
+```
+
+### Next.js (next.config.js)
+```javascript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/old-page',
+        destination: '/new-page',
+        permanent: true,  // 308 (use for SEO — preserves method)
+      },
+      {
+        source: '/blog/:slug',
+        destination: '/articles/:slug',
+        permanent: true,
+      },
+    ]
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'index, follow' },
+        ],
+      },
+    ]
+  },
+}
+```
+
+## Canonical Tag Rules
+
+```html
+<!-- Self-referencing canonical (always include) -->
+<link rel="canonical" href="https://example.com/exact-page-url/">
+
+<!-- For paginated series — point to self, NOT page 1 -->
+<!-- Page 2 canonical = page 2 URL (not page 1) -->
+<link rel="canonical" href="https://example.com/category/page/2/">
+
+<!-- Cross-domain canonical (content syndication) -->
+<link rel="canonical" href="https://original-source.com/article/">
+
+<!-- AMP pages point to canonical HTML -->
+<link rel="canonical" href="https://example.com/article/">
+```
+
+⚠️ **Canonical Pitfalls**:
+- Never point canonical to a 404 or redirected page
+- Never have canonical chains (A→B→C, just use A→C)
+- Canonical must use the same protocol (https)
+- Use absolute URLs, not relative
+
+## Hreflang Implementation
+
+```html
+<!-- In <head> of every language version -->
+<link rel="alternate" hreflang="en" href="https://example.com/en/page/">
+<link rel="alternate" hreflang="pt-BR" href="https://example.com/pt/page/">
+<link rel="alternate" hreflang="es" href="https://example.com/es/page/">
+<link rel="alternate" hreflang="x-default" href="https://example.com/en/page/">
+```
+
+**Hreflang Rules**:
+- Every page must reference itself
+- Every page must reference all other language versions
+- Use `x-default` for language selector or primary language
+- Hreflang must be reciprocal (A points to B, B points to A)
+- Use language-region codes: `en-US`, `pt-BR`, `es-MX`
+
+## Core Web Vitals — Code Fixes
+
+### LCP Optimization
+```html
+<!-- Preload LCP image -->
+<link rel="preload" as="image" href="/hero-image.webp" 
+      imagesrcset="/hero-320.webp 320w, /hero-640.webp 640w, /hero-1280.webp 1280w"
+      imagesizes="100vw">
+
+<!-- LCP image — never lazy load -->
+<img src="/hero-image.webp" 
+     alt="Descriptive alt text"
+     width="1280" height="720"
+     fetchpriority="high"
+     loading="eager">
+```
+
+### CLS Prevention
+```css
+/* Always specify aspect ratio for images/videos */
+img, video {
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: auto;
+}
+
+/* Reserve space for ads/embeds */
+.ad-container {
+  min-height: 250px;
+  content-visibility: auto;
+}
+
+/* Avoid layout shifts from fonts */
+@font-face {
+  font-family: 'MyFont';
+  src: url('/fonts/myfont.woff2') format('woff2');
+  font-display: swap;    /* or 'optional' for critical fonts */
+  size-adjust: 105%;     /* Match fallback font metrics */
+}
+```
+
+### INP Optimization
+```javascript
+// Break up long tasks
+function processLargeDataset(data) {
+  return new Promise(resolve => {
+    const chunks = chunkArray(data, 50);
+    let index = 0;
+    
+    function processChunk() {
+      const chunk = chunks[index++];
+      // process chunk
+      
+      if (index < chunks.length) {
+        // Yield to browser between chunks
+        setTimeout(processChunk, 0);
+      } else {
+        resolve();
+      }
+    }
+    processChunk();
+  });
+}
+
+// Defer non-critical JavaScript
+document.addEventListener('DOMContentLoaded', () => {
+  // Load analytics after user interaction
+  document.addEventListener('click', loadAnalytics, { once: true });
+  document.addEventListener('scroll', loadAnalytics, { once: true });
+});
+```
+
+## Structured Data Validation
+
+After implementing schema, always validate with:
+1. **Google Rich Results Test**: https://search.google.com/test/rich-results
+2. **Schema.org Validator**: https://validator.schema.org
+3. **GSC Rich Results report**: Search Console > Enhancements
+
+Common Schema errors to avoid:
+- Missing required properties (check schema.org docs for each type)
+- Invalid date formats (use ISO 8601: `2025-01-15T10:30:00+00:00`)
+- Nested schemas not properly connected
+- Image URLs returning 404
+- Price without currency
+- Review without `itemReviewed`

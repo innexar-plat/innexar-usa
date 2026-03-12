@@ -1,0 +1,14 @@
+---
+description: Testing — unit tests, regression tests, coverage
+globs: ["**/*.test.*", "**/*.spec.*", "**/tests/**/*", "**/test_*.py"]
+alwaysApply: false
+---
+
+# Testing Rules
+
+- Every new feature must include automated tests; every bug fix must include a failing test first (regression)
+- Prefer unit tests for business logic; integration tests for APIs and flows
+- Use project stack: pytest (Python), React Testing Library / Jest (frontend), etc.
+- Test edge cases and error conditions; keep tests readable and maintainable
+- If something cannot be tested, justify in PR with mitigation plan
+- Run test suite before PR and in CI; no merge with failing tests

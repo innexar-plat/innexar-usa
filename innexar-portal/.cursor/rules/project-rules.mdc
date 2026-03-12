@@ -1,0 +1,169 @@
+---
+description: Level 2 — Innexar project rules (stack, architecture, domain)
+globs: []
+alwaysApply: true
+version: "1.0.0"
+---
+
+# Project Rules (Level 2)
+
+Rules that define **this project**: stack, architecture, API patterns, domain (SaaS, billing, auth), and operations.
+
+---
+
+## Delivery sequence (mandatory flow)
+
+Follow **this order** for any change that affects code, env, Docker, or config. Do not skip steps; do not merge or deliver without container validation when applicable.
+
+| # | Step | Action |
+|---|--------|------|
+| 1 | **Plan** | Understand objective, requirements, impact (backend, frontend, DB, infra). Check existing patterns and code. |
+| 2 | **Implement** | Develop following project architecture and rules. Minimal necessary change. |
+| 3 | **Tests** | New module/feature: create test coverage alongside. When editing or adding code: always add or update tests. Run local suite (`pytest`, `npm test`, etc.). Bug fix: failing test first, then fix. |
+| 4 | **Lint and format** | Run lint and format (`ruff`/`black`, `eslint`/`prettier`) and fix. PR with failing lint is not accepted. |
+| 5 | **Build / typecheck** | Frontend: `npm run build` and typecheck. Backend: compile/validate if applicable. No container build without successful local build. |
+| 6 | **Commit** | Clear messages; format `type(scope): description` (feat, fix, docs, refactor, test, chore). Small, focused commits. |
+| 7 | **Push** | Push to remote (feature/fix branch). |
+| 8 | **Container build** | If the change affects a containerized app: build the image (`docker build` or `docker compose build`). |
+| 9 | **Bring up / recreate containers** | In the service directory: `docker compose up -d --force-recreate` (or equivalent). Do not stop at editing the file. |
+| 10 | **Check logs** | `docker compose logs -f --tail=50` or `docker logs <container> --tail=100`. Confirm the service started without error. |
+| 11 | **Validate flow** | Test the main flow inside the container (login, endpoint, screen). No delivery without this validation when it is a containerized app. |
+| 12 | **Delivery (PR)** | Open PR with: context, what changed, how to test, risks and mitigation, checklist (patterns, tests, lint, build, manual validation, doc if needed). |
+
+**One-line summary:** plan → implement → tests → lint → build → commit → push → build container → up → logs → validate flow → PR.
+
+---
+
+## Project stack
+
+- **Frontend:** React, Next.js, TypeScript, Tailwind CSS.
+- **Backend:** FastAPI (Python), Pydantic, type hints required.
+- **Database:** PostgreSQL; ORM/query builder; repositories.
+- **Infra:** Docker; CI/CD; environment variables for config and secrets.
+
+---
+
+## Structure and organization (folders)
+
+- **Everything in its proper folder:** no loose files at project root or in generic locations. Every artifact must have a defined place in the structure.
+- **Backend (e.g. FastAPI):** organize by domain or layer: `api/` or `routers/`, `services/`, `repositories/`, `models/`, `schemas/`, `core/` (config, deps), `tests/`. Config in `config/` or via env; do not leave business modules at root.
+- **Frontend:** `app/` or `pages/`, `components/` (subfolders by feature or type: `ui/`, `forms/`, etc.), `hooks/`, `services/`, `lib/` or `utils/`, `styles/`, `types/`. Assets in `public/` or dedicated folder; nothing loose next to code.
+- **Infra / DevOps:** `Dockerfile` and `docker-compose*.yml` in the service directory or in `infra/`/`docker/`; CI in `.github/workflows/` or `ci/`; deploy scripts in a defined folder (e.g. `scripts/`), not at root.
+- **Rules and config:** `.cursor/rules/` for rules; tool configs (ESLint, Prettier, Ruff, etc.) at root or in `config/` when it makes sense; `.env.example` at root, never `.env` with secrets.
+- **Golden rule:** when creating a new file, ask “which folder?”; if no suitable folder exists, define one and document it in the project structure. No permanent “temporary” or loose files.
+
+---
+
+## Architecture (detailed)
+
+- **Controllers/Routers:** validate input (Pydantic); call services; return response. No business logic or direct DB access.
+- **Services:** one service layer per domain; call repositories; return DTOs/domain objects; no raw HTTP or SQL.
+- **Repositories:** one repository per aggregate/main entity; clear methods (get_by_id, list, add, update, delete); avoid N+1 (batch/joins).
+- **Models:** data structures and entities; Pydantic for API request/response.
+- No controller/service accesses the database directly; always via repositories.
+
+---
+
+## API
+
+- **Standardized responses**, e.g. `{ "success": true, "data": {}, "error": null }`.
+- **Do not** expose internal errors or stack traces to the client.
+- **Always** validate input at endpoints; use async when it makes sense.
+- Secrets and config via **environment variables**; never hardcoded.
+
+---
+
+## Tests
+
+- **New module/feature:** when **creating** a module or feature, **create automated test coverage** at the same time (do not leave tests for later). Each new module/feature must be born with its tests (unit and/or integration as appropriate).
+- **Editing or adding something:** whenever you **edit** existing code or **add** new behavior, **add or update the corresponding tests**. Do not commit behavior changes without a test that covers them.
+- **Bug fix:** regression test required (failing test first, then fix).
+- **Scope:** unit tests for business logic; integration for APIs and flows. Cover edge cases and errors; readable tests.
+- **Stack:** pytest (Python), React Testing Library / Jest (frontend).
+- **Exception:** if something is not testable, justify in the PR with a mitigation plan.
+- **CI:** run suite before PR and in CI; no merge with failing tests.
+
+---
+
+## DevOps
+
+- **Docker:** multi-stage, lean image; non-root user when possible; no secrets in build; base images with version tag; health checks.
+- **CI/CD:** pipeline for build, test, and deploy; lint and tests in CI before merge; production artifacts produced by CI.
+- **Environment:** config and secrets in environment variables; never commit `.env` with real secrets.
+- **Production:** optimized builds (minify, tree-shake); structured logging and monitoring.
+
+---
+
+## Infrastructure and observability
+
+Plan in advance what will be needed; do not leave observability and infra for “later”.
+
+### Infrastructure planning
+- **Define** before go-live: compute (machines/containers, scalability), network (VPC, load balancer, DNS), database (managed or self-hosted PostgreSQL, backups), queues/cache (Redis, etc.) if needed, storage (files, assets).
+- **Environments:** dev, staging, production clearly separated; config per environment (env); infrastructure as code (Terraform, Pulumi, or Docker/Compose templates) versioned in the repo or in a dedicated repo.
+- **Secrets and config:** use a vault or managed environment variables; credential rotation; never secrets in code or in images.
+
+### Observability (required in production)
+- **Logs:** structured logging (JSON or parseable format); level (DEBUG, INFO, WARN, ERROR); context (request_id, user_id, tenant_id when relevant). Aggregation in one place (e.g. CloudWatch, Datadog, Loki, ELK); retention and cost defined.
+- **Metrics:** application metrics (latency, throughput, errors per endpoint, queues) and infra (CPU, memory, disk). Export in standard format (Prometheus, StatsD, or provider); dashboards for system health.
+- **Tracing (recommended):** distributed traces (e.g. OpenTelemetry) for requests across services; easier diagnosis of latency and chained failures.
+- **Alerts:** define alerts for failures (5xx errors, failed health check), degradation (high latency, resource usage), and critical events (e.g. payment failure). Notification channel defined (email, Slack, PagerDuty); runbooks or minimal doc for response.
+- **Health checks:** `/health` or `/ready` endpoints on all services; used by orchestrator and load balancer; do not expose sensitive data.
+
+### Minimum infra/observability checklist
+- [ ] Compute and network planned and documented
+- [ ] Database with backup and recovery plan
+- [ ] Centralized logs with level/context
+- [ ] Metrics exposed and overview dashboard
+- [ ] Alerts for failures and degradation
+- [ ] Health checks on all services
+- [ ] Config and secrets outside code; rotation considered
+
+---
+
+## Domain — SaaS multi-tenant
+
+- **Tenant isolation:** every query and resource scoped by tenant (e.g. tenant_id).
+- **Never** return or modify data from another tenant.
+- Resolve current tenant via middleware/dependency (subdomain, JWT, header); keep context explicit in services and repositories.
+- Prefer row-level (tenant_id) or schema-per-tenant per project decision; billing and usage per tenant.
+
+---
+
+## Domain — Authentication and authorization
+
+- Secure mechanisms: JWT (short expiry), secure cookies, or session store.
+- **Never** store passwords in plain text; strong hashing (bcrypt, argon2).
+- Validate token/session on every protected request; **always** enforce authorization (roles, permissions, tenant) after authentication.
+- HTTPS in production; cookie flags HttpOnly, Secure, SameSite; allowlist for redirect URLs and scopes.
+- Auth logic in a dedicated module; inject user/tenant into services; do not expose internal user IDs or sensitive claims.
+
+---
+
+## Domain — Billing (e.g. Stripe)
+
+- **Idempotency keys** for payment and subscription operations.
+- **Never** log full card or payment method details.
+- **Validate signature** of webhooks (e.g. Stripe) before processing.
+- Store only safe identifiers (customer_id, subscription_id); no raw card data.
+- Handle subscription lifecycle (created, updated, canceled, past_due) explicitly; API keys in env; do not commit.
+- Billing in a dedicated service; test with provider test mode and webhook fixtures.
+
+---
+
+## Versioning
+
+- **App / APIs:** use **Semantic Versioning** (MAJOR.MINOR.PATCH). Tag releases in the repo; maintain backward compatibility in MINOR/PATCH when possible.
+- **Rules (.cursor/rules):** level files (global, project, context) may include `version` in frontmatter; when changing rules in a meaningful way, increment and document in the PR (e.g. 1.0.0 → 1.1.0 for new rules, 1.0.1 for text tweaks).
+- **Config / env:** when there is a config scheme (env vars, config files), document variables and, if useful, a minimum version or config changelog in project doc or PR.
+- **Migrations:** already versioned by the migration system (Alembic, etc.); keep order and reversibility.
+
+---
+
+## Debug system (configuration-driven)
+
+- **Never** leave debug on by default in production; **always** control via **configuration** (environment variable or settings).
+- **Backend (e.g. FastAPI):** use variables like `DEBUG=false` (prod) / `DEBUG=true` (dev) and `LOG_LEVEL=INFO` (prod) / `LOG_LEVEL=DEBUG` (dev). Structured logging with levels; extra logs (request/response, SQL, etc.) only when `DEBUG=true` or `LOG_LEVEL=DEBUG`. Do not log sensitive data even in debug.
+- **Frontend:** debug mode (dev tools, console logs, feature flags) enabled by build (e.g. `NEXT_PUBLIC_DEBUG=true` only in dev) or by runtime config when safe; do not expose stack traces or internal data in production.
+- **Debug/diagnostic endpoints** (if any): expose only when `DEBUG=true` or in non-production; never in production with real data without access control.
+- **Summary:** one “switch” per environment (env/settings); debug off in production; no hardcoded debug logic.

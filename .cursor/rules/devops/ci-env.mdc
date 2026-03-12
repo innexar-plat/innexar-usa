@@ -1,0 +1,17 @@
+---
+description: CI/CD and environment configuration
+globs: ["**/.github/**/*", "**/ci/**/*", "**/.gitlab-ci*", "**/.env*"]
+alwaysApply: false
+---
+
+# DevOps — CI/CD and Environment
+
+- Use **CI/CD pipelines** for build, test, and deploy
+- Store env-specific config in environment variables; never hardcode
+- **Never commit secrets** to the repository
+- Production builds must be **optimized** (minify, tree-shake, no source maps in prod if required)
+- Use **logging and monitoring** in production (structured logs, metrics, alerts)
+
+Run lint, tests, and build in CI before merge.
+
+Ensure production images and artifacts are built from CI, not only locally.

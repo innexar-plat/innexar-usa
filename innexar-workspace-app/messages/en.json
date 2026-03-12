@@ -1,0 +1,20 @@
+{
+  "workspace": {
+    "title": "Innexar Workspace",
+    "login": "Login",
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "customers": "Customers",
+    "contacts": "Contacts",
+    "projects": "Projects",
+    "support": "Support",
+    "billing": "Billing",
+    "invoices": "Invoices",
+    "products": "Products",
+    "pricePlans": "Price plans",
+    "hestia": "Hestia",
+    "config": "Settings",
+    "integrations": "Integrations",
+    "account": "Account"
+  }
+}

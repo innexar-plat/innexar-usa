@@ -1,0 +1,47 @@
+name: innexar-usa
+
+services:
+  innexar-portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+      args:
+        - NEXT_PUBLIC_USE_WORKSPACE_API=${NEXT_PUBLIC_USE_WORKSPACE_API:-true}
+        - NEXT_PUBLIC_WORKSPACE_API_URL=${NEXT_PUBLIC_WORKSPACE_API_URL:-https://api3.innexar.app}
+        - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://innexar.app}
+        - NEXT_PUBLIC_MP_PUBLIC_KEY=${NEXT_PUBLIC_MP_PUBLIC_KEY}
+        - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
+    container_name: innexar-usa-portal
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - NEXT_TELEMETRY_DISABLED=1
+      - NEXT_PUBLIC_USE_WORKSPACE_API=${NEXT_PUBLIC_USE_WORKSPACE_API:-true}
+      - NEXT_PUBLIC_WORKSPACE_API_URL=${NEXT_PUBLIC_WORKSPACE_API_URL:-https://api3.innexar.app}
+      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://innexar.app}
+    env_file:
+      - .env
+    networks:
+      - fixelo_fixelo-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.usa-portal-compress.compress=true"
+      - "traefik.http.routers.usa-portal.rule=Host(`panel.innexar.app`)"
+      - "traefik.http.routers.usa-portal.entrypoints=websecure"
+      - "traefik.http.routers.usa-portal.tls.certresolver=cloudflare"
+      - "traefik.http.routers.usa-portal.middlewares=usa-portal-compress"
+      - "traefik.http.routers.usa-portal.service=usa-portal-service"
+      - "traefik.http.services.usa-portal-service.loadbalancer.server.port=3000"
+      - "traefik.http.services.usa-portal-service.loadbalancer.passHostHeader=true"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  fixelo_fixelo-network:
+    external: true

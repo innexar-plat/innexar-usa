@@ -1,0 +1,15 @@
+---
+description: SaaS and multi-tenant architecture
+globs: ["**/tenant*/**/*", "**/multi*", "**/saas/**/*"]
+alwaysApply: false
+---
+
+# Domain — SaaS Multi-Tenant Rules
+
+- **Tenant isolation**: every query and resource must be scoped by tenant (e.g. tenant_id)
+- Never return or mutate data from another tenant
+- Use middleware or dependency to resolve current tenant (e.g. from subdomain, JWT, header)
+- Prefer row-level isolation (tenant_id on tables) or schema-per-tenant as per project choice
+- Billing and usage must be per-tenant
+
+Keep tenant context explicit in services and repositories; avoid implicit global tenant.

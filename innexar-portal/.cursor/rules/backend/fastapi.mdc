@@ -1,0 +1,25 @@
+---
+description: FastAPI conventions and structure
+globs: ["**/*.py", "**/api/**/*", "**/routers/**/*"]
+alwaysApply: false
+---
+
+# Backend — FastAPI Rules
+
+- Use **type hints** on all functions and parameters
+- Never return raw `dict` when a Pydantic schema exists; use response models
+- Use **HTTPException** with consistent payload for errors
+- Use **structured logging** (no `print`); prefer `logging` or app logger
+- All endpoints must validate input (Pydantic request models)
+
+Always create a **service layer** for business logic.
+
+Never access the database directly from routers/controllers.
+
+Use dependency injection for services and repositories.
+
+## API and security
+- Use proper HTTP methods and status codes; document with OpenAPI
+- Implement JWT or session auth with proper hashing; role-based access; CORS and rate limiting
+- Use proper caching, async operations, connection pooling; monitor performance
+- Write unit and integration tests; use test fixtures and mock external services

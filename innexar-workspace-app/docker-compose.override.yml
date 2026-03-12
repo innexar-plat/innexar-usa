@@ -1,0 +1,19 @@
+# Desenvolvimento: código montado em volume e next dev (use: docker compose up)
+services:
+  innexar-workspace-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+      args:
+        - NEXT_PUBLIC_USE_WORKSPACE_API=${NEXT_PUBLIC_USE_WORKSPACE_API:-true}
+        - NEXT_PUBLIC_WORKSPACE_API_URL=${NEXT_PUBLIC_WORKSPACE_API_URL:-https://api3.innexar.app}
+    volumes:
+      - .:/app
+      - workspace_app_node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_WORKSPACE_API_URL=${NEXT_PUBLIC_WORKSPACE_API_URL:-https://api3.innexar.app}
+
+volumes:
+  workspace_app_node_modules:

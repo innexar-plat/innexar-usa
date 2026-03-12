@@ -1,0 +1,18 @@
+---
+description: Schema changes and migrations
+globs: ["**/migrations/**/*", "**/alembic/**/*", "**/migrate*"]
+alwaysApply: false
+---
+
+# Database — Migrations Rules
+
+**Never** modify the database schema directly.
+
+Always create **migrations** for schema changes.
+
+- One logical change per migration when possible
+- Migrations must be reversible (provide downgrade/rollback)
+- Do not commit broken or half-applied migrations
+- Test migrations on a copy of data before production
+
+Use the project’s migration tool (e.g. Alembic, Django migrations) consistently.

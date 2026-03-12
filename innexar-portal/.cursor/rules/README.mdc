@@ -1,0 +1,94 @@
+---
+description: Index of rules — structure, when each applies, and sources
+globs: []
+alwaysApply: false
+version: "1.0.0"
+---
+
+# Rules Repository — Structure
+
+**Rules version:** 1.0.0 (frontmatter em `global-rules.mdc`, `project-rules.mdc`, `context-rules.mdc`). Ao alterar regras de forma relevante, incrementar e documentar no PR.
+
+Rules are organized by **layer** and **concern**. Cursor applies them by file context (`globs`) or globally (`alwaysApply: true`).
+
+---
+
+## Três níveis (consolidados)
+
+| Nível | Arquivo | Conteúdo |
+|-------|---------|----------|
+| **1. Global** | `global-rules.mdc` | Sempre aplicado: papel da IA, prioridades, qualidade de código, segurança universal, princípios de arquitetura. |
+| **2. Project** | `project-rules.mdc` | Regras do projeto Innexar: stack, arquitetura detalhada, API, testes, DevOps, domínio (SaaS, auth, billing). |
+| **3. Context** | `context-rules.mdc` | Por contexto: Frontend (React/Next/TS/Tailwind), Backend (FastAPI/Python), Database, Segurança sensível, DevOps. |
+
+Esses 3 arquivos reúnem a informação de todas as regras por nível. As regras em subpastas (core/, frontend/, backend/, etc.) continuam ativas e podem ser usadas para ativação por `globs`.
+
+---
+
+## Core (always or broad)
+
+- `core/architecture.mdc` — Clean architecture, layers, max file size
+- `core/coding-style.mdc` — Naming, function size, readability
+- `core/base-principles.mdc` — Global AI behavior and priorities
+- `core/clean-code.mdc` — Constants, DRY, single responsibility, naming (Awesome)
+- `core/codequality.mdc` — AI behavior: file-by-file edits, no apologies, preserve code (Awesome)
+- `core/testing.mdc` — Unit/integration tests, regression, coverage
+
+## Frontend
+
+- `frontend/react.mdc` — React, hooks, components, a11y (*.tsx, *.jsx)
+- `frontend/next.mdc` — Next.js app/pages
+- `frontend/tailwind.mdc` — Tailwind usage
+- `frontend/components.mdc` — UI structure and reuse
+
+## Backend
+
+- `backend/fastapi.mdc` — FastAPI, types, Pydantic, auth, tests (*.py, api, routers)
+- `backend/api.mdc` — API design, responses, validation
+- `backend/services.mdc` — Service layer, business logic
+
+## Database
+
+- `database/postgres.mdc` — PostgreSQL, indexes, N+1
+- `database/migrations.mdc` — Schema changes, migrations only
+- `database/repository.mdc` — Repository pattern, data access
+
+## Security
+
+- `security/general.mdc` — Sanitization, injection, XSS, secrets (alwaysApply)
+- `security/secure-development-principles.mdc` — No raw input, no secrets in code (alwaysApply)
+- `security/owasp.mdc` — OWASP-oriented practices (api, auth)
+- `security/secure-sql.mdc` — Parameterized queries, no SQL injection
+- `security/path-traversal.mdc` — Never user input in file paths
+- `security/dangerous-flows.mdc` — Trace user input to avoid injection/unsafe use
+- `security/ssrf.mdc` — Do not let user input control outbound URLs
+- `security/xxe.mdc` — Disable DTDs/external entities in XML parsing
+
+## DevOps
+
+- `devops/docker.mdc` — Dockerfile, compose, images
+- `devops/ci-env.mdc` — CI/CD, env, logging
+- `devops/gitflow.mdc` — Branches, commits, PRs, semantic versioning (Awesome)
+
+## Languages
+
+- `languages/typescript.mdc` — TypeScript strict, no any (*.ts, *.tsx)
+- `languages/python.mdc` — Python type hints, Pydantic, secure Python (*.py)
+
+## Domain (Innexar)
+
+- `domain/saas-multi-tenant.mdc` — Tenant isolation
+- `domain/billing.mdc` — Stripe / payments
+- `domain/auth.mdc` — Auth and authorization
+
+---
+
+## Sources (cloned and integrated)
+
+- **Awesome Cursor Rules** — https://github.com/PatrickJS/awesome-cursorrules  
+  Cloned in `.cursor/rules-sources/awesome-cursorrules/`. Integrated: clean-code, codequality, gitflow, react/next/tailwind/typescript/python/fastapi/database best practices from `rules-new/`.
+
+- **Cursor Security Rules** — https://github.com/matank001/cursor-security-rules  
+  Cloned in `.cursor/rules-sources/cursor-security-rules/`. Integrated: secure-sql, path-traversal, dangerous-flows, ssrf, xxe, secure-development-principles, secure-dev-python.
+
+To update sources: run `git pull` inside each repo under `.cursor/rules-sources/`.

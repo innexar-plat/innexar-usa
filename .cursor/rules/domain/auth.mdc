@@ -1,0 +1,18 @@
+---
+description: Authentication and authorization
+globs: ["**/auth/**/*", "**/login*", "**/session*", "**/middleware/**/*"]
+alwaysApply: false
+---
+
+# Domain — Auth Rules
+
+- Use secure mechanisms: JWT with short expiry, secure cookies, or session store
+- **Never** store passwords in plain text; use strong hashing (bcrypt, argon2)
+- Validate tokens and sessions on every protected request
+- Enforce **authorization** after authentication (roles, permissions, tenant)
+- Use HTTPS in production; secure cookie flags (HttpOnly, Secure, SameSite)
+- Prefer allowlists for redirect URLs and scopes
+
+Keep auth logic in a dedicated module; inject user/tenant context into services.
+
+Do not expose internal user IDs or sensitive claims unnecessarily.

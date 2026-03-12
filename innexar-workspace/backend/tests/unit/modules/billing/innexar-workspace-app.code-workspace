@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../innexar-workspace-app"
+		},
+		{
+			"path": "../../../../.."
+		},
+		{
+			"path": "../../../../../../innexar-portal"
+		},
+		{
+			"path": "../../../../../../innexar-websitebr"
+		}
+	],
+	"settings": {}
+}

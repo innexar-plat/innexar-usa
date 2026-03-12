@@ -1,0 +1,28 @@
+---
+description: Dangerous flows — trace user input to avoid injection and unsafe use
+globs: []
+alwaysApply: false
+---
+
+# Dangerous Flow Identification
+
+Source: cursor-security-rules. A **dangerous flow** is when user input (or data derived from it) is used in a way that introduces vulnerabilities.
+
+## Trace Input Lifecycle
+1. **Find entry points:** request body/query, CLI args, env, config, persisted data (second-order injection).
+2. **Follow the flow** across calls, storage, and reuse.
+3. **Flag if input reaches:** file paths, shell commands, SQL strings, HTML/templates, dynamic code execution, outbound URLs.
+
+## Dangerous Functions (when fed untrusted input)
+- **Shell:** exec, spawn, system, subprocess.run, ProcessBuilder
+- **Filesystem:** readFile, writeFile, open(), path.join with user input
+- **Database:** concatenated SQL strings
+- **Templates/HTML:** render(), res.send(userInput) without escaping
+- **Dynamic code:** eval(), Function(), exec(), pickle.load()
+- **Network:** fetch(userUrl), requests.get(user_url) → SSRF
+
+## Mitigations
+- Sanitize/validate per context (path, SQL, HTML, shell)
+- Prefer allow-lists over block-lists
+- Least privilege; avoid dangerous APIs when possible
+- Document the flow and suggest a concrete fix when a risk is found

@@ -1,0 +1,19 @@
+---
+description: Docker and containerization
+globs: ["**/Dockerfile*", "**/docker-compose*.yml", "**/.docker/**/*"]
+alwaysApply: false
+---
+
+# DevOps — Docker Rules
+
+Use **Docker** for containerization.
+
+- Multi-stage builds to keep images small
+- Non-root user inside container when possible
+- Do not commit secrets; use env vars or secrets management
+- Use specific version tags for base images, not `latest`
+- Prefer health checks in Dockerfile or compose
+
+Environment variables must be stored in `.env` files (not committed) or in a secrets store.
+
+Never commit `.env` with real secrets to the repository.

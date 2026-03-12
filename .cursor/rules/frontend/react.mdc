@@ -1,0 +1,41 @@
+---
+description: React patterns and conventions
+globs: ["**/*.tsx", "**/*.jsx"]
+alwaysApply: false
+---
+
+# Frontend — React Rules
+
+Use component-based architecture.
+
+- Use **functional components** only (no class components)
+- Use **hooks** for logic; separate UI from business logic
+- Keep components small and reusable
+- **Maximum component size: 200 lines**
+- Prefer named exports over default exports
+
+## Structure
+
+```
+components/
+hooks/
+services/
+utils/
+```
+
+Extract custom hooks for reusable logic.
+
+Colocate styles with components when possible.
+
+Avoid inline styles; use Tailwind or CSS modules.
+
+## Hooks and state
+- Follow Rules of Hooks; keep hooks focused; use correct dependency arrays; cleanup in useEffect when needed
+- Prefer useState for local state, useReducer for complex logic; keep state close to usage; avoid prop drilling
+- Use memoization (useMemo, useCallback) and React.memo for expensive components; avoid unnecessary re-renders
+
+## Forms and errors
+- Use controlled components; validate forms; show loading/error states; use Error Boundaries and user-friendly messages
+
+## Accessibility
+- Use semantic HTML, ARIA where needed, keyboard navigation, and proper alt text for images.

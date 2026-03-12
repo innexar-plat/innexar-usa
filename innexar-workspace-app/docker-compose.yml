@@ -1,0 +1,43 @@
+name: innexar-usa
+
+services:
+  innexar-workspace-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+      args:
+        - NEXT_PUBLIC_USE_WORKSPACE_API=${NEXT_PUBLIC_USE_WORKSPACE_API:-true}
+        - NEXT_PUBLIC_WORKSPACE_API_URL=${NEXT_PUBLIC_WORKSPACE_API_URL:-https://api3.innexar.app}
+    container_name: innexar-usa-workspace-app
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - NEXT_TELEMETRY_DISABLED=1
+      - NEXT_PUBLIC_USE_WORKSPACE_API=${NEXT_PUBLIC_USE_WORKSPACE_API:-true}
+      - NEXT_PUBLIC_WORKSPACE_API_URL=${NEXT_PUBLIC_WORKSPACE_API_URL:-https://api3.innexar.app}
+    env_file:
+      - .env
+    networks:
+      - fixelo_fixelo-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.usa-workspace-app-compress.compress=true"
+      - "traefik.http.routers.usa-workspace-app.rule=Host(`workspace.innexar.app`)"
+      - "traefik.http.routers.usa-workspace-app.entrypoints=websecure"
+      - "traefik.http.routers.usa-workspace-app.tls.certresolver=cloudflare"
+      - "traefik.http.routers.usa-workspace-app.middlewares=usa-workspace-app-compress"
+      - "traefik.http.routers.usa-workspace-app.service=usa-workspace-app-service"
+      - "traefik.http.services.usa-workspace-app-service.loadbalancer.server.port=3000"
+      - "traefik.http.services.usa-workspace-app-service.loadbalancer.passHostHeader=true"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  fixelo_fixelo-network:
+    external: true

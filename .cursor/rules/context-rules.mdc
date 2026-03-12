@@ -1,0 +1,79 @@
+---
+description: Level 3 — Context rules (apply according to file type or area)
+globs: []
+alwaysApply: true
+version: "1.0.0"
+---
+
+# Context Rules (Level 3)
+
+Apply the rules below **according to the context** of the files you are working on (frontend, backend, database, security, devops).
+
+---
+
+## Context: Frontend (React / Next / TypeScript / Tailwind)
+
+**When:** `**/*.tsx`, `**/*.jsx`, `**/*.ts` (in app/, components/, pages/), `**/app/**/*`, `**/pages/**/*`, `tailwind.config.*`, `**/*.css`.
+
+- **React:** functional components only; hooks for logic; small, reusable components (max ~200 lines); named exports; structure `components/`, `hooks/`, `services/`, `utils/`.
+- **Hooks:** follow Rules of Hooks; correct dependency arrays; cleanup in useEffect when needed; useState/useReducer; state close to usage; memoization (useMemo, useCallback, React.memo) when cost justifies it.
+- **Forms/errors:** controlled components; validation; loading/error states; Error Boundaries and user-friendly messages.
+- **Accessibility:** semantic HTML, ARIA when needed, keyboard navigation, alt text for images.
+- **Next.js:** App Router; thin pages; Server Components by default; `'use client'` only when needed; data fetching in server or loaders; kebab-case for files, PascalCase for components.
+- **Tailwind:** utility classes over custom CSS when possible; avoid inline styles; theme design tokens.
+- **TypeScript:** `strict: true`; `any` forbidden (except with justification + TODO + issue); prefer `unknown` and type guards; explicit return types for public APIs; `const` > `let`; types over interfaces except when extending libs.
+
+---
+
+## Context: Backend (FastAPI / Python / API)
+
+**When:** `**/*.py`, `**/api/**/*`, `**/routers/**/*`, `**/services/**/*`, `**/*router*.py`.
+
+- **FastAPI/Python:** type hints on all functions and parameters; never return `dict` when a Pydantic schema exists; response models; HTTPException with consistent payload; structured logging (no `print`); PEP 8; ruff/black.
+- **Endpoints:** validate input with Pydantic; correct HTTP methods and status codes; document with OpenAPI; JWT/session with hashing; RBAC; CORS and rate limiting; never access DB directly in router.
+- **Services:** business logic here; call repositories; no raw HTTP or SQL; dependency injection; small, single-responsibility functions.
+- **Python security:** do not use user input in file paths (pathlib + directory check); never eval/exec/compile with user input; hmac.compare_digest for comparing secrets; do not log passwords/tokens/PII; avoid subprocess/os.system with user input; escape in HTML/JSON/CLI; do not use pickle with untrusted data (prefer json/Pydantic).
+
+---
+
+## Context: Database (PostgreSQL / Migrations / Repositories)
+
+**When:** `**/migrations/**/*`, `**/models/**/*`, `**/repositories/**/*`, `**/alembic/**/*`, `**/*.prisma`.
+
+- **PostgreSQL:** indexes on heavily queried columns; avoid N+1 (eager load, batch); no raw SQL unless necessary; connection pooling and async drivers when applicable.
+- **Schema:** **never** change schema directly in production; **always** migrations; one logical change per migration; reversible migrations (downgrade); do not commit broken migrations; test on a copy before production.
+- **Repositories:** one per aggregate/entity; return DTOs/domain objects; no business logic; clear methods (get_by_id, list, add, update, delete); avoid N+1 with batch/joins.
+- **Secure SQL:** always parameterized queries/prepared statements; never concatenate user input into SQL; validate/sanitize input; least-privilege accounts; do not expose DB errors to the user; close connections/cursors.
+
+---
+
+## Context: Security-sensitive (files, network, XML, dangerous flows)
+
+**When:** code that uses user paths, SQL, outbound HTTP requests, XML parsing, or any flow that traces user input to sensitive operations.
+
+- **Path traversal:** never use raw user input in paths; validate filename format (e.g. allowlist of characters); pathlib/path.resolve; ensure final path is within the allowed directory; for uploads, generate safe names (e.g. UUID) instead of trusting the provided name.
+- **SSRF:** do not let user input define destination URL; block internal IPs (localhost, 127.0.0.1, 10.x, 192.168.x, 169.254.x); validate host after DNS resolution; only HTTP/HTTPS and safe ports (80, 443); do not forward auth headers in proxy without audit.
+- **XXE:** disable DTDs and external entities in XML parser; use safe libs (e.g. defusedxml); limit size and entity expansion; validate XML against schema/allowlist; do not log XML that may contain credentials/PII.
+- **Dangerous flows:** trace input origin (request, CLI, DB, config); if data reaches path, command, SQL, HTML, or dynamic code, validate/sanitize/escape in the right context; prefer allowlists; document flow and fix when a risk is found.
+
+---
+
+## Context: DevOps (Docker / CI / Git)
+
+**When:** `**/Dockerfile*`, `**/docker-compose*.yml`, `**/.github/**/*`, `**/ci/**/*`, `**/.gitlab-ci*`, `**/.env*`, `.git*`.
+
+- **Docker:** multi-stage; non-root user; no secrets in image; base with version tag; health checks; .env or secrets store, never commit .env with secrets.
+- **CI/CD:** build/test/deploy pipeline; lint and tests before merge; production artifacts via CI; config and secrets in env.
+- **Gitflow (when applicable):** main/production only via merge (hotfix/release); develop for development; feature/* from develop; commits in format `type(scope): description` (feat, fix, docs, style, refactor, test, chore); semantic versioning; PR required; delete branch after merge.
+
+---
+
+## Summary by file type
+
+| Context   | Example paths/files                      | Main focus                                       |
+|-----------|------------------------------------------|--------------------------------------------------|
+| Frontend  | *.tsx, *.jsx, app/, pages/, components/  | React, Next, TS strict, Tailwind, a11y          |
+| Backend   | *.py, api/, routers/, services/         | FastAPI, Pydantic, services, no DB in router    |
+| Database  | migrations/, models/, repositories/      | Postgres, migrations, repository, secure SQL    |
+| Security  | any use of path/SQL/HTTP/XML with input  | Path traversal, SQL injection, SSRF, XXE, flows  |
+| DevOps    | Dockerfile, compose, .github/, ci/, .env  | Docker, CI/CD, env, Gitflow                      |
