@@ -77,8 +77,8 @@ function DashboardContent() {
     useEffect(() => {
         const fetchOrder = async () => {
             // First try URL params
-            let currentOrderId = orderId
-            let currentEmail = email
+            const currentOrderId = orderId
+            const currentEmail = email
 
             // If no URL params, try localStorage (logged-in customer)
             if (!currentOrderId || !currentEmail) {

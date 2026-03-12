@@ -10,7 +10,6 @@ from app.core.database import get_db
 from app.models.customer_user import CustomerUser
 from app.modules.projects.portal_service import ProjectPortalService
 
-from .helpers import get_customer_project
 from .schemas import FileUploadResponse, ProjectFileItem, ProjectListItem
 
 router = APIRouter()
@@ -36,14 +35,18 @@ async def portal_list_projects(
 async def portal_upload_file(
     project_id: int,
     db: Annotated[AsyncSession, Depends(get_db)],
-    project_service: Annotated[ProjectPortalService, Depends(get_project_portal_service)],
+    project_service: Annotated[
+        ProjectPortalService, Depends(get_project_portal_service)
+    ],
     current: Annotated[CustomerUser, Depends(get_current_customer)],
     file: UploadFile = File(...),  # noqa: B008 — FastAPI File() pattern
 ) -> FileUploadResponse:
     """Portal: upload a file to a project (stored in MinIO)."""
     from app.modules.files.service import upload_project_file
 
-    if not await project_service.get_project_for_customer(project_id, current.customer_id):
+    if not await project_service.get_project_for_customer(
+        project_id, current.customer_id
+    ):
         raise HTTPException(status_code=404, detail="Projeto não encontrado")
     content = await file.read()
     if len(content) > 50 * 1024 * 1024:  # 50 MB limit
@@ -69,13 +72,17 @@ async def portal_upload_file(
 async def portal_list_files(
     project_id: int,
     db: Annotated[AsyncSession, Depends(get_db)],
-    project_service: Annotated[ProjectPortalService, Depends(get_project_portal_service)],
+    project_service: Annotated[
+        ProjectPortalService, Depends(get_project_portal_service)
+    ],
     current: Annotated[CustomerUser, Depends(get_current_customer)],
 ) -> list[ProjectFileItem]:
     """Portal: list files for a project."""
     from app.modules.files.service import list_project_files
 
-    if not await project_service.get_project_for_customer(project_id, current.customer_id):
+    if not await project_service.get_project_for_customer(
+        project_id, current.customer_id
+    ):
         raise HTTPException(status_code=404, detail="Projeto não encontrado")
     files = await list_project_files(db, project_id)
     return [
@@ -95,7 +102,9 @@ async def portal_download_file(
     project_id: int,
     file_id: int,
     db: Annotated[AsyncSession, Depends(get_db)],
-    project_service: Annotated[ProjectPortalService, Depends(get_project_portal_service)],
+    project_service: Annotated[
+        ProjectPortalService, Depends(get_project_portal_service)
+    ],
     current: Annotated[CustomerUser, Depends(get_current_customer)],
 ):
     """Portal: download a file from a project."""
@@ -103,7 +112,9 @@ async def portal_download_file(
 
     from app.modules.files.service import get_file_content, get_project_file
 
-    if not await project_service.get_project_for_customer(project_id, current.customer_id):
+    if not await project_service.get_project_for_customer(
+        project_id, current.customer_id
+    ):
         raise HTTPException(status_code=404, detail="Projeto não encontrado")
     pf = await get_project_file(db, file_id, project_id)
     if not pf:
@@ -121,13 +132,17 @@ async def portal_delete_file(
     project_id: int,
     file_id: int,
     db: Annotated[AsyncSession, Depends(get_db)],
-    project_service: Annotated[ProjectPortalService, Depends(get_project_portal_service)],
+    project_service: Annotated[
+        ProjectPortalService, Depends(get_project_portal_service)
+    ],
     current: Annotated[CustomerUser, Depends(get_current_customer)],
 ):
     """Portal: delete a file from a project (customer can only delete own files)."""
     from app.modules.files.service import delete_project_file, get_project_file
 
-    if not await project_service.get_project_for_customer(project_id, current.customer_id):
+    if not await project_service.get_project_for_customer(
+        project_id, current.customer_id
+    ):
         raise HTTPException(status_code=404, detail="Projeto não encontrado")
     pf = await get_project_file(db, file_id, project_id)
     if not pf:

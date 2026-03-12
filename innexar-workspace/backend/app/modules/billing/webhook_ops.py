@@ -49,9 +49,7 @@ async def process_webhook(
                 inv.paid_at = datetime.now(UTC)
                 paid_invoice_id = inv.id
                 if inv.subscription_id:
-                    sub = await billing_repo.get_subscription_by_id(
-                        inv.subscription_id
-                    )
+                    sub = await billing_repo.get_subscription_by_id(inv.subscription_id)
                     if sub:
                         sub.status = SubscriptionStatus.ACTIVE.value
                         sub.start_date = datetime.now(UTC)
@@ -107,9 +105,7 @@ async def process_webhook(
                             sub.status = SubscriptionStatus.ACTIVE.value
                             sub.external_id = result.mp_preapproval_id
                             sub.start_date = sub.start_date or datetime.now(UTC)
-                            await set_subscription_next_due_if_recurring(
-                                db, sub
-                            )
+                            await set_subscription_next_due_if_recurring(db, sub)
                             await reactivate_subscription_after_payment(
                                 db, sub.id, org_id="innexar"
                             )
@@ -132,9 +128,7 @@ async def process_webhook(
                 inv.paid_at = datetime.now(UTC)
                 paid_invoice_id = inv.id
                 if inv.subscription_id:
-                    sub = await billing_repo.get_subscription_by_id(
-                        inv.subscription_id
-                    )
+                    sub = await billing_repo.get_subscription_by_id(inv.subscription_id)
                     if sub:
                         sub.status = SubscriptionStatus.ACTIVE.value
                         sub.start_date = datetime.now(UTC)

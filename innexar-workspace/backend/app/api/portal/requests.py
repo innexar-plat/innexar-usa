@@ -1,6 +1,6 @@
 """Portal: /new-project, /site-briefing, /site-briefing/upload."""
 
-from typing import Annotated, Union
+from typing import Annotated
 
 from fastapi import APIRouter, Depends, File, Form, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -70,7 +70,7 @@ async def portal_site_briefing_upload(
     colors: str | None = Form(None),
     photos: str | None = Form(None),
     description: str | None = Form(None),
-    files: Union[list[UploadFile], UploadFile, None] = File(None),  # noqa: B008
+    files: list[UploadFile] | UploadFile | None = File(None),  # noqa: B008
 ) -> SiteBriefingResponse:
     """Portal: submit site briefing with optional file uploads (multipart)."""
     file_list: list[UploadFile] = (

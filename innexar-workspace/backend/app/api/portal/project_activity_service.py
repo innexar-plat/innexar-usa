@@ -1,7 +1,7 @@
 """Portal project activity service: messages and modification-requests."""
 
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from fastapi import HTTPException, UploadFile
@@ -40,17 +40,11 @@ class PortalProjectActivityService:
         self._customer = customer_repo
         self._billing = billing_repo
 
-    async def _get_project_or_404(
-        self, project_id: int, customer_id: int
-    ):
+    async def _get_project_or_404(self, project_id: int, customer_id: int):
         """Return project if owned by customer; else raise 404."""
-        project = await self._project.get_by_id_and_customer(
-            project_id, customer_id
-        )
+        project = await self._project.get_by_id_and_customer(project_id, customer_id)
         if not project:
-            raise HTTPException(
-                status_code=404, detail="Projeto não encontrado"
-            )
+            raise HTTPException(status_code=404, detail="Projeto não encontrado")
         return project
 
     async def _customer_sender_name(self, customer_id: int) -> str:
@@ -63,17 +57,13 @@ class PortalProjectActivityService:
         project = await self._project.get_by_id(project_id)
         if not project or not project.subscription_id:
             return DEFAULT_MONTHLY_LIMIT
-        sub = await self._billing.get_subscription_by_id(
-            project.subscription_id
-        )
+        sub = await self._billing.get_subscription_by_id(project.subscription_id)
         if not sub:
             return DEFAULT_MONTHLY_LIMIT
         plan = await self._billing.get_price_plan_by_id(sub.price_plan_id)
         if not plan:
             return DEFAULT_MONTHLY_LIMIT
-        return getattr(
-            plan, "monthly_adjustments_limit", DEFAULT_MONTHLY_LIMIT
-        )
+        return getattr(plan, "monthly_adjustments_limit", DEFAULT_MONTHLY_LIMIT)
 
     async def list_messages(
         self, project_id: int, current: CustomerUser
@@ -89,9 +79,7 @@ class PortalProjectActivityService:
                 body=m.body,
                 attachment_key=m.attachment_key,
                 attachment_name=m.attachment_name,
-                created_at=(
-                    m.created_at.isoformat() if m.created_at else None
-                ),
+                created_at=(m.created_at.isoformat() if m.created_at else None),
             )
             for m in msgs
         ]
@@ -116,9 +104,7 @@ class PortalProjectActivityService:
             sender_type=msg.sender_type,
             sender_name=msg.sender_name,
             body=msg.body,
-            created_at=(
-                msg.created_at.isoformat() if msg.created_at else None
-            ),
+            created_at=(msg.created_at.isoformat() if msg.created_at else None),
         )
 
     async def send_message_with_file(
@@ -137,9 +123,7 @@ class PortalProjectActivityService:
         storage = get_storage_backend()
         filename = file.filename or "file"
         path_key = f"messages/{project_id}/{uuid.uuid4().hex}_{filename}"
-        await storage.put(
-            path_key, content, content_type=file.content_type
-        )
+        await storage.put(path_key, content, content_type=file.content_type)
         sender_name = await self._customer_sender_name(current.customer_id)
         msg = ProjectMessage(
             project_id=project_id,
@@ -159,9 +143,7 @@ class PortalProjectActivityService:
             body=msg.body,
             attachment_key=msg.attachment_key,
             attachment_name=msg.attachment_name,
-            created_at=(
-                msg.created_at.isoformat() if msg.created_at else None
-            ),
+            created_at=(msg.created_at.isoformat() if msg.created_at else None),
         )
 
     async def list_modification_requests(
@@ -170,7 +152,7 @@ class PortalProjectActivityService:
         """List modification requests for project and quota (monthly limit from plan)."""
         await self._get_project_or_404(project_id, current.customer_id)
         monthly_limit = await self._monthly_limit_for_project(project_id)
-        now = datetime.now(timezone.utc)
+        now = datetime.now(UTC)
         used = await self._activity.count_modification_requests_this_month(
             project_id, current.customer_id, now.year, now.month
         )
@@ -186,11 +168,7 @@ class PortalProjectActivityService:
                     status=r.status,
                     staff_notes=r.staff_notes,
                     attachment_name=r.attachment_name,
-                    created_at=(
-                        r.created_at.isoformat()
-                        if r.created_at
-                        else None
-                    ),
+                    created_at=(r.created_at.isoformat() if r.created_at else None),
                 )
                 for r in items
             ],
@@ -212,7 +190,7 @@ class PortalProjectActivityService:
 
         await self._get_project_or_404(project_id, current.customer_id)
         monthly_limit = await self._monthly_limit_for_project(project_id)
-        now = datetime.now(timezone.utc)
+        now = datetime.now(UTC)
         used = await self._activity.count_modification_requests_this_month(
             project_id, current.customer_id, now.year, now.month
         )
@@ -220,8 +198,7 @@ class PortalProjectActivityService:
             raise HTTPException(
                 status_code=429,
                 detail=(
-                    f"Limite de {monthly_limit} solicitações/mês atingido. "
-                    "Restam 0."
+                    f"Limite de {monthly_limit} solicitações/mês atingido. " "Restam 0."
                 ),
             )
         attachment_key: str | None = None
@@ -239,12 +216,9 @@ class PortalProjectActivityService:
                 storage = get_storage_backend()
                 safe_name = Path(file.filename or "file").name or "file"
                 path_key = (
-                    f"modifications/{project_id}/"
-                    f"{uuid.uuid4().hex}_{safe_name}"
+                    f"modifications/{project_id}/" f"{uuid.uuid4().hex}_{safe_name}"
                 )
-                await storage.put(
-                    path_key, content, content_type=file.content_type
-                )
+                await storage.put(path_key, content, content_type=file.content_type)
                 attachment_key = path_key
                 attachment_name = safe_name
         req = ModificationRequest(
@@ -264,7 +238,5 @@ class PortalProjectActivityService:
             status=req.status,
             attachment_name=req.attachment_name,
             remaining=max(0, monthly_limit - used - 1),
-            created_at=(
-                req.created_at.isoformat() if req.created_at else None
-            ),
+            created_at=(req.created_at.isoformat() if req.created_at else None),
         )

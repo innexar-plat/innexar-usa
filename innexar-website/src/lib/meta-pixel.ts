@@ -45,11 +45,21 @@ export function initMetaPixel(pixelId?: string): void {
     const e = 'script'
 
     if (!f.fbq) {
-        const n: any = f.fbq = function (...args: unknown[]) {
-            n.callMethod ?
-                n.callMethod.apply(n, args) :
-                n.queue.push(args)
+        interface FbqFn {
+            (this: FbqFn, ...args: unknown[]): void
+            callMethod?: (this: FbqFn, ...a: unknown[]) => void
+            queue: unknown[][]
+            push: FbqFn
+            loaded: boolean
+            version: string
         }
+        const n = f.fbq = function (this: FbqFn, ...args: unknown[]) {
+            if (n.callMethod) {
+                n.callMethod.call(n, ...args)
+            } else {
+                n.queue.push(args)
+            }
+        } as FbqFn
 
         if (!f._fbq) f._fbq = n
         n.push = n

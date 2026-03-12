@@ -3,9 +3,6 @@
 from datetime import datetime
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Query
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.core.database import get_db
 from app.core.rbac import RequirePermission
 from app.models.user import User
@@ -17,11 +14,15 @@ from app.modules.dashboard.workspace_service import (
     DashboardWorkspaceService,
     PeriodType,
 )
+from fastapi import APIRouter, Depends, Query
+from sqlalchemy.ext.asyncio import AsyncSession
 
 router = APIRouter(prefix="/dashboard", tags=["workspace-dashboard"])
 
 
-def get_dashboard_service(db: Annotated[AsyncSession, Depends(get_db)]) -> DashboardWorkspaceService:
+def get_dashboard_service(
+    db: Annotated[AsyncSession, Depends(get_db)],
+) -> DashboardWorkspaceService:
     return DashboardWorkspaceService(db)
 
 
@@ -38,9 +39,9 @@ async def get_dashboard_summary(
 async def get_dashboard_revenue(
     _: Annotated[User, Depends(RequirePermission("dashboard:read"))],
     service: Annotated[DashboardWorkspaceService, Depends(get_dashboard_service)],
-    period_type: PeriodType = Query("month", description="day, week, or month"),
-    start_date: datetime | None = Query(None, description="Start of range (UTC)"),
-    end_date: datetime | None = Query(None, description="End of range (UTC)"),
+    period_type: PeriodType = Query("month", description="day, week, or month"),  # noqa: B008
+    start_date: datetime | None = Query(None, description="Start of range (UTC)"),  # noqa: B008
+    end_date: datetime | None = Query(None, description="End of range (UTC)"),  # noqa: B008
 ) -> DashboardRevenueResponse:
     """Get revenue time series (paid invoices) for charts."""
     return await service.get_revenue(

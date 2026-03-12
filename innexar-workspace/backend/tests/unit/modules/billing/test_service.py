@@ -218,7 +218,9 @@ async def test_get_payment_provider_fallback_to_integration_config_when_no_env(
             {"MP_ACCESS_TOKEN": "", "MERCADOPAGO_ACCESS_TOKEN": ""},
             clear=False,
         ),
-        patch("app.modules.billing._provider.decrypt_value", return_value="config-token"),
+        patch(
+            "app.modules.billing._provider.decrypt_value", return_value="config-token"
+        ),
     ):
         provider = await _get_payment_provider(
             db_session,
@@ -564,7 +566,9 @@ async def test_get_payment_provider_stripe_from_integration_config(
     )
     db_session.add(cfg)
     await db_session.commit()
-    with patch("app.modules.billing._provider.decrypt_value", return_value="sk_test_xyz"):
+    with patch(
+        "app.modules.billing._provider.decrypt_value", return_value="sk_test_xyz"
+    ):
         provider = await _get_payment_provider(
             db_session,
             customer_id=customer.id,

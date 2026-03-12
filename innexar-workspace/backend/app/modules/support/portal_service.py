@@ -20,15 +20,11 @@ class SupportPortalService:
         """List tickets for customer."""
         return await self._repo.list_tickets_by_customer_id(customer_id)
 
-    async def get_my_ticket(
-        self, ticket_id: int, customer_id: int
-    ) -> Ticket | None:
+    async def get_my_ticket(self, ticket_id: int, customer_id: int) -> Ticket | None:
         """Get ticket by id if owned by customer."""
         return await self._repo.get_ticket_by_id_and_customer(ticket_id, customer_id)
 
-    async def create_ticket(
-        self, body: TicketCreate, customer_id: int
-    ) -> Ticket:
+    async def create_ticket(self, body: TicketCreate, customer_id: int) -> Ticket:
         """Create ticket. Raises ValueError if project_id given and not owned by customer."""
         project_id = body.project_id
         if project_id is not None:

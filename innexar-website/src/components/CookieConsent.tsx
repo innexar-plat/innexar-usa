@@ -23,25 +23,6 @@ export default function CookieConsent() {
         marketing: false
     })
 
-    useEffect(() => {
-        // Check if user has already consented
-        const consent = localStorage.getItem(COOKIE_CONSENT_KEY)
-        if (!consent) {
-            // Show banner after short delay
-            const timer = setTimeout(() => setIsVisible(true), 1500)
-            return () => clearTimeout(timer)
-        } else {
-            // Load saved preferences
-            try {
-                const saved = JSON.parse(consent)
-                setPreferences(saved)
-                applyConsent(saved)
-            } catch (e) {
-                console.error('Error parsing cookie consent:', e)
-            }
-        }
-    }, [])
-
     const applyConsent = (prefs: CookiePreferences) => {
         // Enable/disable analytics based on consent
         if (typeof window !== 'undefined') {
@@ -51,6 +32,21 @@ export default function CookieConsent() {
             window.dispatchEvent(new CustomEvent('cookieConsentUpdated', { detail: prefs }))
         }
     }
+
+    useEffect(() => {
+        const consent = localStorage.getItem(COOKIE_CONSENT_KEY)
+        if (!consent) {
+            const timer = setTimeout(() => setIsVisible(true), 1500)
+            return () => clearTimeout(timer)
+        }
+        try {
+            const saved = JSON.parse(consent)
+            setPreferences(saved)
+            applyConsent(saved)
+        } catch (e) {
+            console.error('Error parsing cookie consent:', e)
+        }
+    }, [])
 
     const saveConsent = (prefs: CookiePreferences) => {
         localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(prefs))

@@ -240,10 +240,12 @@ class BillingRepository:
     ) -> Invoice | None:
         """Get invoice by id scoped to customer (portal)."""
         r = await self._db.execute(
-            select(Invoice).where(
+            select(Invoice)
+            .where(
                 Invoice.id == invoice_id,
                 Invoice.customer_id == customer_id,
-            ).limit(1)
+            )
+            .limit(1)
         )
         return r.scalar_one_or_none()
 
@@ -282,15 +284,15 @@ class BillingRepository:
         r = await self._db.execute(select(func.count()).select_from(Invoice))
         total = r.scalar() or 0
         r = await self._db.execute(
-            select(func.count()).select_from(Invoice).where(
-                Invoice.status == InvoiceStatus.PENDING.value
-            )
+            select(func.count())
+            .select_from(Invoice)
+            .where(Invoice.status == InvoiceStatus.PENDING.value)
         )
         pending = r.scalar() or 0
         r = await self._db.execute(
-            select(func.count()).select_from(Invoice).where(
-                Invoice.status == InvoiceStatus.PAID.value
-            )
+            select(func.count())
+            .select_from(Invoice)
+            .where(Invoice.status == InvoiceStatus.PAID.value)
         )
         paid_count = r.scalar() or 0
         r = await self._db.execute(
@@ -308,15 +310,15 @@ class BillingRepository:
         from app.modules.billing.enums import SubscriptionStatus
 
         r = await self._db.execute(
-            select(func.count()).select_from(Subscription).where(
-                Subscription.status == SubscriptionStatus.ACTIVE.value
-            )
+            select(func.count())
+            .select_from(Subscription)
+            .where(Subscription.status == SubscriptionStatus.ACTIVE.value)
         )
         active = r.scalar() or 0
         r = await self._db.execute(
-            select(func.count()).select_from(Subscription).where(
-                Subscription.status == SubscriptionStatus.CANCELED.value
-            )
+            select(func.count())
+            .select_from(Subscription)
+            .where(Subscription.status == SubscriptionStatus.CANCELED.value)
         )
         canceled = r.scalar() or 0
         r = await self._db.execute(select(func.count()).select_from(Subscription))
@@ -376,7 +378,8 @@ class BillingRepository:
             .join(Product, Subscription.product_id == Product.id)
             .where(
                 Invoice.status == InvoiceStatus.PAID.value,
-                func.lower(func.coalesce(Product.provisioning_type, "")) == "site_delivery",
+                func.lower(func.coalesce(Product.provisioning_type, ""))
+                == "site_delivery",
             )
             .order_by(Invoice.paid_at.desc().nullslast(), Invoice.id.desc())
         )
@@ -478,9 +481,7 @@ class BillingRepository:
         row = r.one_or_none()
         return row if row else None
 
-    def add_mp_subscription_checkout(
-        self, link: MPSubscriptionCheckout
-    ) -> None:
+    def add_mp_subscription_checkout(self, link: MPSubscriptionCheckout) -> None:
         """Add MPSubscriptionCheckout to session."""
         self._db.add(link)
 
@@ -489,10 +490,12 @@ class BillingRepository:
     ) -> WebhookEvent | None:
         """Find WebhookEvent by provider and event_id (idempotency)."""
         r = await self._db.execute(
-            select(WebhookEvent).where(
+            select(WebhookEvent)
+            .where(
                 WebhookEvent.provider == provider,
                 WebhookEvent.event_id == event_id,
-            ).limit(1)
+            )
+            .limit(1)
         )
         return r.scalar_one_or_none()
 

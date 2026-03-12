@@ -17,23 +17,17 @@ class UserRepository:
 
     async def get_by_email(self, email: str) -> User | None:
         """Get User by email (case-sensitive)."""
-        r = await self._db.execute(
-            select(User).where(User.email == email).limit(1)
-        )
+        r = await self._db.execute(select(User).where(User.email == email).limit(1))
         return r.scalar_one_or_none()
 
     async def get_by_id(self, user_id: int) -> User | None:
         """Get User by id."""
-        r = await self._db.execute(
-            select(User).where(User.id == user_id).limit(1)
-        )
+        r = await self._db.execute(select(User).where(User.id == user_id).limit(1))
         return r.scalar_one_or_none()
 
     async def list_by_org_id(self, org_id: str) -> list[User]:
         """List staff users by org_id (for post_payment notifications)."""
-        r = await self._db.execute(
-            select(User).where(User.org_id == org_id)
-        )
+        r = await self._db.execute(select(User).where(User.org_id == org_id))
         return list(r.scalars().all())
 
     def add_reset_token(self, token: StaffPasswordResetToken) -> None:

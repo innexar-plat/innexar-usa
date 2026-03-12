@@ -21,7 +21,9 @@ class ProjectRequestRepository:
             select(ProjectRequest, Customer.name.label("customer_name"))
             .join(Customer, ProjectRequest.customer_id == Customer.id)
             .order_by(
-                ProjectRequest.created_at.desc() if order_desc else ProjectRequest.created_at
+                ProjectRequest.created_at.desc()
+                if order_desc
+                else ProjectRequest.created_at
             )
         )
         if project_id is not None:

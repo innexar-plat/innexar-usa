@@ -30,7 +30,9 @@ async def list_contacts(
     return await service.list_contacts()
 
 
-@router.post("/contacts", response_model=ContactResponse, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/contacts", response_model=ContactResponse, status_code=status.HTTP_201_CREATED
+)
 async def create_contact(
     body: ContactCreate,
     service: Annotated[ContactService, Depends(get_contact_service)],

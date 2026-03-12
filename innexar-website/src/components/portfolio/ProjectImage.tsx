@@ -14,7 +14,7 @@ export default function ProjectImage({ gradient, icon: Icon, iconColor, title, c
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    queueMicrotask(() => setMounted(true))
   }, [])
 
   if (!mounted) {

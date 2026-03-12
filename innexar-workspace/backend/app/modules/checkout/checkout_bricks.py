@@ -4,10 +4,6 @@ import logging
 from datetime import UTC, datetime, timedelta
 from typing import TYPE_CHECKING
 
-from fastapi import HTTPException, status
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.models.customer import Customer
 from app.models.customer_user import CustomerUser
 from app.modules.billing.enums import InvoiceStatus, SubscriptionStatus
@@ -15,11 +11,13 @@ from app.modules.billing.models import Invoice, PricePlan, Subscription
 from app.modules.billing.overdue import reactivate_subscription_after_payment
 from app.modules.billing.service import _get_payment_provider
 from app.providers.payments.mercadopago import MercadoPagoProvider
+from fastapi import HTTPException, status
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 if TYPE_CHECKING:
-    from fastapi import BackgroundTasks
-
     from app.modules.checkout.schemas import CheckoutStartRequest, CheckoutStartResponse
+    from fastapi import BackgroundTasks
 
 logger = logging.getLogger(__name__)
 ORG_ID = "innexar"
@@ -45,12 +43,13 @@ async def process_bricks_payment(
     checkout_token: str | None,
 ) -> "CheckoutStartResponse":
     """Process payment using Brick token; update invoice/subscription; return response."""
+    from app.core.database import AsyncSessionLocal
     from app.modules.billing.post_payment import create_project_and_notify_after_payment
     from app.modules.checkout.schemas import CheckoutStartResponse
     from app.modules.customers.service import send_portal_credentials_after_payment
-    from app.modules.notifications.service import create_notification_and_maybe_send_email
-
-    from app.core.database import AsyncSessionLocal
+    from app.modules.notifications.service import (
+        create_notification_and_maybe_send_email,
+    )
 
     currency = (inv.currency or "BRL").upper()
     provider = await _get_payment_provider(db, inv.customer_id, ORG_ID, currency)
@@ -96,7 +95,9 @@ async def process_bricks_payment(
         try:
             card = provider.save_card(customer_id=mp_customer_id, card_token=body.token)
             if card.get("id"):
-                logger.info("Saved card %s for MP customer %s", card.get("id"), mp_customer_id)
+                logger.info(
+                    "Saved card %s for MP customer %s", card.get("id"), mp_customer_id
+                )
         except Exception:
             logger.warning(
                 "Failed to save card for MP customer %s", mp_customer_id, exc_info=True
@@ -116,7 +117,9 @@ async def process_bricks_payment(
         await db.flush()
 
         cu_r = await db.execute(
-            select(CustomerUser).where(CustomerUser.customer_id == inv.customer_id).limit(1)
+            select(CustomerUser)
+            .where(CustomerUser.customer_id == inv.customer_id)
+            .limit(1)
         )
         cu = cu_r.scalar_one_or_none()
         if cu:
@@ -142,6 +145,7 @@ async def process_bricks_payment(
                 except Exception:
                     await session.rollback()
                     raise
+
         background_tasks.add_task(_run_create_project, inv.id)
     elif payment_status in ("pending", "in_process"):
         inv.status = InvoiceStatus.PENDING.value

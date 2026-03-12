@@ -64,7 +64,7 @@ export function TemplateFooter({
                             <h3 className="text-2xl font-bold text-white mb-6">{businessName}</h3>
                         )}
                         <p className="text-white/70 mb-6 leading-relaxed">
-                            We're committed to providing exceptional service and creating lasting relationships with our clients.
+                            We&apos;re committed to providing exceptional service and creating lasting relationships with our clients.
                         </p>
 
                         {/* Social Links */}

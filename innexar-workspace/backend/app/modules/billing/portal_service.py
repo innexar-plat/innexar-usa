@@ -54,7 +54,9 @@ class BillingPortalService:
 
     async def list_my_invoices(self, customer_id: int) -> list[InvoiceResponse]:
         """List invoices for customer, newest first."""
-        invoices = await self._repo.list_invoices(customer_id=customer_id, order_desc=True)
+        invoices = await self._repo.list_invoices(
+            customer_id=customer_id, order_desc=True
+        )
         return [_invoice_to_response(inv) for inv in invoices]
 
     async def get_my_invoice(
@@ -80,7 +82,11 @@ class BillingPortalService:
         debug_log(
             "portal_service.pay_invoice",
             "Invoice fetch",
-            {"invoice_id": invoice_id, "found": inv is not None, "status": getattr(inv, "status", None)},
+            {
+                "invoice_id": invoice_id,
+                "found": inv is not None,
+                "status": getattr(inv, "status", None),
+            },
             "B",
         )
         if not inv:
@@ -89,7 +95,9 @@ class BillingPortalService:
             raise HTTPException(status_code=400, detail="Invoice already paid")
 
         if payload.payment_method_id:
-            return await self._pay_invoice_bricks(inv, current, payload, background_tasks)
+            return await self._pay_invoice_bricks(
+                inv, current, payload, background_tasks
+            )
 
         base = (
             (getattr(settings, "PORTAL_URL", None) or "").strip()
@@ -116,7 +124,9 @@ class BillingPortalService:
         except ValueError as e:
             detail = str(e)
             logger.warning("Portal pay invoice %s failed: %s", invoice_id, detail)
-            if "403" in detail and ("PolicyAgent" in detail or "UNAUTHORIZED" in detail):
+            if "403" in detail and (
+                "PolicyAgent" in detail or "UNAUTHORIZED" in detail
+            ):
                 raise HTTPException(
                     status_code=503,
                     detail="Pagamento temporariamente indisponível. Verifique a configuração do Mercado Pago (token e permissões) no servidor.",
@@ -234,7 +244,8 @@ class BillingPortalService:
                 "cc_rejected_other_reason": "Pagamento recusado. Tente outro cartão.",
             }
             error_message = error_messages.get(
-                status_detail, "Pagamento recusado. Verifique os dados e tente novamente."
+                status_detail,
+                "Pagamento recusado. Verifique os dados e tente novamente.",
             )
 
         poi = payment.get("point_of_interaction", {}) or {}
@@ -250,9 +261,7 @@ class BillingPortalService:
             ticket_url=tx_data.get("ticket_url"),
         )
 
-    async def get_invoice_download_html(
-        self, invoice_id: int, customer_id: int
-    ) -> str:
+    async def get_invoice_download_html(self, invoice_id: int, customer_id: int) -> str:
         """Return print-friendly HTML for invoice. Raises 404 if not found."""
         inv = await self._repo.get_invoice_by_id_and_customer(invoice_id, customer_id)
         if not inv:

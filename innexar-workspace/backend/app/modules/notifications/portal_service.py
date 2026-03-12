@@ -1,10 +1,10 @@
 """Portal notifications: list and mark read. Uses NotificationRepository only."""
 
 from datetime import UTC, datetime
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.notification import Notification
 from app.repositories.notification_repository import NotificationRepository
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 class NotificationPortalService:

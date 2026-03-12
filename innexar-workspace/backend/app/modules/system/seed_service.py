@@ -21,9 +21,17 @@ from app.repositories.integration_config_repository import (
 from .schemas import SetupWizardRequest, SetupWizardResponse
 
 RBAC_PERMISSIONS = [
-    "billing:read", "billing:write", "crm:read", "crm:write",
-    "projects:read", "projects:write", "support:read", "support:write",
-    "config:read", "config:write", "dashboard:read",
+    "billing:read",
+    "billing:write",
+    "crm:read",
+    "crm:write",
+    "projects:read",
+    "projects:write",
+    "support:read",
+    "support:write",
+    "config:read",
+    "config:write",
+    "dashboard:read",
 ]
 
 
@@ -74,14 +82,10 @@ class SystemSeedService:
                 await self._db.flush()
             perms.append(p)
 
-        r = await self._db.execute(
-            select(Role).where(Role.slug == "admin").limit(1)
-        )
+        r = await self._db.execute(select(Role).where(Role.slug == "admin").limit(1))
         admin_role = r.scalar_one_or_none()
         if admin_role is None:
-            admin_role = Role(
-                org_id="innexar", name="Administrator", slug="admin"
-            )
+            admin_role = Role(org_id="innexar", name="Administrator", slug="admin")
             self._db.add(admin_role)
             await self._db.flush()
             for p in perms:
@@ -91,18 +95,18 @@ class SystemSeedService:
                     )
                 )
             await self._db.execute(
-                insert(user_roles).values(
-                    user_id=admin_user.id, role_id=admin_role.id
-                )
+                insert(user_roles).values(user_id=admin_user.id, role_id=admin_role.id)
             )
         else:
             r = await self._db.execute(
-                select(user_roles).where(
+                select(user_roles)
+                .where(
                     and_(
                         user_roles.c.user_id == admin_user.id,
                         user_roles.c.role_id == admin_role.id,
                     )
-                ).limit(1)
+                )
+                .limit(1)
             )
             if r.first() is None:
                 await self._db.execute(
@@ -130,9 +134,7 @@ class SystemSeedService:
         """Raise 403 if seed is not allowed (token or first-run)."""
         if settings.SEED_TOKEN:
             if token != settings.SEED_TOKEN:
-                raise HTTPException(
-                    status_code=403, detail="Invalid seed token"
-                )
+                raise HTTPException(status_code=403, detail="Invalid seed token")
         else:
             r = await self._db.execute(select(User).limit(1))
             if r.scalar_one_or_none() is not None:
@@ -149,9 +151,7 @@ class SystemSeedService:
                 detail="Reset admin password requires SEED_TOKEN to be configured",
             )
         if token != settings.SEED_TOKEN:
-            raise HTTPException(
-                status_code=403, detail="Invalid seed token"
-            )
+            raise HTTPException(status_code=403, detail="Invalid seed token")
         from app.core.security import hash_password
 
         r = await self._db.execute(
@@ -170,9 +170,7 @@ class SystemSeedService:
         """Raise 403 if setup-wizard is not allowed."""
         if settings.SEED_TOKEN:
             if token != settings.SEED_TOKEN:
-                raise HTTPException(
-                    status_code=403, detail="Invalid seed token"
-                )
+                raise HTTPException(status_code=403, detail="Invalid seed token")
         else:
             r = await self._db.execute(select(User).limit(1))
             if r.scalar_one_or_none() is not None:
@@ -191,12 +189,14 @@ class SystemSeedService:
         integrations_created: list[str] = []
 
         if body.smtp:
-            val = json.dumps({
-                "host": body.smtp.host,
-                "port": body.smtp.port,
-                "user": body.smtp.user,
-                "password": body.smtp.password,
-            })
+            val = json.dumps(
+                {
+                    "host": body.smtp.host,
+                    "port": body.smtp.port,
+                    "user": body.smtp.user,
+                    "password": body.smtp.password,
+                }
+            )
             enc = encrypt_value(val)
             if enc:
                 c = await self._integration.get_by_provider_key_org(
@@ -278,12 +278,11 @@ class SystemSeedService:
         test_results: dict[str, str] | None = None
         if body.test_connection:
             test_results = {}
-            c = await self._integration.get_first_by_provider_org(
-                "stripe", org_id
-            )
+            c = await self._integration.get_first_by_provider_org("stripe", org_id)
             if c and c.value_encrypted:
                 try:
                     import stripe as stripe_lib
+
                     secret = decrypt_value(c.value_encrypted)
                     if secret:
                         stripe_lib.api_key = secret

@@ -127,9 +127,9 @@ class BillingPublicService:
         background_tasks: "BackgroundTasks",
     ) -> tuple[int, str]:
         """Verify MP signature, process webhook; enqueue post-payment tasks if paid. Returns (status_code, content)."""
-        if not _is_mercadopago_test_notification(body) and not _verify_mercadopago_signature(
-            request, body
-        ):
+        if not _is_mercadopago_test_notification(
+            body
+        ) and not _verify_mercadopago_signature(request, body):
             return (401, "invalid signature")
         headers = dict(request.headers)
         ok, msg, paid_invoice_id = await process_webhook(
@@ -155,7 +155,9 @@ class BillingPublicService:
     ) -> None:
         """Load invoice and customer user; send notification; enqueue credentials, provisioning, project."""
         from app.modules.customers.service import send_portal_credentials_after_payment
-        from app.modules.notifications.service import create_notification_and_maybe_send_email
+        from app.modules.notifications.service import (
+            create_notification_and_maybe_send_email,
+        )
 
         inv = await self._billing.get_invoice_by_id(paid_invoice_id)
         if not inv:

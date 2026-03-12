@@ -63,9 +63,7 @@ class SupportWorkspaceService:
         cu = await self._customer_repo.get_customer_user_by_customer_id(
             body.customer_id
         )
-        recipient = (customer.email if customer else None) or (
-            cu.email if cu else None
-        )
+        recipient = (customer.email if customer else None) or (cu.email if cu else None)
         if recipient:
             await create_notification_and_maybe_send_email(
                 self._db,

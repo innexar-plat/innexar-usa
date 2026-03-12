@@ -1,10 +1,9 @@
 """Unit tests for ContactRepository."""
 
 import pytest
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.modules.crm.models import Contact
 from app.repositories.contact_repository import ContactRepository
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 @pytest.mark.asyncio

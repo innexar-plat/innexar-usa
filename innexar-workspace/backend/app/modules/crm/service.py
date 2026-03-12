@@ -3,7 +3,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.modules.crm.models import Contact
-from app.modules.crm.schemas import ContactCreate, ContactUpdate, ContactResponse
+from app.modules.crm.schemas import ContactCreate, ContactResponse, ContactUpdate
 from app.repositories.contact_repository import ContactRepository
 
 

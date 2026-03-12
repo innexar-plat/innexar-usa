@@ -15,9 +15,7 @@ class HestiaSettingsRepository:
     async def get_by_org_id(self, org_id: str) -> HestiaSettings | None:
         """Get Hestia settings by org_id."""
         r = await self._db.execute(
-            select(HestiaSettings)
-            .where(HestiaSettings.org_id == org_id)
-            .limit(1)
+            select(HestiaSettings).where(HestiaSettings.org_id == org_id).limit(1)
         )
         return r.scalar_one_or_none()
 

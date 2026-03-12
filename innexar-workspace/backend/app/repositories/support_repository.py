@@ -49,10 +49,12 @@ class SupportRepository:
     ) -> Ticket | None:
         """Get ticket by id if owned by customer (portal)."""
         r = await self._db.execute(
-            select(Ticket).where(
+            select(Ticket)
+            .where(
                 Ticket.id == ticket_id,
                 Ticket.customer_id == customer_id,
-            ).limit(1)
+            )
+            .limit(1)
         )
         return r.scalar_one_or_none()
 

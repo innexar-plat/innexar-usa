@@ -5,9 +5,6 @@ import secrets
 from datetime import UTC, datetime, timedelta
 from typing import TYPE_CHECKING
 
-from fastapi import HTTPException, status
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.core.security import create_token_customer, hash_password
 from app.models.customer import Customer
 from app.models.customer_user import CustomerUser
@@ -17,6 +14,8 @@ from app.modules.billing.service import create_payment_attempt
 from app.modules.checkout.schemas import CheckoutStartRequest, CheckoutStartResponse
 from app.repositories.billing_repository import BillingRepository
 from app.repositories.customer_repository import CustomerRepository
+from fastapi import HTTPException, status
+from sqlalchemy.ext.asyncio import AsyncSession
 
 if TYPE_CHECKING:
     from fastapi import BackgroundTasks
@@ -54,8 +53,8 @@ class CheckoutService:
                 detail="Domain is required for hosting products",
             )
 
-        customer_id, customer_user_id, cust, existing_customer = await self._find_or_create_customer(
-            body, email
+        customer_id, customer_user_id, cust, existing_customer = (
+            await self._find_or_create_customer(body, email)
         )
         checkout_token = create_token_customer(
             subject=customer_user_id,
@@ -103,6 +102,7 @@ class CheckoutService:
 
         if body.payment_method_id:
             from app.modules.checkout.checkout_bricks import process_bricks_payment
+
             return await process_bricks_payment(
                 self._db,
                 background_tasks,

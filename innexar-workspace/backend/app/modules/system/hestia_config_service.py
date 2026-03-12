@@ -14,9 +14,7 @@ class SystemHestiaConfigService:
     def __init__(self, hestia_repo: HestiaSettingsRepository) -> None:
         self._repo = hestia_repo
 
-    async def get_or_create_settings(
-        self, org_id: str
-    ) -> HestiaSettingsResponse:
+    async def get_or_create_settings(self, org_id: str) -> HestiaSettingsResponse:
         """Get Hestia settings for org; create default if missing."""
         row = await self._repo.get_by_org_id(org_id)
         if not row:

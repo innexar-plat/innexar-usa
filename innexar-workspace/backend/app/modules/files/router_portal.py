@@ -2,10 +2,6 @@
 
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException, UploadFile
-from sqlalchemy.ext.asyncio import AsyncSession
-from starlette.responses import Response
-
 from app.core.auth_customer import get_current_customer
 from app.core.database import get_db
 from app.models.customer_user import CustomerUser
@@ -17,6 +13,9 @@ from app.modules.files.service import (
     upload_project_file,
 )
 from app.modules.projects.portal_service import ProjectPortalService
+from fastapi import APIRouter, Depends, HTTPException, UploadFile
+from sqlalchemy.ext.asyncio import AsyncSession
+from starlette.responses import Response
 
 router = APIRouter(prefix="/projects", tags=["portal-project-files"])
 
@@ -34,11 +33,15 @@ def get_project_portal_service(
 async def list_my_project_files(
     project_id: int,
     db: Annotated[AsyncSession, Depends(get_db)],
-    project_service: Annotated[ProjectPortalService, Depends(get_project_portal_service)],
+    project_service: Annotated[
+        ProjectPortalService, Depends(get_project_portal_service)
+    ],
     current: Annotated[CustomerUser, Depends(get_current_customer)],
 ):
     """List files for a project (only if owned by current customer)."""
-    if not await project_service.get_project_for_customer(project_id, current.customer_id):
+    if not await project_service.get_project_for_customer(
+        project_id, current.customer_id
+    ):
         raise HTTPException(status_code=404, detail="Project not found")
     files = await list_project_files(db, project_id)
     return files
@@ -48,12 +51,16 @@ async def list_my_project_files(
 async def upload_my_project_file(
     project_id: int,
     db: Annotated[AsyncSession, Depends(get_db)],
-    project_service: Annotated[ProjectPortalService, Depends(get_project_portal_service)],
+    project_service: Annotated[
+        ProjectPortalService, Depends(get_project_portal_service)
+    ],
     current: Annotated[CustomerUser, Depends(get_current_customer)],
     file: UploadFile,
 ):
     """Upload a file to the project (only if owned by current customer)."""
-    if not await project_service.get_project_for_customer(project_id, current.customer_id):
+    if not await project_service.get_project_for_customer(
+        project_id, current.customer_id
+    ):
         raise HTTPException(status_code=404, detail="Project not found")
     content = await file.read()
     if len(content) > MAX_FILE_SIZE:
@@ -76,11 +83,15 @@ async def download_my_project_file(
     project_id: int,
     file_id: int,
     db: Annotated[AsyncSession, Depends(get_db)],
-    project_service: Annotated[ProjectPortalService, Depends(get_project_portal_service)],
+    project_service: Annotated[
+        ProjectPortalService, Depends(get_project_portal_service)
+    ],
     current: Annotated[CustomerUser, Depends(get_current_customer)],
 ):
     """Download a file (only if project owned by current customer)."""
-    if not await project_service.get_project_for_customer(project_id, current.customer_id):
+    if not await project_service.get_project_for_customer(
+        project_id, current.customer_id
+    ):
         raise HTTPException(status_code=404, detail="Project not found")
     pf = await get_project_file(db, file_id, project_id=project_id)
     if not pf:

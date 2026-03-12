@@ -93,7 +93,7 @@ export function TemplateTestimonials({
                                     className="mt-4 mb-6 leading-relaxed"
                                     style={{ color: colors.text }}
                                 >
-                                    "{testimonial.content}"
+                                    &quot;{testimonial.content}&quot;
                                 </p>
                                 <div className="flex items-center gap-4">
                                     {testimonial.image ? (
@@ -176,7 +176,7 @@ export function TemplateTestimonials({
                                 className="text-xl lg:text-2xl mb-8 leading-relaxed max-w-3xl mx-auto"
                                 style={{ color: colors.text }}
                             >
-                                "{items[currentIndex].content}"
+                                &quot;{items[currentIndex].content}&quot;
                             </p>
                             <StarRating rating={items[currentIndex].rating} colors={colors} />
                             <div className="flex items-center justify-center gap-4 mt-6">

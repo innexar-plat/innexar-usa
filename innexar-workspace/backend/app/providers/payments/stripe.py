@@ -38,7 +38,11 @@ def _resolve_stripe_discount(coupon_code: str | None) -> list[dict[str, str]] | 
             promos = stripe.PromotionCode.list(code=code_variant, active=True, limit=1)
             if promos.data:
                 promo_id = promos.data[0].id
-                logger.info("Stripe discount applied: promotion_code %s for code %r", promo_id, code_variant)
+                logger.info(
+                    "Stripe discount applied: promotion_code %s for code %r",
+                    promo_id,
+                    code_variant,
+                )
                 return [{"promotion_code": promo_id}]
         logger.warning("Stripe discount not found for code %r", coupon_code[:30])
         return None

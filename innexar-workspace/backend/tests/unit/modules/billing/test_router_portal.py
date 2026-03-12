@@ -36,7 +36,9 @@ async def test_pay_invoice_without_payment_method_id_calls_checkout_pro_not_bric
         "app.modules.billing.portal_service.create_payment_attempt",
         new_callable=AsyncMock,
     ) as mock_create:
-        mock_create.return_value = type("Result", (), {"payment_url": "https://checkout.pro/pay"})()
+        mock_create.return_value = type(
+            "Result", (), {"payment_url": "https://checkout.pro/pay"}
+        )()
         with patch(
             "app.modules.billing.portal_service.BillingPortalService._pay_invoice_bricks",
             new_callable=AsyncMock,

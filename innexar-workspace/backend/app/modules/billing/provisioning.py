@@ -181,9 +181,7 @@ async def trigger_provisioning_if_needed(db: AsyncSession, invoice_id: int) -> N
                         cf.create_dns_record(
                             zone_id, "MX", domain, f"mail.{domain}", priority=10
                         )
-                        cf.create_dns_record(
-                            zone_id, "TXT", domain, "v=spf1 a mx ~all"
-                        )
+                        cf.create_dns_record(zone_id, "TXT", domain, "v=spf1 a mx ~all")
                         _append_log(job, "Cloudflare MX and SPF records created")
                 except Exception as cf_err:
                     _append_log(job, f"Cloudflare step skipped/error: {cf_err}")

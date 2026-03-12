@@ -25,14 +25,15 @@ export default function ProfilePage() {
     const [saved, setSaved] = useState(false);
 
     useEffect(() => {
-        // Load from localStorage for now
-        const email = localStorage.getItem('customer_email') || '';
-        setProfile(prev => ({
-            ...prev,
-            email,
-            name: email.split('@')[0],
-        }));
-        setLoading(false);
+        queueMicrotask(() => {
+            const email = localStorage.getItem('customer_email') || '';
+            setProfile(prev => ({
+                ...prev,
+                email,
+                name: email.split('@')[0],
+            }));
+            setLoading(false);
+        });
     }, []);
 
     const handleSave = async (e: React.FormEvent) => {

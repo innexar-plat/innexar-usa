@@ -3,15 +3,14 @@
 from datetime import datetime
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException
-from pydantic import BaseModel
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.core.auth_customer import get_current_customer
 from app.core.database import get_db
 from app.models.customer_user import CustomerUser
 from app.models.notification import Notification
 from app.modules.notifications.portal_service import NotificationPortalService
+from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel
+from sqlalchemy.ext.asyncio import AsyncSession
 
 router = APIRouter(prefix="/notifications", tags=["portal-notifications"])
 

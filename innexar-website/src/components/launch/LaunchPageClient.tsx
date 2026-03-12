@@ -118,7 +118,7 @@ export default function LaunchPageClient() {
     const [isCheckingOut, setIsCheckingOut] = useState<string | null>(null)
 
     useEffect(() => {
-        setIsLoaded(true)
+        queueMicrotask(() => setIsLoaded(true))
         MetaPixel.viewContent({
             content_name: 'WaaS Launch - Professional Website from $129/mo',
             content_category: 'Website Services',

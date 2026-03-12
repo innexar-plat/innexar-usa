@@ -112,12 +112,12 @@ class PortalRequestsService:
             body.description,
         )
 
-        project_to_link = await self._project_repo.get_first_aguardando_briefing_without_briefing(
-            current.customer_id
+        project_to_link = (
+            await self._project_repo.get_first_aguardando_briefing_without_briefing(
+                current.customer_id
+            )
         )
-        linked_project_id: int | None = (
-            project_to_link.id if project_to_link else None
-        )
+        linked_project_id: int | None = project_to_link.id if project_to_link else None
 
         req = ProjectRequest(
             customer_id=current.customer_id,
@@ -167,16 +167,23 @@ class PortalRequestsService:
 
         company = (company_name or "").strip() or "Sem nome"
         full_description, meta = _build_briefing_description_and_meta(
-            company, services, city, whatsapp, domain,
-            logo_url, colors, photos, description,
+            company,
+            services,
+            city,
+            whatsapp,
+            domain,
+            logo_url,
+            colors,
+            photos,
+            description,
         )
 
-        project_to_link = await self._project_repo.get_first_aguardando_briefing_without_briefing(
-            current.customer_id
+        project_to_link = (
+            await self._project_repo.get_first_aguardando_briefing_without_briefing(
+                current.customer_id
+            )
         )
-        linked_project_id: int | None = (
-            project_to_link.id if project_to_link else None
-        )
+        linked_project_id: int | None = project_to_link.id if project_to_link else None
 
         prefix_project_id = linked_project_id if linked_project_id is not None else 0
         stored_files: list[str] = []
@@ -192,12 +199,8 @@ class PortalRequestsService:
             if len(content) == 0:
                 continue
             safe_name = Path(upload.filename or "file").name or "file"
-            path_key = (
-                f"briefings/{prefix_project_id}/{uuid.uuid4().hex}_{safe_name}"
-            )
-            await storage.put(
-                path_key, content, content_type=upload.content_type
-            )
+            path_key = f"briefings/{prefix_project_id}/{uuid.uuid4().hex}_{safe_name}"
+            await storage.put(path_key, content, content_type=upload.content_type)
             stored_files.append(path_key)
         if stored_files:
             meta["briefing_file_keys"] = stored_files

@@ -25,25 +25,23 @@ export default function PortalLayoutWrapper({
     const isLoginPage = pathname?.includes('/portal/login');
 
     useEffect(() => {
-        // Skip auth check for login page
-        if (isLoginPage) {
+        const run = () => {
+            if (isLoginPage) {
+                setLoading(false);
+                return;
+            }
+            const token = localStorage.getItem('customer_token');
+            if (!token) {
+                router.push(`/${locale}/portal/login`);
+                return;
+            }
+            const storedEmail = localStorage.getItem('customer_email');
+            if (storedEmail) {
+                setCustomerData({ name: storedEmail.split('@')[0], email: storedEmail });
+            }
             setLoading(false);
-            return;
-        }
-
-        const token = localStorage.getItem('customer_token');
-
-        if (!token) {
-            router.push(`/${locale}/portal/login`);
-            return;
-        }
-
-        // For now, just use stored email as customer name
-        const storedEmail = localStorage.getItem('customer_email');
-        if (storedEmail) {
-            setCustomerData({ name: storedEmail.split('@')[0], email: storedEmail });
-        }
-        setLoading(false);
+        };
+        queueMicrotask(run);
     }, [router, locale, isLoginPage]);
 
     if (loading) {

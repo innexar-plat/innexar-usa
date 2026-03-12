@@ -29,10 +29,12 @@ class ProjectRepository:
     ) -> Project | None:
         """Get project by id scoped to customer (portal)."""
         r = await self._db.execute(
-            select(Project).where(
+            select(Project)
+            .where(
                 Project.id == project_id,
                 Project.customer_id == customer_id,
-            ).limit(1)
+            )
+            .limit(1)
         )
         return r.scalar_one_or_none()
 
@@ -51,9 +53,7 @@ class ProjectRepository:
     async def get_by_subscription_id(self, subscription_id: int) -> Project | None:
         """Get project by subscription_id (for orders)."""
         r = await self._db.execute(
-            select(Project)
-            .where(Project.subscription_id == subscription_id)
-            .limit(1)
+            select(Project).where(Project.subscription_id == subscription_id).limit(1)
         )
         return r.scalar_one_or_none()
 
@@ -72,10 +72,8 @@ class ProjectRepository:
         self, customer_id: int
     ) -> Project | None:
         """First project aguardando_briefing with no linked ProjectRequest (portal)."""
-        subq = (
-            select(ProjectRequest.project_id).where(
-                ProjectRequest.project_id.isnot(None)
-            )
+        subq = select(ProjectRequest.project_id).where(
+            ProjectRequest.project_id.isnot(None)
         )
         r = await self._db.execute(
             select(Project)

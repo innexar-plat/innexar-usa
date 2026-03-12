@@ -95,9 +95,7 @@ async def add_ticket_message(
     _: Annotated[None, require_portal_feature("portal.tickets.enabled")],
 ) -> TicketMessage:
     """Add message to ticket (as customer)."""
-    msg = await service.add_ticket_message(
-        ticket_id, current.customer_id, body.body
-    )
+    msg = await service.add_ticket_message(ticket_id, current.customer_id, body.body)
     if not msg:
         raise HTTPException(status_code=404, detail="Ticket not found")
     return msg

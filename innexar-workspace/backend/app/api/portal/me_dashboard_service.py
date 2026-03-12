@@ -47,9 +47,9 @@ class PortalDashboardService:
 
     async def get_features(self) -> MeDashboardFlagsResponse:
         """Feature flags for menu visibility (invoices, tickets, projects)."""
-        invoices = await self._ff.is_enabled("billing.enabled") or await self._ff.is_enabled(
-            "portal.invoices.enabled"
-        )
+        invoices = await self._ff.is_enabled(
+            "billing.enabled"
+        ) or await self._ff.is_enabled("portal.invoices.enabled")
         tickets = await self._ff.is_enabled("portal.tickets.enabled")
         projects = await self._ff.is_enabled("portal.projects.enabled")
         return MeDashboardFlagsResponse(
@@ -67,9 +67,7 @@ class PortalDashboardService:
         )
         if not p:
             return None
-        return ProjectAguardandoBriefingResponse(
-            id=p.id, name=p.name, status=p.status
-        )
+        return ProjectAguardandoBriefingResponse(id=p.id, name=p.name, status=p.status)
 
     async def get_dashboard(self, current: CustomerUser) -> MeDashboardResponse:
         """Dashboard for client (plan, site, invoice, support, messages, projects)."""
@@ -80,15 +78,11 @@ class PortalDashboardService:
         can_pay_invoice = False
         panel: MeDashboardPanelItem | None = None
 
-        sub_rows = await self._billing.list_subscriptions_with_product_plan(
-            customer_id
-        )
+        sub_rows = await self._billing.list_subscriptions_with_product_plan(customer_id)
         chosen_sub: tuple[Subscription, Product, PricePlan] | None = None
         for sub_row in sub_rows:
             sub, _product, _price_plan = sub_row
-            rec = await self._billing.get_hestia_provisioning_for_subscription(
-                sub.id
-            )
+            rec = await self._billing.get_hestia_provisioning_for_subscription(sub.id)
             has_hestia = rec is not None
             if has_hestia and sub.status == SubscriptionStatus.ACTIVE.value:
                 chosen_sub = sub_row
@@ -128,9 +122,7 @@ class PortalDashboardService:
                     currency=inv.currency,
                 )
                 can_pay_invoice = inv.status == InvoiceStatus.PENDING.value
-            rec = await self._billing.get_hestia_provisioning_for_subscription(
-                sub.id
-            )
+            rec = await self._billing.get_hestia_provisioning_for_subscription(sub.id)
             if rec:
                 site = MeDashboardSiteItem(
                     url=rec.site_url,
@@ -159,9 +151,7 @@ class PortalDashboardService:
                     total=float(inv_standalone.total),
                     currency=inv_standalone.currency,
                 )
-                can_pay_invoice = (
-                    inv_standalone.status == InvoiceStatus.PENDING.value
-                )
+                can_pay_invoice = inv_standalone.status == InvoiceStatus.PENDING.value
 
         tickets_open_count = await self._support.get_open_ticket_count_for_customer(
             customer_id
@@ -170,9 +160,7 @@ class PortalDashboardService:
 
         projects_rows = await self._project.list_by_customer_id(customer_id)
         project_ids = [p.id for p in projects_rows]
-        files_by_project = await self._project_file.count_by_project_ids(
-            project_ids
-        )
+        files_by_project = await self._project_file.count_by_project_ids(project_ids)
         projects_aguardando_briefing: list[ProjectListItem] = []
         projects_summary: list[ProjectListItem] = []
         for p in projects_rows:
@@ -189,9 +177,7 @@ class PortalDashboardService:
             if p.status == "aguardando_briefing":
                 projects_aguardando_briefing.append(item)
 
-        products = await self._billing.list_active_products_for_customer(
-            customer_id
-        )
+        products = await self._billing.list_active_products_for_customer(customer_id)
         products_summary: list[MeDashboardProductSummaryItem] = []
         has_site_delivery_product = False
         for product in products:
@@ -231,9 +217,7 @@ class PortalDashboardService:
             invoice=invoice,
             can_pay_invoice=can_pay_invoice,
             panel=panel,
-            support=MeDashboardSupportItem(
-                tickets_open_count=tickets_open_count
-            ),
+            support=MeDashboardSupportItem(tickets_open_count=tickets_open_count),
             messages=MeDashboardMessagesItem(unread_count=unread_count),
             projects=projects_summary,
             projects_aguardando_briefing=projects_aguardando_briefing,

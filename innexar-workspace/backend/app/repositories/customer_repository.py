@@ -1,6 +1,7 @@
 """Customer aggregate repository: data access only."""
 
 from datetime import datetime
+
 from sqlalchemy import and_, delete, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
@@ -44,9 +45,7 @@ class CustomerRepository:
             Customer.name == "Acme Corp",
         )
         not_toufic = ~Customer.name.like(f"%{keep_name}%")
-        r = await self._db.execute(
-            select(Customer.id).where(and_(is_test, not_toufic))
-        )
+        r = await self._db.execute(select(Customer.id).where(and_(is_test, not_toufic)))
         return [row[0] for row in r.all()]
 
     async def get_by_email(self, email: str) -> Customer | None:

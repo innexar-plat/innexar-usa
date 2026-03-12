@@ -85,9 +85,7 @@ async def create_payment_attempt(
     currency = (inv.currency or "BRL").upper()
     customer = await customer_repo.get_by_id_with_users(inv.customer_id)
     org_id = customer.org_id if customer else "innexar"
-    provider = await get_payment_provider(
-        db, inv.customer_id, org_id, currency
-    )
+    provider = await get_payment_provider(db, inv.customer_id, org_id, currency)
     description = (
         f"Fatura #{inv.id}"
         if (inv.currency or "BRL").upper() == "BRL"
@@ -103,11 +101,7 @@ async def create_payment_attempt(
         row = await billing_repo.get_subscription_with_plan_product(inv.subscription_id)
         if row and _is_recurring_interval(row[1].interval):
             sub, price_plan, product = row
-            if (
-                inv.line_items
-                and isinstance(inv.line_items, list)
-                and inv.line_items
-            ):
+            if inv.line_items and isinstance(inv.line_items, list) and inv.line_items:
                 first = inv.line_items[0]
                 if isinstance(first, dict) and first.get("description"):
                     description = str(first["description"])[:255]
@@ -176,9 +170,7 @@ async def create_subscription_checkout(
     currency = (inv.currency or "BRL").upper()
     customer = await customer_repo.get_by_id_with_users(inv.customer_id)
     org_id = customer.org_id if customer else "innexar"
-    provider = await get_payment_provider(
-        db, inv.customer_id, org_id, currency
-    )
+    provider = await get_payment_provider(db, inv.customer_id, org_id, currency)
     if not isinstance(provider, MercadoPagoProvider):
         raise ValueError("Subscription checkout requires Mercado Pago")
     row = await billing_repo.get_subscription_with_plan_product(inv.subscription_id)
@@ -186,16 +178,14 @@ async def create_subscription_checkout(
         raise ValueError("Subscription or plan not found")
     sub, price_plan, product = row
     reason = product.name or f"Invoice #{invoice_id}"
-    if (
-        inv.line_items
-        and isinstance(inv.line_items, list)
-        and inv.line_items
-    ):
+    if inv.line_items and isinstance(inv.line_items, list) and inv.line_items:
         first = inv.line_items[0]
         if isinstance(first, dict) and first.get("description"):
             reason = str(first["description"])[:255]
     interval = (price_plan.interval or "monthly").lower()
-    frequency, frequency_type = (12, "months") if interval == "yearly" else (1, "months")
+    frequency, frequency_type = (
+        (12, "months") if interval == "yearly" else (1, "months")
+    )
     plan_result = provider.create_subscription_plan(
         reason=reason,
         amount=float(inv.total),
@@ -204,9 +194,7 @@ async def create_subscription_checkout(
         frequency=frequency,
         frequency_type=frequency_type,
     )
-    link = MPSubscriptionCheckout(
-        invoice_id=invoice_id, mp_plan_id=plan_result.plan_id
-    )
+    link = MPSubscriptionCheckout(invoice_id=invoice_id, mp_plan_id=plan_result.plan_id)
     billing_repo.add_mp_subscription_checkout(link)
     inv.status = InvoiceStatus.PENDING.value
     await billing_repo.flush()

@@ -76,13 +76,9 @@ class OrderWorkspaceService:
             )
         return out
 
-    async def list_briefings(
-        self, project_id: int | None = None
-    ) -> list[BriefingItem]:
+    async def list_briefings(self, project_id: int | None = None) -> list[BriefingItem]:
         """List briefings with customer name. Optional filter by project_id."""
-        rows = await self._request_repo.list_with_customer_name(
-            project_id=project_id
-        )
+        rows = await self._request_repo.list_with_customer_name(project_id=project_id)
         return [
             BriefingItem(
                 id=pr.id,

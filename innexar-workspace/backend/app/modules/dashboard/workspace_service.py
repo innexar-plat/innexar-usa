@@ -4,8 +4,6 @@ from collections import defaultdict
 from datetime import UTC, datetime, timedelta
 from typing import Literal
 
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.modules.dashboard.schemas import (
     DashboardCustomersSummary,
     DashboardInvoicesSummary,
@@ -19,6 +17,7 @@ from app.modules.dashboard.schemas import (
 from app.repositories.billing_repository import BillingRepository
 from app.repositories.project_repository import ProjectRepository
 from app.repositories.support_repository import SupportRepository
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 def _period_key(paid_at: datetime | None, period_type: str) -> str:
@@ -72,7 +71,9 @@ class DashboardWorkspaceService:
                 total=sub_total,
             ),
             tickets=DashboardTicketsSummary(open=tickets_open, closed=tickets_closed),
-            projects=DashboardProjectsSummary(by_status=by_status, total=projects_total),
+            projects=DashboardProjectsSummary(
+                by_status=by_status, total=projects_total
+            ),
         )
 
     async def get_revenue(

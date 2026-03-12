@@ -2,13 +2,12 @@
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.modules.billing.models import PricePlan, Product
 from app.modules.products.schemas_public import (
+    SITE_PLAN_META,
+    SITE_PRODUCT_NAMES,
     PricePlanOut,
     ProductCatalogOut,
     ProductSiteOut,
-    SITE_PLAN_META,
-    SITE_PRODUCT_NAMES,
     WaaS_PLAN_META,
     WaaS_PRODUCT_NAMES,
     WaaSPlanOut,

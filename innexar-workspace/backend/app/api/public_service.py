@@ -45,9 +45,7 @@ def _rate_limit_check(key: str, limit: int) -> bool:
     return True
 
 
-async def _send_reset_email(
-    recipient_email: str, reset_link: str, org_id: str
-) -> None:
+async def _send_reset_email(recipient_email: str, reset_link: str, org_id: str) -> None:
     """Send password reset email (new session for provider lookup)."""
     from app.providers.email.loader import get_email_provider
 
@@ -124,9 +122,9 @@ class PublicService:
             )
             self._customer.add_password_reset_token(row)
             await self._db.flush()
-            base_url = getattr(settings, "FRONTEND_URL", "http://localhost:3000").rstrip(
-                "/"
-            )
+            base_url = getattr(
+                settings, "FRONTEND_URL", "http://localhost:3000"
+            ).rstrip("/")
             reset_link = f"{base_url}/portal/reset-password?token={token}"
             background_tasks.add_task(
                 _send_reset_email, email_lower, reset_link, ORG_ID

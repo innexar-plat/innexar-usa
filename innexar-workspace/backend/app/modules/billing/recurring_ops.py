@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.modules.billing._provider import get_payment_provider
-from app.modules.billing.enums import InvoiceStatus, SubscriptionStatus
+from app.modules.billing.enums import InvoiceStatus
 from app.modules.billing.models import Invoice
 from app.modules.billing.overdue import reactivate_subscription_after_payment
 from app.providers.payments.mercadopago import MercadoPagoProvider
@@ -84,9 +84,7 @@ async def charge_recurring_invoices(
             with httpx.Client(timeout=10.0) as client:
                 cards_resp = client.get(
                     f"https://api.mercadopago.com/v1/customers/{customer.mp_customer_id}/cards",
-                    headers={
-                        "Authorization": f"Bearer {provider._access_token}"
-                    },
+                    headers={"Authorization": f"Bearer {provider._access_token}"},
                 )
             if cards_resp.status_code != 200 or not cards_resp.json():
                 continue
@@ -98,13 +96,9 @@ async def charge_recurring_invoices(
             if inv.line_items and isinstance(inv.line_items, list):
                 first = inv.line_items[0]
                 if isinstance(first, dict):
-                    description_parts.append(
-                        str(first.get("description", ""))
-                    )
+                    description_parts.append(str(first.get("description", "")))
             description = (
-                description_parts[0]
-                if description_parts
-                else f"Invoice #{inv.id}"
+                description_parts[0] if description_parts else f"Invoice #{inv.id}"
             )
 
             payment = provider.charge_saved_card(
@@ -119,9 +113,7 @@ async def charge_recurring_invoices(
                 inv.status = InvoiceStatus.PAID.value
                 inv.paid_at = datetime.now(UTC)
                 inv.external_id = str(payment.get("id", ""))
-                await reactivate_subscription_after_payment(
-                    db, sub.id, org_id=org_id
-                )
+                await reactivate_subscription_after_payment(db, sub.id, org_id=org_id)
                 charged += 1
             else:
                 failed += 1

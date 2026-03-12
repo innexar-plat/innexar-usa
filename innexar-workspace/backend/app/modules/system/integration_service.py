@@ -64,9 +64,7 @@ class SystemIntegrationService:
         """Create integration config (value stored encrypted)."""
         encrypted = encrypt_value(body.value)
         if encrypted is None:
-            raise HTTPException(
-                status_code=500, detail="Encryption not available"
-            )
+            raise HTTPException(status_code=500, detail="Encryption not available")
         org_id = current.org_id or "innexar"
         c = IntegrationConfig(
             org_id=org_id,
@@ -97,15 +95,11 @@ class SystemIntegrationService:
         """Update integration config (value encrypted if provided)."""
         c = await self._repo.get_by_id(config_id)
         if not c:
-            raise HTTPException(
-                status_code=404, detail="Integration config not found"
-            )
+            raise HTTPException(status_code=404, detail="Integration config not found")
         if body.value is not None:
             enc = encrypt_value(body.value)
             if enc is None:
-                raise HTTPException(
-                    status_code=500, detail="Encryption not available"
-                )
+                raise HTTPException(status_code=500, detail="Encryption not available")
             c.value_encrypted = enc
         if body.mode is not None:
             c.mode = body.mode
@@ -127,9 +121,7 @@ class SystemIntegrationService:
         """Test integration (Stripe, SMTP, Hestia); updates last_tested_at on success."""
         c = await self._repo.get_by_id(config_id)
         if not c:
-            raise HTTPException(
-                status_code=404, detail="Integration config not found"
-            )
+            raise HTTPException(status_code=404, detail="Integration config not found")
         plain = decrypt_value(c.value_encrypted) if c.value_encrypted else None
         provider = (c.provider or "").lower()
         try:
@@ -148,9 +140,7 @@ class SystemIntegrationService:
                 stripe_lib.Balance.retrieve()
                 c.last_tested_at = datetime.now(UTC)
                 await self._repo.flush_and_refresh(c)
-                return IntegrationTestResponse(
-                    ok=True, message="Stripe connection OK"
-                )
+                return IntegrationTestResponse(ok=True, message="Stripe connection OK")
             if provider == "smtp":
                 if not plain:
                     return IntegrationTestResponse(
@@ -172,9 +162,7 @@ class SystemIntegrationService:
                         server.login(user, password)
                 c.last_tested_at = datetime.now(UTC)
                 await self._repo.flush_and_refresh(c)
-                return IntegrationTestResponse(
-                    ok=True, message="SMTP connection OK"
-                )
+                return IntegrationTestResponse(ok=True, message="SMTP connection OK")
             if provider == "mercadopago":
                 return IntegrationTestResponse(
                     ok=False, error="Test not implemented for Mercado Pago"
@@ -208,9 +196,7 @@ class SystemIntegrationService:
                 client.request("v-list-users", returncode=True)
                 c.last_tested_at = datetime.now(UTC)
                 await self._repo.flush_and_refresh(c)
-                return IntegrationTestResponse(
-                    ok=True, message="Hestia connection OK"
-                )
+                return IntegrationTestResponse(ok=True, message="Hestia connection OK")
             return IntegrationTestResponse(
                 ok=False, error=f"Unknown provider: {provider}"
             )

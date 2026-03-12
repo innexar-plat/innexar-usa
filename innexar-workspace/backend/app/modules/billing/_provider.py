@@ -19,12 +19,8 @@ async def get_payment_provider(
     mode: str = "test",
 ) -> StripeProvider | MercadoPagoProvider:
     """Resolve provider from IntegrationConfig (customer → tenant → global), else env fallback."""
-    provider_name = (
-        "mercadopago" if (currency or "BRL").upper() == "BRL" else "stripe"
-    )
-    key_name = (
-        "access_token" if provider_name == "mercadopago" else "secret_key"
-    )
+    provider_name = "mercadopago" if (currency or "BRL").upper() == "BRL" else "stripe"
+    key_name = "access_token" if provider_name == "mercadopago" else "secret_key"
 
     if provider_name == "mercadopago":
         env_token = (

@@ -1,6 +1,7 @@
 """Notification repository: data access only."""
 
 from datetime import datetime
+
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -30,10 +31,12 @@ class NotificationRepository:
     ) -> Notification | None:
         """Get notification by id scoped to customer user."""
         r = await self._db.execute(
-            select(Notification).where(
+            select(Notification)
+            .where(
                 Notification.id == notification_id,
                 Notification.customer_user_id == customer_user_id,
-            ).limit(1)
+            )
+            .limit(1)
         )
         return r.scalar_one_or_none()
 
@@ -49,7 +52,9 @@ class NotificationRepository:
         )
         return r.scalar() or 0
 
-    async def mark_read(self, notification_id: int, customer_user_id: int, read_at: datetime) -> bool:
+    async def mark_read(
+        self, notification_id: int, customer_user_id: int, read_at: datetime
+    ) -> bool:
         """Mark notification as read. Returns True if found and updated."""
         n = await self.get_by_id_and_customer_user(notification_id, customer_user_id)
         if not n:

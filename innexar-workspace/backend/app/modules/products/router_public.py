@@ -6,12 +6,12 @@ from fastapi import APIRouter, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.database import get_db
+from app.modules.products.public_service import ProductPublicService
 from app.modules.products.schemas_public import (
     ProductCatalogOut,
     ProductSiteOut,
     WaaSPlanOut,
 )
-from app.modules.products.public_service import ProductPublicService
 
 router = APIRouter(prefix="/products", tags=["public-products"])
 

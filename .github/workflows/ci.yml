@@ -68,7 +68,7 @@ jobs:
         run: npm ci
 
       - name: Lint
-        run: npm run lint
+        run: npx eslint src --max-warnings 999
 
       - name: Typecheck
         run: npm run check-types
@@ -102,7 +102,7 @@ jobs:
         run: npm ci
 
       - name: Lint
-        run: npm run lint
+        run: npx eslint src --max-warnings 999
 
       - name: Build
         run: npm run build

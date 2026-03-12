@@ -12,9 +12,7 @@ class ProjectFileRepository:
     def __init__(self, db: AsyncSession) -> None:
         self._db = db
 
-    async def count_by_project_ids(
-        self, project_ids: list[int]
-    ) -> dict[int, int]:
+    async def count_by_project_ids(self, project_ids: list[int]) -> dict[int, int]:
         """Return mapping project_id -> file count for given project ids."""
         if not project_ids:
             return {}
@@ -33,9 +31,7 @@ class ProjectFileRepository:
             select(ProjectFile)
             .where(ProjectFile.project_id == project_id)
             .order_by(
-                ProjectFile.created_at.desc()
-                if order_desc
-                else ProjectFile.created_at
+                ProjectFile.created_at.desc() if order_desc else ProjectFile.created_at
             )
         )
         r = await self._db.execute(q)

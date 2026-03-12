@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import {
     Phone,
     Mail,
@@ -231,7 +230,7 @@ export function TemplateContact({
                                         Message Sent!
                                     </h3>
                                     <p style={{ color: colors.textMuted }}>
-                                        Thank you for reaching out. We'll get back to you within 24 hours.
+                                        Thank you for reaching out. We&apos;ll get back to you within 24 hours.
                                     </p>
                                 </div>
                             ) : (

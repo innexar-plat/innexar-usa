@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import * as LucideIcons from 'lucide-react'
 import type { ServiceItem, TemplateColors } from '../types'
 // Lucide icons use 'color' prop directly

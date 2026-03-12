@@ -2,12 +2,11 @@
 
 from typing import Annotated
 
+from app.core.database import get_db
+from app.modules.checkout.checkout_service import CheckoutService
+from app.modules.checkout.schemas import CheckoutStartRequest, CheckoutStartResponse
 from fastapi import APIRouter, BackgroundTasks, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
-
-from app.core.database import get_db
-from app.modules.checkout.schemas import CheckoutStartRequest, CheckoutStartResponse
-from app.modules.checkout.checkout_service import CheckoutService
 
 router = APIRouter(prefix="/checkout", tags=["public-checkout"])
 
